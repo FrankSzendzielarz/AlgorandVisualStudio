@@ -156,14 +156,35 @@ namespace CodeGenTest.Imports
 ```
 **NB**: while code is emitted for accesses to SugarPrice and YourPrice, the current version does not emit contract to contract calls for the methods. Please see the roadmap for more information. Eventually these reference classes will be automatically generated on the basis of ABI spec JSON or from contracts compiled in the project.
 
-
-
-
 ### Realtime code analysis
 
+As code is edited, SmartContract classes are analysed for conformity to the expectations of the TEAL compiler, which operates on a subset of C#. For example, in the following SmartContract, a field is declared that is neither Local storage nor Global. It is handled by the compiler as a scratch variable, but a warning is generated that, different to normal C# compilation, the ClearStateProgram will not be able to see values put into that field byt the ApprovalProgram or vice versa:
+
+![image](https://user-images.githubusercontent.com/33515470/160593405-d93930a7-3be0-4c12-99e2-fe16788e6fbf.png)
 
 
 ### Realtime compilation
+
+As code is edited, each SmartContract class is compiled to produce an ICompiledContract. The namespaces are (currently) the source file name and source class name. 
+
+To view the actual code, navigate to the Analyzers section of the project like this:
+
+![image](https://user-images.githubusercontent.com/33515470/160593899-2be8537e-ece2-4be8-b760-674fa676f8ef.png)
+
+Expand the AlgoStudio section and scroll down past the list of Diagnostics:
+
+![image](https://user-images.githubusercontent.com/33515470/160594032-13e18961-c209-425f-a2c8-be89923e7ed5.png)
+
+Expand the folder AlgoStudio.SourceGenerator.TealGenerator to view the generated contracts:
+
+![image](https://user-images.githubusercontent.com/33515470/160594170-34fe3ff5-75c8-47db-a6f5-8e2a66b60c47.png)
+
+Opening one example:
+
+![image](https://user-images.githubusercontent.com/33515470/160594262-c4e86de3-525e-451a-ad0f-4d6855a4eb30.png)
+
+ConditionalLogic1 was a SmartContract class in the file ConditionalLogic. This approach to naming the outputs should most likely change in future versions, with perhaps some configurability.
+
 
 ### State management
 
