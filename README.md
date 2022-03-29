@@ -231,6 +231,9 @@ The local declared variable *msg* is a scratch variable. The compiler automatica
 
 ### Project Templates
 
+In this version a single project template is offered as an example of things to come, and a way of getting started. This basic Algorand Console App shows a .NET Core console app communicating with a simple Smart Contract and contains all you need to connect to a node, compile and deploy a contract. It also contains all the necessary components for building other projec types, such as Web and Mobile apps.
+
+In future, more templates will be added to get developers building Web, Mobile, Cloud and Unity apps on Algorand with just a few clicks.
 
 ## **Roadmap**
 
