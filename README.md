@@ -8,7 +8,7 @@ Professional software engineers from a range of backgrounds, such as C# Unity ga
 
 On this page you will find Getting Started instructions for developers, and the Project Roadmap.
 
-Today: the current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.
+The current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction. For this milestone deadline the focus has been on adding a broad range of functionality at the expense of testing rigour and tying up loose ends. Do expect bugs, breaking changes, and shifts in direction. The purpose here is to get rubber meeting the road early on so that things can change radically if need be.
 
 *DISCLAIMER: DO NOT USE THIS VERSION FOR PRODUCTION CODE. WE ARE NOT LIABLE FOR ANYTHING.*
 
