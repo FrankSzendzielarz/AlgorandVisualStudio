@@ -45,9 +45,13 @@ After closing, you will be prompted to modify with the current preview extension
 
 An updating progress bar might take a while:
 
+
 ![image](https://user-images.githubusercontent.com/33515470/160686888-0f758aee-7cf2-453e-89ce-7f7338d99d2e.png)
 
+
+
 Party time, close the following then open VS again.
+
 ![image](https://user-images.githubusercontent.com/33515470/160687019-ec247410-3224-49b5-a74b-d366837ed005.png)
 
 ### Making your first Algorand project
