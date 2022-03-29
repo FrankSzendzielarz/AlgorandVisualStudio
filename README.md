@@ -29,7 +29,26 @@ From within Visual Studio 2022, click Extensions -> Manage Extensions
 
 ![image](https://user-images.githubusercontent.com/33515470/160580048-8b42952d-b10b-4d35-bc83-d467c025048d.png)
 
-Type in AlgoStudio into the search bar to find the VSIX Visual Studio extension. Select the AlgoStudio extension, and click Download to install.
+Type in AlgoStudio into the search bar to find the VSIX Visual Studio extension. 
+
+![image](https://user-images.githubusercontent.com/33515470/160686148-9f94d448-0d5f-43b5-92f1-556c22172860.png)
+
+Select the AlgoStudio extension, and click Download to install.
+
+You will most likely be prompted to restart VS to get the extension installed:
+
+![image](https://user-images.githubusercontent.com/33515470/160686465-f563e962-3ca1-41bf-95ca-aa4ea785e190.png)
+
+After closing, you will be prompted to modify with the current preview extension:
+
+![image](https://user-images.githubusercontent.com/33515470/160686748-8e5edd4d-6d96-4ed1-9f5e-c88dab6819f8.png)
+
+An updating progress bar might take a while:
+
+![image](https://user-images.githubusercontent.com/33515470/160686888-0f758aee-7cf2-453e-89ce-7f7338d99d2e.png)
+
+Party time, close the following then open VS again.
+![image](https://user-images.githubusercontent.com/33515470/160687019-ec247410-3224-49b5-a74b-d366837ed005.png)
 
 ### Making your first Algorand project
 
