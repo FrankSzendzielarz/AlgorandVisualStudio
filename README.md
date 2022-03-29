@@ -58,9 +58,47 @@ Party time, close the following then open VS again.
 
 In this version a single, simple template project is offered (please see the Roadmap section for more information on future default templates). 
 
-Generate a new Algorand Console App like this: **TBD**
+Launch File->New Project
 
+![image](https://user-images.githubusercontent.com/33515470/160688203-f211ac97-d35a-48d1-b340-c2579f9f75cd.png)
 
+After selecting "AlgoStudio Algorand Console App" hit "Next" and name your project as usual:
+
+![image](https://user-images.githubusercontent.com/33515470/160688562-1433fe60-ea86-45d7-b521-a8551e8b4585.png)
+
+Hit "Create" to produce your Algorand project.
+
+In Solution Explorer, you will see the following:
+
+![image](https://user-images.githubusercontent.com/33515470/160689158-1db548c8-a78e-4a69-b2e5-5034fde0e4bb.png)
+
+This is a .NET Core 5 Console App that will use Algorand as a backend. Assuming you have a Sandbox installed (if not, configure your node accordingly), the following code in Program.cs needs to be updated:
+
+![image](https://user-images.githubusercontent.com/33515470/160689558-37ae4f6d-dcf5-4202-86a5-70f03cf476f3.png)
+
+Simply export the mnemonics for two test accounts and paste them there. If your node is not listening on the sandbox defaults, update the URIs and tokens as needed.
+
+Run the project to make sure connectivity is OK. You should see this:
+
+![image](https://user-images.githubusercontent.com/33515470/160690126-208141b4-5e31-46f4-9abd-f691c2acdc06.png)
+
+Your program compiled and deployed three Algorand smart contracts. Their C# equivalents are here:
+
+![image](https://user-images.githubusercontent.com/33515470/160690272-450e98e4-1f55-4348-99e9-3e1934506ab1.png)
+
+To view their equivalent TEAL, navigate to the AlgoStudio Analyzer element of the project:
+
+![image](https://user-images.githubusercontent.com/33515470/160690414-af6ceb0a-bbd1-4463-af2c-53563b908ac5.png)
+
+Scroll down to view your ICompiledContracts:
+
+![image](https://user-images.githubusercontent.com/33515470/160690494-fd7a98aa-b017-4ec7-8082-378319c8a505.png)
+
+Click on one to see the TEAL:
+
+![image](https://user-images.githubusercontent.com/33515470/160690557-f0e2157f-87e4-40fc-8b24-d625564ffb4a.png)
+
+**NB** Editing the C# will change the contracts in **real time** There is a known issue where some versions of Visual Studio 2022 will cease updating sporadically. To work around the issue simply close and re-open Visual Studio. An update to VS is coming soon.
 
 
 ## **Capabilities**
