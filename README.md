@@ -133,10 +133,80 @@ Similarly for arguments:
 ```
 anArg and anArg2 translate to arguments 1 and 2 (argument 0 is reserved for the method selector).
 
+The TransactionReference represents the basic transaction header info. There are predefined subclasses for the various transaction types, such as AssetConfigurationTransactionReference.
+
+SmartContract references can be subclassed and declared as follows:
+
+```cs
+namespace CodeGenTest.Imports
+{
+    public abstract class SugarSupplierContract : SmartContractReference
+    {
+        [Storage(StorageType.Global)]
+        public ulong SugarPrice;
+
+        [Storage(StorageType.Local)]
+        public ulong YourPrice;
+
+  
+        public abstract ulong ShippingCost(ulong VolumeInKilos);
+    }
+}
+
+```
+**NB**: while code is emitted for accesses to SugarPrice and YourPrice, the current version does not emit contract to contract calls for the methods. Please see the roadmap for more information. Eventually these reference classes will be automatically generated on the basis of ABI spec JSON or from contracts compiled in the project.
+
+
+
 
 ### Realtime code analysis
 
+
+
 ### Realtime compilation
+
+### State management
+
+*Fields* can be declared in SmartContract classes (or SmartContractReference classes) that represent elements of global or local state.
+
+The example below creates a message from string, logs it, and stores it into global state. 
+
+```cs
+namespace AlgoStudio.Test.TestContracts 
+{
+    public class TC2 : SmartContract    
+    {
+        [Storage(StorageType.Global)]
+        public byte[] iLoveGlobals1 ;     
+
+        [Storage(StorageType.Local)]
+        public int myLocal;
+
+
+     
+        protected override int ApprovalProgram() 
+        {
+            byte[] msg = { };
+            
+            msg.CreateFromString("Hi");
+            iLoveGlobals1 = msg;
+
+            LogBytes(msg);
+            return 1;
+        }
+
+        protected override int ClearStateProgram()
+        {
+            return 1;
+        }
+    }
+}
+
+```
+
+Global and Local state elements are identified using the Storage custom attribute on those field as above.
+
+The local declared variable *msg* is a scratch variable. The compiler automatically manages mapping variables to scratch variables, and automatically handles pushing scratch variables onto the stack as scope is switched.
 
 ### Project Templates
 
