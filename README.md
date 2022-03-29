@@ -163,7 +163,9 @@ As code is edited, SmartContract classes are analysed for conformity to the expe
 ![image](https://user-images.githubusercontent.com/33515470/160593405-d93930a7-3be0-4c12-99e2-fe16788e6fbf.png)
 
 
-If there are base C# errors, the compiler and analyzer will avoid the remainder of that smart contract. This is recognisable by error E002 as below:
+If there are base C# errors, the compiler and analyzer will avoid the remainder of that smart contract. 
+
+This is recognisable by error E002 as below:
 
 
 ![image](https://user-images.githubusercontent.com/33515470/160665059-5f67c8cd-5195-4327-a114-2f8d60f194a5.png)
