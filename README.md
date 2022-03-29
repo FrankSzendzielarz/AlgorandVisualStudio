@@ -12,6 +12,14 @@ The current version is a pre-Alpha release aimed at garnering feedback, bugs, re
 
 *DISCLAIMER: DO NOT USE THIS VERSION FOR PRODUCTION CODE. WE ARE NOT LIABLE FOR ANYTHING.*
 
+## Known Issues
+
+This list will get appended to as new major issues are discovered. 
+
+- Code generators in some versions of VS 2022 sporadically cease to update the visible rendered code until VS is restarted. This is a reported issue and 'soon' VS 2022 will be updated to fix the issue. (Link to logged issue TBD)
+
+
+
 
 ## **Getting Started**
 
