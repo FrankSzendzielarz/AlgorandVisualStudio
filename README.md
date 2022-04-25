@@ -227,7 +227,7 @@ namespace CodeGenTest.Imports
 
 ### Realtime code analysis
 
-As code is edited, SmartContract classes are analysed for conformity to the expectations of the TEAL compiler, which operates on a subset of C#. For example, in the following SmartContract, a field is declared that is neither Local storage nor Global. It is handled by the compiler as a scratch variable, but a warning is generated that, different to normal C# compilation, the ClearStateProgram will not be able to see values put into that field byt the ApprovalProgram or vice versa:
+As code is edited, SmartContract classes are analysed for conformity to the expectations of the TEAL compiler, which operates on a subset of C#. For example, in the following SmartContract, a field is declared that is neither Local storage nor Global. It is handled by the compiler as a scratch variable, but a warning is generated that, different to normal C# compilation, the ClearStateProgram will not be able to see values put into that field by the ApprovalProgram or vice versa:
 
 ![image](https://user-images.githubusercontent.com/33515470/160593405-d93930a7-3be0-4c12-99e2-fe16788e6fbf.png)
 
