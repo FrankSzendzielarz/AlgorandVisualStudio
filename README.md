@@ -76,7 +76,19 @@ This is a .NET Core 5 Console App that will use Algorand as a backend. Assuming 
 
 ![image](https://user-images.githubusercontent.com/33515470/160689558-37ae4f6d-dcf5-4202-86a5-70f03cf476f3.png)
 
-Simply export the mnemonics for two test accounts and paste them there. If your node is not listening on the sandbox defaults, update the URIs and tokens as needed.
+Simply export the mnemonics for two test accounts and paste them there. Below are the commands to list the accounts and export the 25 word mnemonic.
+
+```
+./sandbox goal account list
+```
+
+```
+./sandbox goal account export --address <address here>
+```
+
+![list-and-export](https://user-images.githubusercontent.com/11261164/166114283-c890ca94-0a71-4892-8802-1a8f81cdae56.PNG)
+
+If your node is not listening on the sandbox defaults, update the URIs and tokens as needed.
 
 Run the project to make sure connectivity is OK. You should see this:
 
