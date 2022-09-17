@@ -4,19 +4,14 @@ A warm welcome to AlgoStudio!
 
 This is a set of extensions to Microsoft's flagship developer tool, Visual Studio 2022, produced with the aim of making development on Algorand a simple, intuitive, familiar experience.
 
-Professional software engineers from a range of backgrounds, such as C# Unity game developers and application server consultants at financial institutions, will now be able to create Algorand applications easily using tools they are familiar with.
+Professional software engineers from a range of backgrounds, such as C# game developers, line-of-business systems consultants will now be able to create Algorand applications easily using tools they are familiar with.
 
-On this page you will find Getting Started instructions for developers, and the Project Roadmap.
+On this page you will find **[getting started](##Getting-Started)** instructions for developers, details on the functional areas and **[capabilities](##Capabilities)** , and the **[project roadmap](##Roadmap)**.
 
-The current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction. For this milestone deadline the focus has been on adding a broad range of functionality at the expense of testing rigour and tying up loose ends. Do expect bugs, breaking changes, and shifts in direction. The purpose here is to get rubber meeting the road early on so that things can change radically if need be.
+The current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
 
 *DISCLAIMER: DO NOT USE THIS VERSION FOR PRODUCTION CODE. WE ARE NOT LIABLE FOR ANYTHING.*
 
-## Known Issues
-
-This list will get appended to as new major issues are discovered. 
-
-- Code generators in some versions of VS 2022 sporadically cease to update the visible rendered code until VS is restarted. This is a reported issue and 'soon' VS 2022 will be updated to fix the issue. (Link to logged issue TBD)
 
 
 
@@ -54,68 +49,51 @@ Party time, close the following then open VS again.
 
 ![image](https://user-images.githubusercontent.com/33515470/160687019-ec247410-3224-49b5-a74b-d366837ed005.png)
 
-### Making your first Algorand project
+### Your first .NET project for Algorand
 
-In this version a single, simple template project is offered (please see the Roadmap section for more information on future default templates). 
+The easiest way to start is by using a Visual Studio project template. All the following templates assume you have access to an Algorand node. There are a number of ways of getting a node, such as using a service like PureStake. Our preferred approach is to develop with a local Algorand sandbox. To install a local sandbox please follow the guidance [here](https://github.com/algorand/sandbox) .
 
-Launch File->New Project
+#### Using the sandbox accounts
+The sandbox automatically generates three pre-funded accounts for you. For the following templates you will need to identify these accounts and then get the mnemonic representation of the private key.
 
-![image](https://user-images.githubusercontent.com/33515470/160688203-f211ac97-d35a-48d1-b340-c2579f9f75cd.png)
+From the terminal execute the following command to get the accounts:
 
-After selecting "AlgoStudio Algorand Console App" hit "Next" and name your project as usual:
+         ./sandbox goal account list
 
-![image](https://user-images.githubusercontent.com/33515470/160688562-1433fe60-ea86-45d7-b521-a8551e8b4585.png)
+For each one of the listed accounts execute this command to view the mnemonic:
 
-Hit "Create" to produce your Algorand project.
+         ./sandbox goal account export -a <address from above list>
 
-In Solution Explorer, you will see the following:
+Make a copy of the mnemonics for later use in the templates.
 
-![image](https://user-images.githubusercontent.com/33515470/160689158-1db548c8-a78e-4a69-b2e5-5034fde0e4bb.png)
+!TBD Image of terminal 
 
-This is a .NET Core 5 Console App that will use Algorand as a backend. Assuming you have a Sandbox installed (if not, configure your node accordingly), the following code in Program.cs needs to be updated:
+#### Using the templates
 
-![image](https://user-images.githubusercontent.com/33515470/160689558-37ae4f6d-dcf5-4202-86a5-70f03cf476f3.png)
+The current version includes three main types of project:
 
-Simply export the mnemonics for two test accounts and paste them there. Below are the commands to list the accounts and export the 25 word mnemonic.
+- MAUI Solution
+- Web Application
+- Console Application
 
-```
-./sandbox goal account list
-```
+All the projects include boilerplate for connecting 
 
-```
-./sandbox goal account export --address <address here>
-```
+The console and web applications include various examples of smart contract usage. The MAUI solution includes two sub-templates, one a native client and guidance on how to connect and deploy smart contracts, and the other a reverse proxy to prevent Algorand node access tokens being stored in the native client.
 
-![list-and-export](https://user-images.githubusercontent.com/11261164/166114283-c890ca94-0a71-4892-8802-1a8f81cdae56.PNG)
+Please follow the guidance in each of the links below to continue:
 
-If your node is not listening on the sandbox defaults, update the URIs and tokens as needed.
+- [Maui](./ProjectTemplates/MAUI.md)
+- [Web](./ProjectTemplates/Web.md)
+- [Console](./ProjectTemplates/Console.md)
 
-Run the project to make sure connectivity is OK. You should see this:
 
-![image](https://user-images.githubusercontent.com/33515470/160690126-208141b4-5e31-46f4-9abd-f691c2acdc06.png)
-
-Your program compiled and deployed three Algorand smart contracts. Their C# equivalents are here:
-
-![image](https://user-images.githubusercontent.com/33515470/160690272-450e98e4-1f55-4348-99e9-3e1934506ab1.png)
-
-To view their equivalent TEAL, navigate to the AlgoStudio Analyzer element of the project:
-
-![image](https://user-images.githubusercontent.com/33515470/160690414-af6ceb0a-bbd1-4463-af2c-53563b908ac5.png)
-
-Scroll down to view your ICompiledContracts:
-
-![image](https://user-images.githubusercontent.com/33515470/160690494-fd7a98aa-b017-4ec7-8082-378319c8a505.png)
-
-Click on one to see the TEAL:
-
-![image](https://user-images.githubusercontent.com/33515470/160690557-f0e2157f-87e4-40fc-8b24-d625564ffb4a.png)
-
-**NB** Editing the C# will change the contracts in **real time** There is a known issue where some versions of Visual Studio 2022 will cease updating sporadically. To work around the issue simply close and re-open Visual Studio. An update to VS is coming soon.
 
 
 ## **Capabilities**
 
 ### C# Compiler
+
+For guidance on basic Smart Contract development please see [details here](./ContractDevelopment/SmartContracts.md)
 
 Once the extension is installed, you will have access to project templates with a Code Analyzer ("AlgoStudio") and a shared library ("AlgoStudio.Core"). The shared library offers some base classes, one of which is called SmartContract.
 
@@ -127,20 +105,28 @@ The TEAL is output into a class that implements the ICompiledContract interface.
 
 The template projects are integrated with the Algorand2 .NET SDK. A Utility class is included in the template projects that recognises ICompiledContract and allows Deploy, Compile and Execute to be called. 
 
-### Reference Types and ABI
 
-This version of AlgoStudio makes a start on support for Algorand ABI. At the moment there is no general compatibility with ARC-4, but that will be offered eventually when [ARC-4](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) is finalised, and when proposals like [ARC-20](https://github.com/algorandfoundation/ARCs/pull/75) are considered and decided on. 
 
-For now, ABI-like method declarations are offered in the following way. 
+### ABI and Smart Contracts as Classes
+
+For details on ABI methods and contracts-as-classes please see [details here](./ContractDevelopment/ContractsAsClasses.md)
+
+This version of AlgoStudio introduces support for client to contract calling and contract to contract calling, with some support for Algorand ABI. At the moment the compatibility with ARC-4 is limited, but that will be fully covered eventually when [ARC-4](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) is finalised, and when proposals like [ARC-20](https://github.com/algorandfoundation/ARCs/pull/75) are considered and decided on. 
+
+This is an example of a smart contract using ABI methods and state:
 
 ```cs
 namespace AlgoStudio.Test.TestContracts 
 {
     public class AppCallScenarioTests : SmartContract    
     {
+        [Storage(StorageType.Global)]
+        public int CallCounter; 
+        
         protected override int ApprovalProgram() 
         {
             //NOTE: "pre-" code can be invoked here before the ABI method selector.
+            CallCounter++;
 
             //handle "ABI" methods or exit cleanly (eg: on App Create).
             InvokeSmartContractMethod();
@@ -171,71 +157,42 @@ namespace AlgoStudio.Test.TestContracts
 
 ```
 
-Breaking the above down: the class is a SmartContract, so it must implement ApprovalProgram and ClearState. The SmartContract base class offers an InvokeSmartContractMethod, which does not have to be used, but if you do add it TEAL is output to call one of the methods decorated with the SmartContractMethod attribute.
 
-The method is selected based on Argument 0 and the OnCompletion type. 
 
-```cs
-    [SmartContractMethod(OnCompleteType.NoOp, "Ret10" )]
-```
+### Inner Transactions
 
-The above attribute specifies that the subroutine should be called when a NoOp completion type is passed in the Application Call transaction, and that "Ret10" is the UTF8 encoded byte array in Arg 0. 
+AlgoStudio now supports being able to invoke arbitrary transactions from within a Smart Contract. 
 
-"Ret10" is an optional parameter, and if omitted, the selector is generated as the first few bytes of the signature hash. This can be found in the output TEAL. 
+Because of the way TEAL handles grouped inner transactions, the C# compiler has to enforce special restrictions on how these are used. 
 
-These SmartContractMethod methods can have parameters of basic types, or they can be predefined reference types.
+Please see the details here on [Inner Transactions](./Transactions/InnerTransactions.md). 
 
-The four main reference types are:
-- AccountReference
-- SmartContractReference
-- TransactionReference
-- AssetReference
+### Contract to Contract Calls
 
-Each parameter of each type corresponds to the integer index into the corresponding transaction array. For example:
+While Inner Transaction application call transactions can be constructed to call another Smart Contract from within a Smart Contract, this is not the most convenient way of implementing contract to contract calls. 
 
-```cs
-  [SmartContractMethod(OnCompleteType.NoOp, "RetTx1")]
-  public byte[] ReturnSomeTxInfo(in TransactionReference tx1, in AssetReference a1, in TransactionReference tx2, in AssetReference a2 )
-  {
-    return tx1.Note;
-  }
-```
+The ABI support allows references to be constructed as ```SmartContractReference``` classes. These can then be used to invoke the ABI methods on another smart contract, in a contract-as-class style.
 
-tx1 and tx2 correspond to transactions 0 and 1, while AssetReferences a1 and a2 correspond to 0 and 1. The array index is determined by the position of the reference type in the parameter list.
+For details please see [Contract to Contract calls](./Transactions/ContractToContract.md).
 
-Similarly for arguments:
+### IDE Support
 
-```cs
-  [SmartContractMethod(OnCompleteType.NoOp, "RetTx1")]
-  public byte[] ReturnSomeTxInfo(int anArg, byte[] anArg2, in TransactionReference tx1, in AssetReference a1, in TransactionReference tx2, in AssetReference a2 )
-  {
-    return tx1.Note;
-  }
-```
-anArg and anArg2 translate to arguments 1 and 2 (argument 0 is reserved for the method selector).
+This version of AlgoStudio introduces various IDE extensions to help with code generation and smart contract authoring.
 
-The TransactionReference represents the basic transaction header info. There are predefined subclasses for the various transaction types, such as AssetConfigurationTransactionReference.
+IDE support remains on the roadmap too as the ARC4 and Application spec matures.
 
-SmartContract references can be subclassed and declared as follows:
+Please see the [IDE guidance](./IDE/IDE.md).
 
-```cs
-namespace CodeGenTest.Imports
-{
-    public abstract class SugarSupplierContract : SmartContractReference
-    {
-        [Storage(StorageType.Global)]
-        public ulong SugarPrice;
 
-        [Storage(StorageType.Local)]
-        public ulong YourPrice;
+### Optimisers and Optimisation Framework
 
-  
-        public abstract ulong ShippingCost(ulong VolumeInKilos);
-    }
-}
+Please see [Optimisers](./Optimisers/Optimisers.md) for details on including the default optimisers into your project and how to extend and add your own.
 
-```
-**NB**: while code is emitted for accesses to SugarPrice and YourPrice, the current version does not emit contract to contract calls for the methods. Please see the roadmap for more information. Eventually these reference classes will be automatically generated on the basis of ABI spec JSON or from contracts compiled in the project.
+This version adds a framework for including optimisers into your project. 
+
+It also includes a small number of default optimisers using the peep-hole technique that deal with byte array initialisation program size cost.
+
+
 
 ### Realtime code analysis
 
@@ -276,80 +233,25 @@ Opening one example:
 ConditionalLogic1 was a SmartContract class in the file ConditionalLogic. This approach to naming the outputs should most likely change in future versions, with perhaps some configurability.
 
 
-### State management
+### Templates
 
-*Fields* can be declared in SmartContract classes (or SmartContractReference classes) that represent elements of global or local state.
-
-The example below creates a message from string, logs it, and stores it into global state. 
-
-```cs
-namespace AlgoStudio.Test.TestContracts 
-{
-    public class TC2 : SmartContract    
-    {
-        [Storage(StorageType.Global)]
-        public byte[] iLoveGlobals1 ;     
-
-        [Storage(StorageType.Local)]
-        public int myLocal;
+Project templates are included, offering skeleton architectures and educational code to get up and running quickly. 
 
 
-     
-        protected override int ApprovalProgram() 
-        {
-            byte[] msg = { };
-            
-            msg.CreateFromString("Hi");
-            iLoveGlobals1 = msg;
-
-            LogBytes(msg);
-            return 1;
-        }
-
-        protected override int ClearStateProgram()
-        {
-            return 1;
-        }
-    }
-}
-
-```
-
-Global and Local state elements are identified using the Storage custom attribute on those field as above.
-
-The local declared variable *msg* is a scratch variable. The compiler automatically manages mapping variables to scratch variables, and automatically handles pushing scratch variables onto the stack as scope is switched.
-
-### Project Templates
-
-In this version a single project template is offered as an example of things to come, and a way of getting started. This basic Algorand Console App shows a .NET Core console app communicating with a simple Smart Contract and contains all you need to connect to a node, compile and deploy a contract. It also contains all the necessary components for building other projec types, such as Web and Mobile apps.
-
-In future, more templates will be added to get developers building Web, Mobile, Cloud and Unity apps on Algorand with just a few clicks.
 
 ## **Roadmap**
 
 If you want to know what's coming up or why some C# construct does not yet seem to be available, this section attempts to provide answers. Here you will find the project 'roadmap', but *without* a timeline - it is expected that priorities will shift depending on feedback. If you DO have feedback, please add an Issue into this repo. Any kind of feedback is fine, whether it be a suggestion, a bug, a discussion, feel free to relay what you want.
 
-### More Project Templates
+### Closer ABI support and Application spec files.
 
-A number of new project templates will be added to the VSIX:
+The developers at Algorand and of the Beaker framework are cooperating on producing a mutually compatible application specification file, that will allow clients to be generated based on PyTeal/Beaker contracts and vice versa with PyTeal/Beaker clients generated based on C# smart contracts. 
 
-- Web Application with Algorand backend contract(s)
-- Xamarin / MAUI mobile application with Algorand backend contract(s)
-- Unity cross platform development templates
-
-### Guidance
-
-The documentation will be expanded to include more detailed help, guidance and more general Algorand smart contract development.
+When ARC-4 is stable with respect to the new Application definition file format, this tooling will be updated to include more accurate ARC-4 support.
 
 ### Smart Signatures
 
 This version does not support Smart Signature generation.
-
-### Contract to Contract and ABI
-
-At the moment you can reference another Smart Contract from within your own by using the reference proxy class. That reference class gives you the ability to access global and local state, global contract properties, but not yet the ability to call methods.
-
-In future, when authoring Smart Contracts, one of the outputs will be a file of JSON descriptive metadata. Ideally that will be ARC-4 compliant or [ARC-20 compliant](https://github.com/FrankSzendzielarz/ARCs/blob/1c55155bd9f123c1802b702ad5d19358fb1ca6dc/ARCs/arc-0020.md) The tooling here will support generation of both proxy classes in C# for calling those remote contracts AND SmartContractReference classes, which when included as an ABI parameter will automatically translate C# calls to ABI Contract-to-Contract inner transaction calls.
 
 ### Transactions
 
@@ -379,8 +281,6 @@ Lambdas, delegates and events are not yet supported.
 
 Floating point and fixed point arithmetic.
 
-String operations.
-
 Multidimensional and jagged arrays.
 
 Reference types will eventually be introduced. At the moment, byte arrays are treated as value types, which is a semantic break from C#. When you create an array, and assign it from one variable to another, there's a value copy involved. This approach will most likely change.
@@ -391,25 +291,9 @@ Unary operators on array accessors, eg:
 myArray[0]++;
 ```
 
-### Optimisation
+### Additional Optimisers
 
-Peephole optimisation code optimisation. Right now the output is 'naive.' Byte array initialisation does not care if there are literal elements. Duplicate return instructions are ignored.
-
-Optimisations on both code and array initialisers will be added.
-
-
-### ARC4 Compliance
-
-When ARC4 is 'finalised,' intra-contract calling will be implemented, and local C# proxy class generation for client to server calls will be implemented.
-
-
-### IDE Extension
-
-Static opcode cost and program size will be displayed and updated in realtime in the IDE.
-
-Toolbars and context menus will be added to allow deploy/execute/test of specific contracts, hovered over the caret.
-
-Localised versions for other languages will be produced.
+New optimisers will be added over time, as part of this project or if supplied by the community.
 
 ### Debugger
 
