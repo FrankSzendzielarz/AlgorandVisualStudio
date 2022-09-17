@@ -6,7 +6,9 @@ This is a set of extensions to Microsoft's flagship developer tool, Visual Studi
 
 Professional software engineers from a range of backgrounds, such as C# game developers, line-of-business systems consultants will now be able to create Algorand applications easily using tools they are familiar with.
 
-On this page you will find **[getting started](##Getting-Started)** instructions for developers, details on the functional areas and **[capabilities](##Capabilities)** , and the **[project roadmap](##Roadmap)**.
+On this page you will find **[getting started](##getting-started)** instructions for developers, details on the functional areas and **[capabilities](##capabilities)** , and the **[project roadmap](##roadmap)**.
+
+Please also refer to the **[technical reference](./Reference/index.html)** for details of the AlgoStudio or AlgoStudio.Core namespaces.
 
 The current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
 
