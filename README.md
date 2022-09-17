@@ -95,7 +95,7 @@ Please follow the guidance in each of the links below to continue:
 
 ### C# Compiler
 
-For guidance on basic Smart Contract development please see [details here](./ContractDevelopment/SmartContracts.md)
+**[For guidance on basic Smart Contract development please see details here](./ContractDevelopment/SmartContracts.md)**
 
 Once the extension is installed, you will have access to project templates with a Code Analyzer ("AlgoStudio") and a shared library ("AlgoStudio.Core"). The shared library offers some base classes, one of which is called SmartContract.
 
@@ -111,7 +111,7 @@ The template projects are integrated with the Algorand2 .NET SDK. A Utility clas
 
 ### ABI and Smart Contracts as Classes
 
-For details on ABI methods and contracts-as-classes please see [details here](./ContractDevelopment/ContractsAsClasses.md)
+**[For details on ABI methods and contracts-as-classes please see details here](./ContractDevelopment/ContractsAsClasses.md)**
 
 This version of AlgoStudio introduces support for client to contract calling and contract to contract calling, with some support for Algorand ABI. At the moment the compatibility with ARC-4 is limited, but that will be fully covered eventually when [ARC-4](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) is finalised, and when proposals like [ARC-20](https://github.com/algorandfoundation/ARCs/pull/75) are considered and decided on. 
 
@@ -167,7 +167,7 @@ AlgoStudio now supports being able to invoke arbitrary transactions from within 
 
 Because of the way TEAL handles grouped inner transactions, the C# compiler has to enforce special restrictions on how these are used. 
 
-Please see the details here on [Inner Transactions](./Transactions/InnerTransactions.md). 
+**[Please see the details here on Inner Transactions](./Transactions/InnerTransactions.md).**
 
 ### Contract to Contract Calls
 
@@ -175,7 +175,7 @@ While Inner Transaction application call transactions can be constructed to call
 
 The ABI support allows references to be constructed as ```SmartContractReference``` classes. These can then be used to invoke the ABI methods on another smart contract, in a contract-as-class style.
 
-For details please see [Contract to Contract calls](./Transactions/ContractToContract.md).
+**[For details please see Contract to Contract calls](./Transactions/ContractToContract.md).**
 
 ### IDE Support
 
@@ -183,12 +183,12 @@ This version of AlgoStudio introduces various IDE extensions to help with code g
 
 IDE support remains on the roadmap too as the ARC4 and Application spec matures.
 
-Please see the [IDE guidance](./IDE/IDE.md).
+**[Please see the IDE guidance](./IDE/IDE.md).**
 
 
 ### Optimisers and Optimisation Framework
 
-Please see [Optimisers](./Optimisers/Optimisers.md) for details on including the default optimisers into your project and how to extend and add your own.
+**[Please see Optimisers](./Optimisers/Optimisers.md)** for details on including the default optimisers into your project and how to extend and add your own.
 
 This version adds a framework for including optimisers into your project. 
 

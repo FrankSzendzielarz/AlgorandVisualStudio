@@ -76,7 +76,7 @@ this is not the most convenient way to work, and will not be the best supported 
 AlgoStudio. For a more C# developer friendly way of approaching things, please see
 the section on [Contracts as Classes](ContractsAsClasses.md)
 
-## Realtime Diagnostics
+## Diagnostics
 
 As the code is edited, or whenever the build happens, the C# is analyzed in two phases:
 
