@@ -100,5 +100,44 @@ It is important to note that code may still be emitted, even if there are compil
 In this case, make no attempt to deploy the invalid TEAL.
 
 
+## Scratch Variables
 
+The Algorand virtual machine (AVM) offers a limited number of scratch variables.
+The compiler also reserves one scratch variable for its own usage.
 
+Local variables, such as in this code block from above
+
+```cs
+      int a = 1;
+      int b = 2;
+      LogInt(a + b); //3
+      return 1;
+```
+declare two signed integers, ```a``` and ```b```, which are mapped to 
+two Algorand scratch variables.
+
+This means that there is a limit of 255 total local variable declarations *in the static scope tree.*
+
+For example, the following program
+
+```
+    protected override int ApprovalProgram(in AppCallTransactionReference current) 
+    {
+        int a = 1;
+        int b = 2;
+        
+        void localFunction1(){
+            int c=3;
+        }
+
+        void localFunction2(){
+            int d=4;
+        }
+
+        return 1;
+    }
+
+```
+
+only uses **3** scratch space variables. Variables ```c``` and ```d``` are both mapped
+to space 3.

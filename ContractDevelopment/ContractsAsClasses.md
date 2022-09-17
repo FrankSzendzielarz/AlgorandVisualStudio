@@ -1,8 +1,11 @@
 # Contracts as Classes and ABI
 
+The preferred approach with AlgoStudio is to treat the SmartContract as 
+a class, offering state (both global and local) as fields, and exposing
+a public API through specially decorated methods.
 
 
-### State management
+## State management
 
 *Fields* can be declared in SmartContract classes (or SmartContractReference classes) that represent elements of global or local state.
 
@@ -41,6 +44,6 @@ namespace AlgoStudio.Test.TestContracts
 
 ```
 
-Global and Local state elements are identified using the Storage custom attribute on those field as above.
+Global and Local state elements are identified using the ```Storage``` custom attribute on those field as above.
 
 The local declared variable *msg* is a scratch variable. The compiler automatically manages mapping variables to scratch variables, and automatically handles pushing scratch variables onto the stack as scope is switched.
