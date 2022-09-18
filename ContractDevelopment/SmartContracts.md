@@ -23,7 +23,7 @@ ApprovalProgram and ClearState methods.
 
 An example of a simple C# Smart Contract is below:
 
-```cs
+```csharp
     public class SimpleAddition : SmartContract    
     {
         protected override int ApprovalProgram(in AppCallTransactionReference current) 
@@ -107,7 +107,7 @@ The compiler also reserves one scratch variable for its own usage.
 
 Local variables, such as in this code block from above
 
-```cs
+```csharp
       int a = 1;
       int b = 2;
       LogInt(a + b); //3

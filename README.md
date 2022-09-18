@@ -117,7 +117,7 @@ This version of AlgoStudio introduces support for client to contract calling and
 
 This is an example of a smart contract using ABI methods and state:
 
-```cs
+```csharp
 namespace AlgoStudio.Test.TestContracts 
 {
     public class AppCallScenarioTests : SmartContract    
@@ -289,7 +289,7 @@ Reference types will eventually be introduced. At the moment, byte arrays are tr
 
 Unary operators on array accessors, eg:
 
-```cs
+```csharp
 myArray[0]++;
 ```
 

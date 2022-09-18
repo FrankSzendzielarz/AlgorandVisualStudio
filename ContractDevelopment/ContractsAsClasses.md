@@ -11,7 +11,7 @@ a public API through specially decorated methods.
 
 The example below creates a message from string, logs it, and stores it into global state. 
 
-```cs
+```csharp
 namespace AlgoStudio.Test.TestContracts 
 {
     public class TC2 : SmartContract    
@@ -56,7 +56,7 @@ also offer a way of declaring methods that can form part of a public API and the
 
 Let us start with an example of a C# class Smart Contract with ABI Methods.
 
-```cs
+```csharp
 namespace AlgorandMAUIApp.AlgorandContracts
 {
     public class AddTwoNumbers : SmartContract
