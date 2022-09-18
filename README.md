@@ -95,7 +95,7 @@ Please follow the guidance in each of the links below to continue:
 
 ### C# Compiler
 
-**[For guidance on basic Smart Contract development please see details here](./ContractDevelopment/SmartContracts.md)**
+**[For guidance on basic Smart Contract development please click here](./ContractDevelopment/SmartContracts.md)**
 
 Once the extension is installed, you will have access to project templates with a Code Analyzer ("AlgoStudio") and a shared library ("AlgoStudio.Core"). The shared library offers some base classes, one of which is called SmartContract.
 
@@ -111,7 +111,7 @@ The template projects are integrated with the Algorand2 .NET SDK. A Utility clas
 
 ### ABI and Smart Contracts as Classes
 
-**[For details on ABI methods and contracts-as-classes please see details here](./ContractDevelopment/ContractsAsClasses.md)**
+**[For details on ABI methods and contracts-as-classes please click here](./ContractDevelopment/ContractsAsClasses.md)**
 
 This version of AlgoStudio introduces support for client to contract calling and contract to contract calling, with some support for Algorand ABI. At the moment the compatibility with ARC-4 is limited, but that will be fully covered eventually when [ARC-4](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) is finalised, and when proposals like [ARC-20](https://github.com/algorandfoundation/ARCs/pull/75) are considered and decided on. 
 
@@ -167,7 +167,7 @@ AlgoStudio now supports being able to invoke arbitrary transactions from within 
 
 Because of the way TEAL handles grouped inner transactions, the C# compiler has to enforce special restrictions on how these are used. 
 
-**[Please see the details here on Inner Transactions](./Transactions/InnerTransactions.md).**
+**[Please click here for details on Inner Transactions](./Transactions/InnerTransactions.md).**
 
 ### Contract to Contract Calls
 
@@ -175,7 +175,7 @@ While Inner Transaction application call transactions can be constructed to call
 
 The ABI support allows references to be constructed as ```SmartContractReference``` classes. These can then be used to invoke the ABI methods on another smart contract, in a contract-as-class style.
 
-**[For details please see Contract to Contract calls](./Transactions/ContractToContract.md).**
+**[For click here for guidance on Contract to Contract calls](./Transactions/ContractToContract.md).**
 
 ### IDE Support
 
@@ -183,7 +183,7 @@ This version of AlgoStudio introduces various IDE extensions to help with code g
 
 IDE support remains on the roadmap too as the ARC4 and Application spec matures.
 
-**[Please see the IDE guidance](./IDE/IDE.md).**
+**[Please click here to see the IDE guidance](./IDE/IDE.md).**
 
 
 ### Optimisers and Optimisation Framework
@@ -255,11 +255,6 @@ When ARC-4 is stable with respect to the new Application definition file format,
 
 This version does not support Smart Signature generation.
 
-### Transactions
-
-Details on the current transaction are not accessible unless using the InvokeSmartContractMethod ABI selector method. In future, the current transaction will be made available through a property of the SmartContract class.
-
-Transaction reference arrays will be made available for grouped transactions. 
 
 ### Scratch Variables
 
@@ -268,6 +263,16 @@ Scratch variables can be accessed in the current contract, but there is no mecha
 ### State management
 
 *App_local_del* and *app_global_del* are not yet supported, but will be!
+
+### Sandbox control IDE commands
+
+A Sandbox menu for installing/starting/stopping/cleaning sandbox.
+
+### IDE Smart Reference generation
+
+Smart References must be created manually at the moment. These will be
+automatically generated using the IDE buttons and context menus.
+
 
 ### C#
 
