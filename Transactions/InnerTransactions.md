@@ -21,7 +21,7 @@ The following would issue two payment transactions in succession:
   new Payment(split2, amountToPayToRecipient2);
 ```
 
-Single transactions are submitted immediately. For example, the TxID is available at this points:
+Single transactions are submitted immediately. For example, the TxID is available at these points:
 
 ```csharp
   var pay1 = new Payment(split1, amountToPayToRecipient1);
@@ -56,7 +56,7 @@ To shield the developer from this complication, a special structure is required 
 
 For example:
 ```csharp
-    InnerTransactionCall]
+    [InnerTransactionCall]
     byte[] makePayment()
     {
         new Payment(split2, amountToPayToRecipient2);
