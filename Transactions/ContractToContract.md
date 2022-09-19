@@ -63,7 +63,7 @@ For the above example, to expose ```ConcatBytesContract```, we would make a ```S
 ```csharp
     public abstract class ConcatBytesContractReference : SmartContractReference
     {
-        [SmartContractMethod(OnCompleteType.NoOp, "Dedup")]
+        [SmartContractMethod(OnCompleteType.NoOp, "Conc")]
         public abstract ValueTuple<AppCall> Concat(byte[] input1, byte[] input2, out byte[] result);
 
     }
@@ -76,6 +76,32 @@ multi-argument tuples
 - For group transactions the ValueTuple can be expressed as ```(T,AppCall)``` where T is one of the Inner Transaction types defined in the documentation.
 - The ```byte[]``` result of the operation is declared in the ```out``` parameter.
 - Everything is ```abstract``` and no implementation applies.
+
+### Group Transactions
+
+Let us say we want to modify our contract so that in order to perform the string concatenation it demands a payment.
+
+We could implement that by modifying the ABI method so that it needs to be part of a group transaction, where one is a Payment, and have
+the method check the recipient to make sure the contract itself is being paid:
+
+```csharp
+     [SmartContractMethod(OnCompleteType.NoOp, "Conc")]
+     public byte[] Concat(byte[] input1, byte[] input2, PaymentTransactionReference payment,  AppCallTransactionReference current)
+     {
+        // add
+     
+         return input1.Concat(input2);
+     }
+```
+
+(Please see [Transaction References](./TransactionReferences.md) for more information on the method syntax above).
+
+What the above describes is a situation also elaborated in ARC4:
+- The PaymentTransactionReference is an index into the group transactions
+- The AppCallTransactionReference is the current transaction, which must be the **last** transaction in the group.
+- The other non-reference parameters are Transaction Arguments.
+
+In short, the method call describes a group transaction involving a Payment, an App Call and some arguments to the App call.
 
 
 
