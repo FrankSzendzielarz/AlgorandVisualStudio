@@ -116,6 +116,18 @@ The ```SmartContractReference``` to the above is modified like this:
 
 Note that the ```payment``` is now an actual ```Payment``` transaction, and the return type is the group transaction as a multi-argument ValueTuple.
 
+### Steps to produce the SmartContractReference
+
+Once again, this will be automated by the IDE tooling. In the meantime:
+
+- Inherit a ```SmartContractReference```
+- Copy the ABI methods including their ```SmartContractMethod``` decorators
+- Delete the bodies and make the methods abstract
+- Move the return value to out parameters
+- Change the return type to the ValueTuple representation of the group transaction the method call describes
+
+
+
 
 
 
