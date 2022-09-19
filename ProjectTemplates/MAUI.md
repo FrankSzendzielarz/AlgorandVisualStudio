@@ -91,3 +91,29 @@ is found in the appsettings.json of the AlgorandReverseProxy project:
 
 For details on the configuration, please refer to [YARP](https://microsoft.github.io/reverse-proxy/index.html)
 
+The MAUI application uses one Account, which you must update here:
+
+![image](https://user-images.githubusercontent.com/33515470/191033084-b0ea2f30-c7a2-4c54-8fd8-3e3455111f2d.png)
+
+Looking at MainPage.xaml.cs, please find the constructor and change the mnemonic according to guidance there:
+
+```csharp
+        public MainPage()
+        {
+            InitializeComponent();
+
+            //Initialise with the URL of the server
+            algorand = AlgorandUtilities.InitialiseAlgorandClient("https://10.0.2.2:5001/algod/");
+
+            //After starting sandbox, run
+            //  ./sandbox goal account list
+            //to get the active accounts
+            //and then run
+            //  ./sandbox goal account export -a <one of the above addresses>
+            //to find a mnemonic to a private key:
+            string creatorMnemonic = "erosion turtle ride kingdom mass copy fantasy exile bronze swing more convince purity update fix citizen coffee tonight sibling wide fault shop hat above leopard";
+            creator = new Account(creatorMnemonic);
+
+
+        }
+```
