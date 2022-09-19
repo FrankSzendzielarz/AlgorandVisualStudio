@@ -34,7 +34,7 @@ The current version is a pre-Alpha release aimed at garnering feedback, bugs, re
     - [MAUI Template](./ProjectTemplates/MAUI.md)
     - [Web Template](./ProjectTemplates/Web.md)
 - Reference
-    - [Technical Reference](./Reference/Index.html)
+    - [Technical Reference](./Reference/index.html)
 
 
 
