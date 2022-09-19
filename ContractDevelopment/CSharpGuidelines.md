@@ -2,7 +2,7 @@
 
 AlgoStudio uses a subset of C# to compile to TEAL. Invalid syntax is reported as error-level diagnostics that appear in the build or IDE outputs.
 
-This article offers guidance on the limitations.
+This article offers guidance on limitations and options.
 
 ## Byte Array Initialisers
 
@@ -27,6 +27,18 @@ are also valid.
 Reference types are only implemented for the ABI foreign array reference types, described elsewhere in this documentation.
 
 The ```new``` keyword is only valid for instantiating transactions as part of inner transactions.
+
+## BigInteger and UBigInteger
+
+These types are defined in ```AlgoStudio.Core``` and the System.Numerics BigInteger is
+not permitted.
+
+They correspond to the TEAL byte-array-as-integer types, with signed being implemented
+as two's complement.
+
+## Integers
+
+Signed and unsigned are permitted. 
 
 ## Strings
 
@@ -54,6 +66,10 @@ eg:
        ...
 ```
 
+## Char
+
+Char is not supported - there is no agreed encoding type that can correspond
+to 'char' as per .NET, which is a 16bit UTF16 character.
 
 ## Lambdas and Closures
 
