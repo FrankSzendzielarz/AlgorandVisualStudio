@@ -128,7 +128,7 @@ Once again, this will be automated by the IDE tooling. In the meantime:
 
 ## Calling SmartContractReference methods
 
-Please the [Inner Transactions documentation](./InnerTransactions.md) to understand general guidelines for calling inner transactions. For the reasons explained there
+Please see the [Inner Transactions documentation](./InnerTransactions.md) to understand general guidelines for calling inner transactions. For the reasons explained there
 the group transaction must be constructed in one statement.
 
 Using the above group transaction example, that would be called like this:
