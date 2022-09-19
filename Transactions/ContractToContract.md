@@ -67,7 +67,7 @@ For the above example, to expose ```ConcatBytesContract```, we would make a ```S
         public abstract ValueTuple<AppCall> Concat(byte[] input1, byte[] input2, out byte[] result);
 
     }
-```csharp
+```
 
 The key points of the anatomy of this class are as follows:
 - The class must inherit from ```AlgoStudio.Core.SmartContractReference```
