@@ -49,14 +49,95 @@ and are included by adding the DLL to an Optimisers folder of the project.
 In the Algorand Console App template there is an Optimisers folder, from which the default optimisers can be copied into
 your project. 
 
+![image](https://user-images.githubusercontent.com/33515470/190981088-e57d3b76-b68d-478e-ab49-b766d5f76b08.png)
+
 In upcoming versions this process will be automated via the IDE.
-
-
-
-
-
 
 ## Authoring Optimisers
 
+You can author your own optimisers by implementing the ```AlgoStudio.Optimisers.IOptimiser``` interface.
 
+```csharp
+    public interface IOptimiser
+    {
+        void LineAdded(IEnumerable<CompiledLine> codeBlockLines, ICompilerMemento compiler);
+
+        void ChildScopeEntered();
+
+        void ChildScopeExited();
+
+    }
+```
+
+### LineAdded
+
+This is invoked every time a line is added to the compiled output of the current code block. It can be used to 
+implement a peep-hole optimiser approach or to do something more complex over a larger block.
+
+It is invoked with a list of the current code block lines, and a gateway into the compiler to manipulate those lines.
+
+The ```ICompilerMemento``` offers methods to re-arrange the lines as you see fit:
+
+```csharp
+    public interface ICompilerMemento
+    {
+        void RemoveLineAt(int index);
+
+        void ReplaceLineAt(int index, CompiledLine line);
+
+        void InsertLineAt(int index,CompiledLine line);
+
+        void AddLine( CompiledLine line);
+
+        void RemoveTopLine();
+
+    }
+```
+
+
+An example of an Optimiser is part of the default set, which is a scenario that can arise where two byte declarations are
+in sequence followed by a ```concat```:
+
+```csharp
+    public class RedundantBytesDeclarationOptimiser : IOptimiser
+    {
+        public void ChildScopeEntered()
+        {
+            //do nothing
+        }
+
+        public void ChildScopeExited()
+        {
+            //do nothing
+        }
+
+        public void LineAdded(IEnumerable<CompiledLine> codeBlockLines, ICompilerMemento compiler)
+        {
+            List<CompiledLine> lines = codeBlockLines.ToList();
+
+            lines.Reverse();
+        
+            RedundantBytesOptimisation(compiler, lines);
+
+        }
+           
+
+        private static List<string> redundantBytesSequence = new List<string>() { "concat", "byte", "byte" };
+        private static void RedundantBytesOptimisation(ICompilerMemento compiler, List<CompiledLine> lines)
+        {
+            if (lines.Count >= redundantBytesSequence.Count)
+            {
+                if (lines.Take(redundantBytesSequence.Count).Select(ocs => ocs.Opcode).SequenceEqual(redundantBytesSequence) &&
+                    lines[2].Parameters[0] == @""""""""""
+                    )
+                {
+
+                    compiler.RemoveLineAt(lines.Count - 3);
+                    compiler.RemoveTopLine();
+                }
+            }
+        }
+    }
+
+```
 
