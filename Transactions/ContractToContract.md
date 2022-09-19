@@ -103,6 +103,19 @@ What the above describes is a situation also elaborated in ARC4:
 
 In short, the method call describes a group transaction involving a Payment, an App Call and some arguments to the App call.
 
+The ```SmartContractReference``` to the above is modified like this:
+
+```csharp
+    public abstract class ConcatBytesContractReference : SmartContractReference
+    {
+        [SmartContractMethod(OnCompleteType.NoOp, "Conc")]
+        public abstract (Payment payment, AppCall concatCall) Concat(byte[] input1, byte[] input2, Payment payment, out byte[] result);
+
+    }
+```
+
+Note that the ```payment``` is now an actual ```Payment``` transaction, and the return type is the group transaction as a multi-argument ValueTuple.
+
 
 
 
