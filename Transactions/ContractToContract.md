@@ -126,8 +126,20 @@ Once again, this will be automated by the IDE tooling. In the meantime:
 - Move the return value to out parameters
 - Change the return type to the ValueTuple representation of the group transaction the method call describes
 
+## Calling SmartContractReference methods
 
+Please the [Inner Transactions documentation](./InnerTransactions.md) to understand general guidelines for calling inner transactions. For the reasons explained there
+the group transaction must be constructed in one statement.
 
+Using the above group transaction example, that would be called like this:
+
+```csharp
+
+ var groupTransaction = concatApp.Concat(bytes1, bytes2, new Payment(sender,10), out byte[] result);
+
+```
+
+This way, the group transaction properties can be accessed, while the ABI result is in the out argument ```result```.
 
 
 
