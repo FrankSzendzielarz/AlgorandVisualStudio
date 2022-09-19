@@ -17,24 +17,24 @@ The current version is a pre-Alpha release aimed at garnering feedback, bugs, re
 ## Documentation Structure
 
 - Contract Development
-         - [Contracts as Classes](./ContractDevelopment/ContractsAsClasses.md)
-         - [C# Guidelines](./ContractDevelopment/CSharpGuidelines.md)
-         - [Deployment](./ContractDevelopment/Deployment.md)
-         - [Smart Contracts](./ContractDevelopment/SmartContracts.md)
+    - [Contracts as Classes](./ContractDevelopment/ContractsAsClasses.md)
+    - [C# Guidelines](./ContractDevelopment/CSharpGuidelines.md)
+    - [Deployment](./ContractDevelopment/Deployment.md)
+    - [Smart Contracts](./ContractDevelopment/SmartContracts.md)
 - IDE
-         - [IDE Support](./IDE/IDE.md)
+    - [IDE Support](./IDE/IDE.md)
 - Optimisers
-         - [Optimisers and Framework](./Optimisers/Optimisers.md)
+    - [Optimisers and Framework](./Optimisers/Optimisers.md)
 - Transactions
-         - [Contract to Contract Calls](./Transactions/ContractToContract.md)
-         - [Inner Transactions](./Transactions/InnerTransactions.md)
-         - [Entity References](./Transactions/TransactionReferences.md)
+    - [Contract to Contract Calls](./Transactions/ContractToContract.md)
+    - [Inner Transactions](./Transactions/InnerTransactions.md)
+    - [Entity References](./Transactions/TransactionReferences.md)
 - Project Templates
-         - [Console Template](./ProjectTemplates/Console.md)
-         - [MAUI Template](./ProjectTemplates/MAUI.md)
-         - [Web Template](./ProjectTemplates/Web.md)
+    - [Console Template](./ProjectTemplates/Console.md)
+    - [MAUI Template](./ProjectTemplates/MAUI.md)
+    - [Web Template](./ProjectTemplates/Web.md)
 - Reference
-         - [Technical Reference](./Reference/Index.html)
+    - [Technical Reference](./Reference/Index.html)
 
 
 
