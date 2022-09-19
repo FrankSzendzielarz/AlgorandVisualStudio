@@ -63,15 +63,15 @@ If you have created a project using the templates, then your Analyzers
 section contains the ```AlgoStudio``` Code Analyzer and Source Generator. 
 You can view this as below and locate the ```TealGenerator``` node.
 
-!TBD - Image for Analyzer node
+![image](https://user-images.githubusercontent.com/33515470/191034908-cfcae536-51fc-4ac8-8e25-e74970af58c3.png)
 
 You can then expand this to view the wrapper containing the compiled TEAL.
 
-!TBD - Image for compiled output.
+![image](https://user-images.githubusercontent.com/33515470/191035041-c8a7f2f0-8a2e-4d02-854f-cd77c69d9e8f.png)
 
 The compiled output also contains information on a running total of the opcode size.
 
-!TBD - Image for opcode size.
+![image](https://user-images.githubusercontent.com/33515470/191035104-24aabdaa-e490-47a4-a261-cf37dca978f0.png)
 
 While the basic Smart Contract class can be invoked using Application Call transactions,
 this is not the most convenient way to work, and will not be the best supported by
