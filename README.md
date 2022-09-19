@@ -245,6 +245,12 @@ Project templates are included, offering skeleton architectures and educational 
 
 If you want to know what's coming up or why some C# construct does not yet seem to be available, this section attempts to provide answers. Here you will find the project 'roadmap', but *without* a timeline - it is expected that priorities will shift depending on feedback. If you DO have feedback, please add an Issue into this repo. Any kind of feedback is fine, whether it be a suggestion, a bug, a discussion, feel free to relay what you want.
 
+### IDE Add Optimisers function
+
+Optimisers must be included by manually copying a DLL to the right place at
+the moment. The IDE will be extended to include an Add Optimisers function
+and will allow optimisers to be selected from a list.
+
 ### Closer ABI support and Application spec files.
 
 The developers at Algorand and of the Beaker framework are cooperating on producing a mutually compatible application specification file, that will allow clients to be generated based on PyTeal/Beaker contracts and vice versa with PyTeal/Beaker clients generated based on C# smart contracts. 

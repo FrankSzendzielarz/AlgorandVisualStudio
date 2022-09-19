@@ -21,6 +21,8 @@ from the ```AlgoStudio.Core.SmartContract``` class.
 This abstract class is overridden to provide the implementations of the
 ApprovalProgram and ClearState methods.
 
+The C# used involves certain guidelines, which are [explained here](./CSharpGuidelines.md).
+
 An example of a simple C# Smart Contract is below:
 
 ```csharp
@@ -75,6 +77,8 @@ While the basic Smart Contract class can be invoked using Application Call trans
 this is not the most convenient way to work, and will not be the best supported by
 AlgoStudio. For a more C# developer friendly way of approaching things, please see
 the section on [Contracts as Classes](ContractsAsClasses.md)
+
+
 
 ## Diagnostics
 
