@@ -68,7 +68,7 @@ For each one of the listed accounts execute this command to view the mnemonic:
 
 Make a copy of the mnemonics for later use in the templates.
 
-!TBD Image of terminal 
+![image](https://user-images.githubusercontent.com/33515470/191034404-4d32d857-ccee-4603-aa6c-6642867fccbc.png)
 
 #### Using the templates
 
