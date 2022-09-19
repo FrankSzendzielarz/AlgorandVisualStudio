@@ -68,10 +68,16 @@ Lambdas, closures are not supported.
 It is important to be aware that local variables map to scratch space variables according to their position in a scope
 hierarchy, and that scope call changes *sometimes* involve saving scratch space onto the stack:
 
-
-
+![image](https://user-images.githubusercontent.com/33515470/190988418-15db4fde-341b-4e20-a393-7e4ea942af3f.png)
 
 ## Methods
+
+The only methods permitted are the ```ApprovalProgram```, ```ClearState``` program and 
+ABI methods, decorated with ```[SmartContractMethod]```
+
+
+
+
 
 
 
