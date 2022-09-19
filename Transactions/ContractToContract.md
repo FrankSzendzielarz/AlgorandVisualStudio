@@ -1,6 +1,6 @@
 # Contract To Contract Calls (SmartContractReference)
 
-Contract to contract calls are implemented using the **```SmartContractReference```*** class.
+Contract to contract calls are implemented using the **```SmartContractReference```** class.
 
 A Smart Contract Reference is like a Smart Contract Proxy (see [IDE section](../IDE/IDE.md)), except only
 for use within other Smart Contracts. It allows a Smart Contract to treat another Smart Contract's ABI
