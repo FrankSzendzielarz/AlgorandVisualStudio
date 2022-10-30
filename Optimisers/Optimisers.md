@@ -53,6 +53,17 @@ your project.
 
 In upcoming versions this process will be automated via the IDE.
 
+**Important** is that the following lines must be set in your csproj:
+
+```csharp
+  <PropertyGroup>
+		<OptimisersLocation>C:\Users\frank\source\repos\AlgoStudio\CodeGenTest\Optimisers</OptimisersLocation>
+	</PropertyGroup>
+	<ItemGroup>
+		<CompilerVisibleProperty Include="OptimisersLocation" />
+	</ItemGroup>
+```
+
 ## Authoring Optimisers
 
 You can author your own optimisers by implementing the ```AlgoStudio.Optimisers.IOptimiser``` interface.
