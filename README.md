@@ -14,6 +14,16 @@ The current version is a pre-Alpha release aimed at garnering feedback, bugs, re
 
 *DISCLAIMER: DO NOT USE THIS VERSION FOR PRODUCTION CODE. WE ARE NOT LIABLE FOR ANYTHING.*
 
+## UPDATE (November 2022)
+
+The latest version at 1.4 now includes the following changes. Documentation will be updated shortly to reflect the below.
+- A new template allowing direct use of the Sandbox without having to manipulate private keys. Just create the project, start the sandbox and it's ready to go.
+- Support for floating point decimal. The ``decimal``type can now be used. (The generated TEAL is quite expensive.) Conversion from integer types are permitted and conversion from decimal to ulong.
+- Integer ``Pow`` and ``Sqrt`` are now added.
+- IDE support for generating smart contract *references* for contract to contract calls.
+- Support for accessing contract state through contract *references*.
+- A prototype version of a new ``App.json`` is available, where export to and code generation of proxies/references from a json representation of the app is now supported by the IDE. This ``app.json`` format is under development and will eventually work fully with the Beaker project.
+
 ## Documentation Structure
 
 - Contract Development
