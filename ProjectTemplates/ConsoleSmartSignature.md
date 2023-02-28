@@ -1,4 +1,4 @@
-# Algorand Web App
+# Algorand Smart Signature Project
 
 This guide shows how to use the Algorand Web App template.
 
@@ -14,10 +14,12 @@ Select Algorand Smart Signature Project and hit Next.
 
 Give the project a name and hit Create:
 
-[TBD Image]
+![image](https://user-images.githubusercontent.com/33515470/221979886-d3197f03-32fb-4730-81e8-4c84cdf81f81.png)
 
 Open the Program.cs file to examine usage:
 
-{TBD Image]
+![image](https://user-images.githubusercontent.com/33515470/221980105-df0a2ffb-944d-4955-9eb0-c7ed78364053.png)
+
+There is more information in the smart signature section on how this operates.
 
 Ensure Sandbox is available. Build and run the app.
