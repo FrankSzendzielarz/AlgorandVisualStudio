@@ -1,6 +1,6 @@
 # C# Guidelines
 
-AlgoStudio uses a subset of C# to compile to TEAL. Invalid syntax is reported as error-level diagnostics that appear in the build or IDE outputs.
+Algorand for Visual Studio uses a subset of C# to compile to TEAL. Invalid syntax is reported as error-level diagnostics that appear in the build or IDE outputs.
 
 This article offers guidance on limitations and options.
 
@@ -40,6 +40,33 @@ as two's complement.
 
 Signed and unsigned are permitted. 
 
+## Decimal 
+
+Floating point decimal is implemented in TEAL, though it is worth being aware that these operations are pretty expensive in terms of opcode budget.
+However, we feel that business applications should benefit from high precision fixed point calculations.
+
+The implementation is an approximation of .NET's core implementation, but with some differences in how truncation of unwanted zeros is carried out. 
+Rounding simply checks if the following significant digit is 5 or over.
+
+## Structures
+
+Structures may used as inputs to ABI Methods. They **must** be declared with the ``[ABIStruct]`` decorator attribute.
+
+They can then be used for **readonly** operations. This will change in future as update operations on complex types are introduced.
+
+Structures cannot be instantiated in this version, they can only passed in as ABI parameters and then passed around.
+
+## Arrays 
+
+Byte arrays can be read and updated.
+
+Other array types can be accessed in a readonly way from ABI structures or ABI arguments. 
+
+Some types of array, the primitive types (``int[]``,``uint[]``, ``long[]``, etc) , can be declared as local variables and used as recipients of
+elements from ABI structures or arguments. This list will be enhanced over time.
+
+Update capability is on the roadmap.
+
 ## Strings
 
 String support is very limited as there is no agreed encoding format for the platform, and, it seems, no plans to
@@ -77,7 +104,7 @@ Lambdas, closures are not supported.
 
 ## Unsupported types
 
-.NET Collections, floating point, decimal, and structs/objects are not yet supported.
+.NET Collections, binary floating point, and some array types are not yet supported.
 
 ## Local variables and scope
 
@@ -89,7 +116,7 @@ hierarchy, and that scope call changes *sometimes* involve saving scratch space 
 ## Methods
 
 The only methods permitted are the ```ApprovalProgram```, ```ClearState``` program and 
-ABI methods, decorated with ```[SmartContractMethod]```
+ABI methods, decorated with ```[SmartContractMethod]``` or ```[SmartSignatureMethod]```
 
 
 

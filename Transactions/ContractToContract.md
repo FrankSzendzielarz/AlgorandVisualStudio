@@ -56,7 +56,7 @@ Instead we can make a ```SmartContractReference``` class.
 
 All calls to ```SmartContractReference``` methods are single or group transaction calls and therefore always return ValueTuples.
 (See [Inner Transactions](./InnerTransactions.md) However, ABI calls return values too, so these must be handled somehow.
-AlgoStudio uses ```out``` parameters to represent ABI return values, and ValueTuples for the single/group transaction.
+Algorand for Visual Studio uses ```out``` parameters to represent ABI return values, and ValueTuples for the single/group transaction.
 
 For the above example, to expose ```ConcatBytesContract```, we would make a ```SmartContractReference``` class like this:
 
@@ -70,7 +70,7 @@ For the above example, to expose ```ConcatBytesContract```, we would make a ```S
 ```
 
 The key points of the anatomy of this class are as follows:
-- The class must inherit from ```AlgoStudio.Core.SmartContractReference```
+- The class must inherit from ```Algorand for Visual Studio.Core.SmartContractReference```
 - The return type must be a ValueTuple. For single transactions, this must be expressed as ```ValueTuple<AppCall>``` because C# has no syntax for parenthesised
 multi-argument tuples
 - For group transactions the ValueTuple can be expressed as ```(T,AppCall)``` where T is one of the Inner Transaction types defined in the documentation.
@@ -118,13 +118,9 @@ Note that the ```payment``` is now an actual ```Payment``` transaction, and the 
 
 ### Steps to produce the SmartContractReference
 
-Once again, this will be automated by the IDE tooling. In the meantime:
+The process is now automated.
 
-- Inherit a ```SmartContractReference```
-- Copy the ABI methods including their ```SmartContractMethod``` decorators
-- Delete the bodies and make the methods abstract
-- Move the return value to out parameters
-- Change the return type to the ValueTuple representation of the group transaction the method call describes
+Simply right click on the Smart Contract and click **Generate smart contract reference**. 
 
 ## Calling SmartContractReference methods
 

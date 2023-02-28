@@ -2,7 +2,7 @@
 
 An ABI method may involve multiple references in its transaction. For example, an ABI method may refer to Accounts, Assets, or even other transactions in the group.
 
-The reference types supported by AlgoStudio are :
+The reference types supported by Algorand for Visual Studio are :
 
 ## Transaction References
 

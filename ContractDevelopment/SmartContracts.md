@@ -7,16 +7,16 @@ They are programs that can be invoked, either externally or from another Smart C
 
 For a trivial per-transaction fee, developers can take advantage of this to introduce permanent, guaranteed records of transactions or other state into their applications.
 
-Smart Contracts use an assembly language called TEAL. AlgoStudio makes Smart Contract authoring available to you via a C# compiler. 
+Smart Contracts use an assembly language called TEAL. Algorand for Visual Studio makes Smart Contract authoring available to you via a C# compiler. 
 
-The AlgoStudio C# to TEAL compiler makes the TEAL output available to you *in real time,* while issuing realtime diagnostics. Utilities then make it simple to deploy your Contracts to the Algorand network or local sandbox, and execute them.
+The Algorand for Visual Studio C# to TEAL compiler makes the TEAL output available to you *in real time,* while issuing realtime diagnostics. Utilities then make it simple to deploy your Contracts to the Algorand network or local sandbox, and execute them.
 
 All the details of Algorand Smart Contracts, how they define state/memory, and so on, are outside the scope of this guidance. Algorand has rich, clear documentation on [Smart Contracts here](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/).
 
 ## C# Smart Contracts
 
-A C# Smart Contract is recognised by the AlgoStudio Analyzer as any class inherting
-from the ```AlgoStudio.Core.SmartContract``` class.
+A C# Smart Contract is recognised by the Algorand for Visual Studio Analyzer as any class inherting
+from the ```Algorand for Visual Studio.Core.SmartContract``` class.
 
 This abstract class is overridden to provide the implementations of the
 ApprovalProgram and ClearState methods.
@@ -54,13 +54,13 @@ This type of basic C# Smart Contract has a fairly simple anatomy:
 - The LogInt sends output to a Logs field of the transaction calling the Smart Contract.
 - LogInt is an example of a helper base method defined on SmartContract. For a full reference please see [the docs](../Reference/index.html). 
 
-When editing or building the project, AlgoStudio as a project-related Analyzer 
-produces the TEAL and a wrapper class of the type ```AlgoStudio.Core.ICompiledContract```.
+When editing or building the project, Algorand for Visual Studio as a project-related Analyzer 
+produces the TEAL and a wrapper class of the type ```Algorand for Visual Studio.Core.ICompiledContract```.
 This wrapper class can be used to deploy the contract and execute it as described
 in the [Deployment section](Deployment.md).
 
 If you have created a project using the templates, then your Analyzers
-section contains the ```AlgoStudio``` Code Analyzer and Source Generator. 
+section contains the ```Algorand for Visual Studio``` Code Analyzer and Source Generator. 
 You can view this as below and locate the ```TealGenerator``` node.
 
 ![image](https://user-images.githubusercontent.com/33515470/191034908-cfcae536-51fc-4ac8-8e25-e74970af58c3.png)
@@ -75,7 +75,7 @@ The compiled output also contains information on a running total of the opcode s
 
 While the basic Smart Contract class can be invoked using Application Call transactions,
 this is not the most convenient way to work, and will not be the best supported by
-AlgoStudio. For a more C# developer friendly way of approaching things, please see
+Algorand for Visual Studio. For a more C# developer friendly way of approaching things, please see
 the section on [Contracts as Classes](ContractsAsClasses.md)
 
 

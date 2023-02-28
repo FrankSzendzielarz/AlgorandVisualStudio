@@ -1,13 +1,13 @@
 # Inner Transactions
 
-AlgoStudio now supports inner transactions. This allows a Smart Contract to issue transactions during their execution.
+Algorand for Visual Studio now supports inner transactions. This allows a Smart Contract to issue transactions during their execution.
 Contract to contract calls for ABI Methods are also supported, but this mechanism is different than those presented here. 
 Please see [Contract to Contract calls](ContractToContract.md) for more information.
 
 ## Inner Transaction invocation
 
 ### Single transactions
-Inner transactions are created by simply instantiating a subclass of the ```AlgoStudio.Core.InnerTransaction``` class:
+Inner transactions are created by simply instantiating a subclass of the ```Algorand for Visual Studio.Core.InnerTransaction``` class:
 
 ```csharp
   new Payment(split1, amountToPayToRecipient1);
@@ -32,7 +32,7 @@ Single transactions are submitted immediately. For example, the TxID is availabl
 
 ### Group transactions
 
-AlgoStudio treats **ValueTuples** as group transactions.
+Algorand for Visual Studio treats **ValueTuples** as group transactions.
 
 ```csharp
   [InnerTransactionCall]
@@ -73,7 +73,7 @@ For example:
 
 ## Inner Transaction types
 
-The subclasses of ```AlgoStudio.Core.InnerTransaction``` are:
+The subclasses of ```Algorand for Visual Studio.Core.InnerTransaction``` are:
 
 - AppCall
 - AssetAccept

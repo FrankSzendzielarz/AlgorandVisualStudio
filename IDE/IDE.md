@@ -1,6 +1,6 @@
 # IDE
 
-AlgoStudio introduces new menus and context menus, bringing completely new 
+Algorand for Visual Studio introduces new menus and context menus, bringing completely new 
 functionality along with them. In this version most of the new functionality
 is related to Smart Contract usage, interoperability via ARC4 / ARC24, and contract
 to contract calling. In future, on the roadmap, this will be enhanced, including 
@@ -73,11 +73,35 @@ After clicking this option, you will be asked to save the proxy somewhere. Choos
 
 Note that the Proxy now contains all ABI methods and storage variables you declared on the Contract, which now can be accessed as simple method calls.
 
+## Smart Signature "Signers" from C# Smart Signatures
 
-## Smart Contract Proxies from ARC4 Contract.json
+Smart Signature "Signers" or "Generators" are analogous to contract proxies for Smart Signatures. 
+An Algorand logic signature, aka "smart signature," is a structure composed of a TEAL program, some arguments, and may be signed by an Account.
+Usually a transaction is created using the SDK, an Algorand logic signature created, and that used to sign the transaction.
+When this is submitted to the network, the TEAL program with its arguments is executed against the transaction to verify any criteria the program is implemented to verify.
 
-This is a work in progress but is on the roadmap. When the Application specifications and ARC4 are stabilised, those buttons will enable you to 
-generate proxies and references from other contract developers using other languages.
+A C# Smart Signature supports the ABI Method type of approach, where the Program implements a router, and arguments passed to the appropriate method.
+This means that the resulting logic signature may implement different types of check depending on which method selector argument is specified as Arg 0.
+
+To encapsulate this behaviour, we offer the Smart Signature Signer, which you can access like this:
+
+[TBD Insert image]
+
+This results in a kind of proxy class, which you can instantiate with a logic signature based on the  compiled TEAL, call a method on to set the right arguments, and then later used the logic signature as if that method had been executed on the transaction during verification.
+
+Please see the new [Smart Signature](../ProjectTemplates/ConsoleSmartSignature.md) project template to see this in action.
+
+## Smart Contract App.json Export
+
+
+
+## Smart Contract Proxies from App.json
+
+
+
+## Smart Contract References from App.json
+
+
 
 
 ## Visible Compiled Output

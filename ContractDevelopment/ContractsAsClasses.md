@@ -1,6 +1,6 @@
 # Contracts as Classes and ABI
 
-The preferred approach with AlgoStudio is to treat the SmartContract as 
+The preferred approach with Algorand for Visual Studio is to treat the SmartContract as 
 a class, offering state (both global and local) as fields, and exposing
 a public API through specially decorated methods.
 
@@ -12,7 +12,7 @@ a public API through specially decorated methods.
 The example below creates a message from string, logs it, and stores it into global state. 
 
 ```csharp
-namespace AlgoStudio.Test.TestContracts 
+namespace Algorand for Visual Studio.Test.TestContracts 
 {
     public class TC2 : SmartContract    
     {
@@ -100,7 +100,7 @@ The first thing to note is that the ```ApprovalProgram``` introduces a call to a
 called ```InvokeSmartContractMethod``` . Ordinarily the approval program would 
 be the main body of work a Smart Contract performed. In this case the work 
 is delegated to Smart Contract Methods, methods decorated with the ```SmartContractMethod``` attribute
-from the ```AlgoStudio.Core.Attributes``` namespace.
+from the ```Algorand for Visual Studio.Core.Attributes``` namespace.
 
 ```InvokeSmartContractMethod``` compiles to a so-called "ABI router." When
 an application call is made to the Smart Contract, according to ARC4 the first 
@@ -127,11 +127,8 @@ The ```SmartContractMethod``` attribute indicates three things :
 - The method will only be called when the [On Completion type](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/apps/?from_query=oncompletion#the-lifecycle-of-a-smart-contract) matches the attribute's first argument.
 
 Right now, if the manual selector is omitted, a selector is automatically generated for you. 
-However it is **not ARC4 compatible**. This will change in the near future when 
-ARC4 and the Application specification has stabilised.
+However it is **not ARC4 compatible**. This will likely change in the near future as further compatibility is established.
 
-We may allow multiple attributes on one method, to allow for multiple OnCompletion types
-or multiple selectors. Right now this is **not allowed**.
 
 ## IDE Support
 

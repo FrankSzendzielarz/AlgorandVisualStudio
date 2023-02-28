@@ -1,6 +1,6 @@
-# **AlgoStudio (Working Title)**
+# **Algorand for Visual Studio**
 
-A warm welcome to AlgoStudio!
+A warm welcome to Algorand for Visual Studio!
 
 This is a set of extensions to Microsoft's flagship developer tool, Visual Studio 2022, produced with the aim of making development on Algorand a simple, intuitive, familiar experience.
 
@@ -8,11 +8,21 @@ Professional software engineers from a range of backgrounds, such as C# game dev
 
 On this page you will find **[getting started](#getting-started)** instructions for developers, details on the functional areas and **[capabilities](#capabilities)** , and the **[project roadmap](#roadmap)**.
 
-Please also refer to the **[technical reference](./Reference/index.html)** for details of the AlgoStudio or AlgoStudio.Core namespaces.
-
-The current version is a pre-Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
+The current version is an Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
 
 *DISCLAIMER: DO NOT USE THIS VERSION FOR PRODUCTION CODE. WE ARE NOT LIABLE FOR ANYTHING.*
+
+## USING THE TEMPLATES
+
+After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
+
+## UPDATE (February 2023)
+
+The latest version at 1.6 now includes the following changes. 
+- Smart Signatures and re-use of the ABI routing pattern in smart signatures to set arguments and determine which TEAL method is executed.
+- Complex types for read access. It is now possible to send structs using ABIStruct decorators and read them in the smart contract or signature.
+- More array types for read access. Previously byte arrays were the only supported array type. Now other array types are supported while currently the other array types are read only. 
+- App.json and ARC4 support remains partially compatible, though the roadmap is updated.
 
 ## UPDATE (November 2022)
 
@@ -29,8 +39,10 @@ The latest version at 1.4 now includes the following changes. Documentation will
 - Contract Development
     - [Contracts as Classes](./ContractDevelopment/ContractsAsClasses.md)
     - [C# Guidelines](./ContractDevelopment/CSharpGuidelines.md)
+    - [Predefined methods and properties](./ContractDevelopment/PredefinedFunctions.md)
     - [Deployment](./ContractDevelopment/Deployment.md)
     - [Smart Contracts](./ContractDevelopment/SmartContracts.md)
+    - [Smart Signatures](./ContractDevelopment/SmartSignatures.md)
 - IDE
     - [IDE Support](./IDE/IDE.md)
 - Optimisers
@@ -43,6 +55,8 @@ The latest version at 1.4 now includes the following changes. Documentation will
     - [Console Template](./ProjectTemplates/Console.md)
     - [MAUI Template](./ProjectTemplates/MAUI.md)
     - [Web Template](./ProjectTemplates/Web.md)
+    - [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
+    - [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
 - Reference
     - [Technical Reference](./Reference/index.html)
 
@@ -57,11 +71,11 @@ From within Visual Studio 2022, click Extensions -> Manage Extensions
 
 ![image](https://user-images.githubusercontent.com/33515470/160580048-8b42952d-b10b-4d35-bc83-d467c025048d.png)
 
-Type in AlgoStudio into the search bar to find the VSIX Visual Studio extension. 
+Type in Algorand for VS into the search bar to find the VSIX Visual Studio extension. 
 
 ![image](https://user-images.githubusercontent.com/33515470/160686148-9f94d448-0d5f-43b5-92f1-556c22172860.png)
 
-Select the AlgoStudio extension, and click Download to install.
+Select the Algorand for VS extension, and click Download to install.
 
 You will most likely be prompted to restart VS to get the extension installed:
 
@@ -101,15 +115,35 @@ Make a copy of the mnemonics for later use in the templates.
 
 ![image](https://user-images.githubusercontent.com/33515470/191034404-4d32d857-ccee-4603-aa6c-6642867fccbc.png)
 
+#### Using the sandbox accounts automatically
+
+If you want a project that just works out of the box with a local Sandbox, without
+the flexibility of editing account mnemonics, please use the Console Application for Sandbox.
+
+This uses KMD in the Sandbox node to use the predefined developer Account automatically.
+
+#### Using a testnet account
+
+For a shortcut if Sandbox isn't yet installed and you need to get up and running quicker, Algorand
+has provided training nodes on Testnet. You can use this in the following way:
+
+1. Get a TestNet account at myalgo.com 
+[TBD: Insert image]
+2. Copy off the Account address and fund it at the [dispenser](https://dispenser.testnet.aws.algodev.network/)
+3. Change the boilerplate code to use the following Testnet node and token:
+``var httpClient = HttpClientConfigurator.ConfigureHttpClient(@"https://academy-algod.dev.aws.algodev.network/", "2f3203f21e738a1de6110eba6984f9d03e5a95d7a577b34616854064cf2c0e7b ");``
+
 #### Using the templates
 
 The current version includes three main types of project:
 
-- MAUI Solution
-- Web Application
-- Console Application
+- MAUI Solution with Smart Contracts
+- Web Application with Smart Contracts
+- Console Application with Smart Contracts
+- Console Application for Sandbox with Smart Contracts
+- Console Application for Smart Signatures
 
-All the projects include boilerplate for connecting 
+All the projects include boilerplate for connecting to Algorand nodes.
 
 The console and web applications include various examples of smart contract usage. The MAUI solution includes two sub-templates, one a native client and guidance on how to connect and deploy smart contracts, and the other a reverse proxy to prevent Algorand node access tokens being stored in the native client.
 
@@ -118,6 +152,9 @@ Please follow the guidance in each of the links below to continue:
 - [Maui](./ProjectTemplates/MAUI.md)
 - [Web](./ProjectTemplates/Web.md)
 - [Console](./ProjectTemplates/Console.md)
+- [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
+- [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
+
 
 
 
@@ -128,7 +165,7 @@ Please follow the guidance in each of the links below to continue:
 
 **[For guidance on basic Smart Contract development please click here](./ContractDevelopment/SmartContracts.md)**
 
-Once the extension is installed, you will have access to project templates with a Code Analyzer ("AlgoStudio") and a shared library ("AlgoStudio.Core"). The shared library offers some base classes, one of which is called SmartContract.
+Once the extension is installed, you will have access to project templates with a Code Analyzer ("Algorand for Visual Studio") and a shared library ("Algorand for Visual Studio.Core"). The shared library offers some base classes, one of which is called SmartContract.
 
 Any classes that inherit from SmartContract will be the subject of Code Analysis. The Code Analyzer permits a subset of the C# language and .NET framework to be used. It also places some expectations on structure, such as limiting scratch variables to local variables, and modifies byte arrays to be value types.
 
@@ -144,12 +181,14 @@ The template projects are integrated with the Algorand2 .NET SDK. A Utility clas
 
 **[For details on ABI methods and contracts-as-classes please click here](./ContractDevelopment/ContractsAsClasses.md)**
 
-This version of AlgoStudio introduces support for client to contract calling and contract to contract calling, with some support for Algorand ABI. At the moment the compatibility with ARC-4 is limited, but that will be fully covered eventually when [ARC-4](https://github.com/algorandfoundation/ARCs/blob/main/ARCs/arc-0004.md) is finalised, and when proposals like [ARC-20](https://github.com/algorandfoundation/ARCs/pull/75) are considered and decided on. 
+Algorand for Visual Studio supports client to contract calling and contract to contract calling, with some support for Algorand ABI. 
+
+At the moment the compatibility with ARC-4 is limited. Further compatibility with other tools like Beaker may be added incrementally in the future.
 
 This is an example of a smart contract using ABI methods and state:
 
 ```csharp
-namespace AlgoStudio.Test.TestContracts 
+namespace Algorand for Visual Studio.Test.TestContracts 
 {
     public class AppCallScenarioTests : SmartContract    
     {
@@ -190,11 +229,43 @@ namespace AlgoStudio.Test.TestContracts
 
 ```
 
+### ABI and Smart Signatures as Classes
+
+Smart Signatures are authored like this and applied to Transactions using their proxy equivalents, called "Signers" or "Generators."
+
+```csharp
+     internal class BasicSignature : SmartSignature
+    {
+        public override int Program()
+        {
+            InvokeSmartSignatureMethod();
+            return 0; //fail if no smart signature method found
+        }
+
+        [SmartSignatureMethod("Auth")]
+        public int AuthorisePaymentWithNote(PaymentTransactionReference ptr, bool allowEmptyNote, decimal x)
+        {
+            if (x < 10.0M) return 0;
+            if (ptr.RekeyTo != ZeroAddress) return 0;
+            if (ptr.CloseRemainderTo != ZeroAddress) return 0;
+
+            string txTypeCheck = "pay";
+            if (ptr.TxType != txTypeCheck.ToByteArray()) return 0;
+
+            byte[] note = ptr.Note;
+            if (!allowEmptyNote && note.Length == 0) return 0;
+
+            return 1;
+        }
+    }
+```
+
+**[Please click here for details on Smart Signatures](./ProjectTemplates/ConsoleSmartSignature.md).**
 
 
 ### Inner Transactions
 
-AlgoStudio now supports being able to invoke arbitrary transactions from within a Smart Contract. 
+Algorand for Visual Studio  supports being able to invoke arbitrary transactions from within a Smart Contract. 
 
 Because of the way TEAL handles grouped inner transactions, the C# compiler has to enforce special restrictions on how these are used. 
 
@@ -210,7 +281,7 @@ The ABI support allows references to be constructed as ```SmartContractReference
 
 ### IDE Support
 
-This version of AlgoStudio introduces various IDE extensions to help with code generation and smart contract authoring.
+This version of Algorand for Visual Studio introduces various IDE extensions to help with code generation and smart contract authoring.
 
 IDE support remains on the roadmap too as the ARC4 and Application spec matures.
 
@@ -251,11 +322,11 @@ To view the actual code, navigate to the Analyzers section of the project like t
 
 ![image](https://user-images.githubusercontent.com/33515470/160593899-2be8537e-ece2-4be8-b760-674fa676f8ef.png)
 
-Expand the AlgoStudio section and scroll down past the list of Diagnostics:
+Expand the Algorand for Visual Studio section and scroll down past the list of Diagnostics:
 
 ![image](https://user-images.githubusercontent.com/33515470/160594032-13e18961-c209-425f-a2c8-be89923e7ed5.png)
 
-Expand the folder AlgoStudio.SourceGenerator.TealGenerator to view the generated contracts:
+Expand the folder Algorand for Visual Studio.SourceGenerator.TealGenerator to view the generated contracts:
 
 ![image](https://user-images.githubusercontent.com/33515470/160594170-34fe3ff5-75c8-47db-a6f5-8e2a66b60c47.png)
 
@@ -284,14 +355,43 @@ and will allow optimisers to be selected from a list.
 
 ### Closer ABI support and Application spec files.
 
-The developers at Algorand and of the Beaker framework are cooperating on producing a mutually compatible application specification file, that will allow clients to be generated based on PyTeal/Beaker contracts and vice versa with PyTeal/Beaker clients generated based on C# smart contracts. 
+Right now a variation of the ARC-4 is used to encode ABI arguments and send
+them to Smart Contracts. 
 
-When ARC-4 is stable with respect to the new Application definition file format, this tooling will be updated to include more accurate ARC-4 support.
+This was done as a way of facilitating updates to complex types and arrays. 
 
-### Smart Signatures
+It is possible that in the future the AVM will support complex types natively somehow,
+perhaps through the use of opcodes or encoding/decoding mechanisms to an
+agreed runtime type format.
 
-This version does not support Smart Signature generation.
+The App.json export is also specific to the C# tooling, though it is an approximation
+of the ARC32 proposal, which is still in very early days.
 
+As this area matures the encoding and support will improve.
+
+It is expected that new functions will be needed to allow C# contract developers
+to connect to an ARC4 ABI spec based on Contract.json. This kind of functionality
+can be added incrementally.
+
+### App.json type exports
+
+Right now when producing an App.json, any custom ``ABIStruct`` types are left as 
+C# types and omitted from the json. ARC32, even though it is early, proposes a format
+for defining and referencing types. App.json can be made to include new types based on the 
+C# type definitions and exported for 3rd party use.
+
+This kind of functionality will be added incrementally along with the closer ABI/App spec work.
+
+### Array and complex type updates
+
+A lot of time was spent recently settling on a direction for the encoding, so for now 
+the tooling only allows read operations on complex types and array, apart from byte arrays which can be read/written.
+
+Update functionality will be added later, as the encoding now makes it easy for this to achieve.
+
+### Box storage
+
+This will be added in the near future as a State type for complex/simple types.
 
 ### Scratch Variables
 
@@ -301,15 +401,6 @@ Scratch variables can be accessed in the current contract, but there is no mecha
 
 *App_local_del* and *app_global_del* are not yet supported, but will be!
 
-### Sandbox control IDE commands
-
-A Sandbox menu for installing/starting/stopping/cleaning sandbox.
-
-### IDE Smart Reference generation
-
-Smart References must be created manually at the moment. These will be
-automatically generated using the IDE buttons and context menus.
-
 
 ### C#
 
@@ -317,17 +408,11 @@ Some constructs are not supported yet.
 
 Declaration of a Smart Contract as a nested class is not yet available.
 
-Casting is not yet fully supported.
-
-Lambdas, delegates and events are not yet supported.
-
 .NET Collections will be gradually introduced.
 
-Floating point and fixed point arithmetic.
+Fixed point arithmetic.
 
-Multidimensional and jagged arrays.
-
-Reference types will eventually be introduced. At the moment, byte arrays are treated as value types, which is a semantic break from C#. When you create an array, and assign it from one variable to another, there's a value copy involved. This approach will most likely change.
+Multidimensional and jagged arrays?
 
 Unary operators on array accessors, eg:
 
@@ -341,20 +426,11 @@ New optimisers will be added over time, as part of this project or if supplied b
 
 ### Debugger
 
-A complete debugger for TEAL will be offered. Unfortunately, the current built-in debugger experience will most likely not be reproducible for TEAL. Instead a new debugger IDE will be provided.
-
-### Exception handling
-
-Right now any kind of Exception throw or catch is unsupported syntax. In future, exceptions, as a result of contract to contract calls, intentional 'err' syntax, or other scenarios, will be allowed and manageable through familiar C# try/catch/finally syntax.
+A complete debugger for TEAL will be offered.
 
 ### Formal Analysis
 
 C# Code Analyzers allow existing formal analytical tools to work over C# syntax programs. For example, C# PEX or IntelliTest allows automatic test case generation. We will aim for C# semantic equivalence with the TEAL output so that existing tools can be applied. Later we will add new tools that check for Smart Contract security specific cases and in real time issue diagnostic warnings.
-
-### Dev mode / Release mode
-
-We will endeavour to add Algod node support for #DEBUG type constraints, deleting opcode cost for DEBUG code. 
-
 
 ### VS for Mac
 
