@@ -76,9 +76,47 @@ The compiled output also contains information on a running total of the opcode s
 
 ## Smart Signature Usage
 
-[TBD - Go through the Program.cs]
+First generate a "proxy" using the IDE:
 
+![image](https://user-images.githubusercontent.com/33515470/221975291-4ed0cbb1-9292-4a63-a71a-99fa7530775f.png)
 
+This generates a class like this:
+
+![image](https://user-images.githubusercontent.com/33515470/221975733-3e85ac62-5ad9-4884-b154-02a19b79a32e.png)
+
+You can use the Algorand Smart Signature project template to view a working example.
+
+In the ``Program.cs`` you will find code that takes the compiled TEAL of the C# Smart Signature and applies it to a transaction. It works like this:
+
+1. Create a transaction:
+```csharp
+   var transParams = await algodApiInstance.TransactionParamsAsync();
+   var payment = PaymentTransaction.GetPaymentTransactionFromNetworkTransactionParameters(account1.Address, account2.Address, 40000, "a", transParams);
+```
+2. Obtain the auto-generated TEAL (based on our C# signature) and compile it:
+```csharp
+   var lsigProgram = new BasicSignature.BasicSignature();
+   var lsigCompiled = await lsigProgram.Compile(algodApiInstance);
+```
+3. Get our "proxy"
+```csharp
+     //Get the signer (generated proxy)
+    var lsig = new BasicSignatureSmartSignatureGenerator(lsigCompiled);      //initialise with the compiled signature
+    lsig.AuthorisePaymentWithNote(false,9.0M);                   //augment the signature by adding args specifying which method to use and with which arguments
+                                                                    //the false parameter means that empty note fields are not allowed
+
+```
+The above code "wraps" the SDK Logic Signature in our signer or "proxy". Then the ``AuthorisePaymentWithNote`` call augments the signature with the right arguments (encoded).
+
+4. In this case, sign the logic signature and use that to sign the transaction:
+ ```csharp
+ lsigCompiled.Sign(account1);
+
+            //sign the payment transaction with the logic signature
+            SignedTransaction tx = payment.Sign(lsigCompiled);
+ ```
+
+That gets sent to the network, and if the TEAL evaluates, then it succeeds.
 ## More Information
 
 Please refer to the [Smart Contracts](../ContractDevelopment/SmartContracts.md) and the [Contracts as Classes](../ContractDevelopment/ContractsAsClasses.md) sections for similar patterns involved in Smart Contract Authoring.
