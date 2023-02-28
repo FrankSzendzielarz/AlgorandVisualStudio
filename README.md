@@ -127,7 +127,8 @@ For a shortcut if Sandbox isn't yet installed and you need to get up and running
 has provided training nodes on Testnet. You can use this in the following way:
 
 1. Get a TestNet account at myalgo.com 
-[TBD: Insert image]
+![image](https://user-images.githubusercontent.com/33515470/221985989-6aa1f833-1757-416e-862d-b228cf7b6366.png)
+
 2. Copy off the Account address and fund it at the [dispenser](https://dispenser.testnet.aws.algodev.network/)
 3. Change the boilerplate code to use the following Testnet node and token:
 ``var httpClient = HttpClientConfigurator.ConfigureHttpClient(@"https://academy-algod.dev.aws.algodev.network/", "2f3203f21e738a1de6110eba6984f9d03e5a95d7a577b34616854064cf2c0e7b ");``
