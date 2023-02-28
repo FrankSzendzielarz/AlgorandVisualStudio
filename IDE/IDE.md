@@ -85,7 +85,7 @@ This means that the resulting logic signature may implement different types of c
 
 To encapsulate this behaviour, we offer the Smart Signature Signer, which you can access like this:
 
-[TBD Insert image]
+![image](https://user-images.githubusercontent.com/33515470/221979037-6e2b4c6d-b4e3-4ad0-aa8d-a5223fd46b07.png)
 
 This results in a kind of proxy class, which you can instantiate with a logic signature based on the  compiled TEAL, call a method on to set the right arguments, and then later used the logic signature as if that method had been executed on the transaction during verification.
 
