@@ -433,5 +433,5 @@ C# Code Analyzers allow existing formal analytical tools to work over C# syntax 
 
 ### VS for Mac
 
-This is a bit of a question mark. There are some directions changing and decisions being made that will affect how easy or how hard it will be to translate the VS extensions to Mac. In any case, if we can get this onto VS for Mac we will.
+VS for Mac support can be added. VS 2022 for Mac has been rewritten and extension support is not well documented but should be possible.
 
