@@ -96,7 +96,8 @@ in both the Error List and Output window.
 Program size information and other advisory messages are found in the Error List window
 as Information entries.
 
-! TBD Image of diagnostics.
+![image](https://user-images.githubusercontent.com/33515470/221978756-937b39cb-0a56-4189-a952-70411c190eca.png)
+
 
 Diagnostics are updated as you type.
 
