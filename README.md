@@ -57,8 +57,7 @@ The latest version at 1.4 now includes the following changes. Documentation will
     - [Web Template](./ProjectTemplates/Web.md)
     - [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
     - [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
-- Reference
-    - [Technical Reference](./Reference/index.html)
+
 
 
 
