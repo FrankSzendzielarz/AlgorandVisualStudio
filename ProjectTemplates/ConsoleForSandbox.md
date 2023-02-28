@@ -1,4 +1,4 @@
-# Algorand Web App
+# Algorand Console for Sandbox Template
 
 This guide shows how to use the Algorand Web App template.
 
@@ -14,7 +14,7 @@ Select **Algorand Console Template for Sandbox** and hit Next.
 
 Give the project a name and hit Create:
 
-[TBD Image]
+![image](https://user-images.githubusercontent.com/33515470/221979619-bbd1cd86-45e9-401b-a14a-3512cafc9170.png)
 
 Ensure Sandbox is available. Build and run the app.
 
