@@ -1,6 +1,6 @@
 # Algorand MAUI Solution
 
-This guide shows how to use the Algorand Console App template.
+This guide shows how to use the Algorand MAUI template.
 
 ## Create the project
 
