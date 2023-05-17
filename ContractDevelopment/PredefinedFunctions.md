@@ -152,7 +152,11 @@ Most operators are implemented. >> Right Shift is not implemented on BigInteger 
 
 ### SmartContract
 
-
+- BoxSet
+- BoxDel
+- BoxLen
+- BoxGet
+- BoxExists
 - Balance
 - MinTransactionFee
 - MinBalance
