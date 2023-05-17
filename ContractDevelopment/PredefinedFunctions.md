@@ -5,6 +5,13 @@ This section will be replaced by automatically generated technical docs in futur
 For now this serves as quick checklist of what functions and properties are available
 on the supported types.
 
+### Ulong
+- Pow
+- BigPow
+- Sqrt
+- BitLen
+- ToTealBytes
+
 ### BigInteger
 
 - BitLen
@@ -23,6 +30,9 @@ on the supported types.
 - Replace
 - Init
 - ToString
+- ToTealUlong
+- BitLen
+- GetBit
 
 ### Integers
 
