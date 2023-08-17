@@ -8,7 +8,9 @@ Professional software engineers from a range of backgrounds, such as C# game dev
 
 On this page you will find **[getting started](#getting-started)** instructions for developers, details on the functional areas and **[capabilities](#capabilities)** , and the **[project roadmap](#roadmap)**.
 
-The current version is an Alpha release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
+There is now **[a video series](https://www.youtube.com/playlist?list=PLYKanKMyGPgvuYhF9uv9E1GoOJx8q1for)** introducing both Algorand and this tooling, aimed at developers.
+
+The current version is an Beta release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
 
 *DISCLAIMER: This product is under development and should only be used in production scenarios at your own risk. Smart Contract authoring has inherent risks. We are not liable for anything that may occur from using this product.*
 
