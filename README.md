@@ -28,7 +28,7 @@ The latest version at 1.6 now includes the following changes.
 
 ## UPDATE (November 2022)
 
-The latest version at 1.4 now includes the following changes. Documentation will be updated shortly to reflect the below.
+The latest version at 1.4 now includes the following changes. 
 - A new template allowing direct use of the Sandbox without having to manipulate private keys. Just create the project, start the sandbox and it's ready to go.
 - Support for floating point decimal. The ``decimal``type can now be used. (The generated TEAL is quite expensive.) Conversion from integer types are permitted and conversion from decimal to ulong.
 - Integer ``Pow`` and ``Sqrt`` are now added.
