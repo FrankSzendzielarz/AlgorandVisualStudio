@@ -18,6 +18,9 @@ The current version is an Beta release aimed at garnering feedback, bugs, requir
 
 After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
 
+## UPDATE (August 2023)
+Interactive smart contract debugging using the Visual Studio IDE coming in September.
+
 ## UPDATE (February 2023)
 
 The latest version at 1.6 now includes the following changes. 
