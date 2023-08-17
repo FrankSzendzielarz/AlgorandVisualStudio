@@ -391,9 +391,6 @@ the tooling only allows read operations on complex types and array, apart from b
 
 Update functionality will be added later, as the encoding now makes it easy for this to achieve.
 
-### Box storage
-
-This will be added in the near future as a State type for complex/simple types.
 
 ### Scratch Variables
 
