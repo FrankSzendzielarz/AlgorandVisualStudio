@@ -65,7 +65,8 @@ The latest version at 1.4 now includes the following changes.
     - [Web Template](./ProjectTemplates/Web.md)
     - [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
     - [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
-
+- Debugger
+  - [Teal Interactive Debugger](./Debugger/Debugger.md)
 
 
 
