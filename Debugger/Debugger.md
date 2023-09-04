@@ -112,3 +112,71 @@ This starts the debug adapter host and connects to your executable.
 
 Press "continue" in the first instance and the debugger will stop at the breakpoint in the TEAL code.
 
+## Teal files
+
+If you are using Algorand for Visual Studio simply copy paste the
+TEAL from the generated ``ICompiledContract`` into files. An example 
+of the ``TestContract.approval.teal`` is
+```
+#pragma version 8
+                                                  //Opcode size
+                                                  //Opcode size
+//        protected override int ApprovalProgram(in AppCallTransactionReference transaction)	//0       
+//        {	                                      //0       
+//            if (transaction.ApplicationID == 0)	//0       
+	load 0                                           //2       
+	dup                                              //3       
+	bnz Label0                                       //6       
+	pop                                              //7       
+	txn ApplicationID                                //9       
+	b Label1                                         //12       
+Label0:                                           //12       
+	txn GroupIndex                                   //14       
+	swap                                             //15       
+	-                                                //16       
+	gtxns ApplicationID                              //18       
+Label1:                                           //18       
+	int 0                                            //18       
+	==                                               //19       
+	bz Label2                                        //22       
+//            {	                                  //22       
+//                return 1;	                      //22       
+	int 1                                            //22       
+	return                                           //23       
+Label2:                                           //23       
+//            string s= Hello World ;	            //23       
+	byte "Hello World"                            //23       
+	store 1                                          //25       
+//            ulong t = transaction.NumAppArgs;	  //25       
+	load 0                                           //27       
+	dup                                              //28       
+	bnz Label3                                       //31       
+	pop                                              //32       
+	txn NumAppArgs                                   //34       
+	b Label4                                         //37       
+Label3:                                           //37       
+	txn GroupIndex                                   //39       
+	swap                                             //40       
+	-                                                //41       
+	gtxns NumAppArgs                                 //43       
+Label4:                                           //43       
+	store 2                                          //45       
+//            int a = 3;	                         //45       
+	int 3                                            //45       
+	store 3                                          //47       
+//            int b = 3;	                         //47       
+	int 3                                            //47       
+	store 4                                          //49       
+//            int c = a + b;	                     //49       
+	load 3                                           //51       
+	load 4                                           //53       
+	addw                                             //54       
+	swap                                             //55       
+	pop                                              //56       
+	int 4294967295                                   //56       
+	&                                                //57       
+	store 5                                          //59       
+//            return c;  	                        //59       
+	load 5                                           //61       
+	return                                           //62       
+```
