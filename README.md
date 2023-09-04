@@ -346,7 +346,9 @@ ConditionalLogic1 was a SmartContract class in the file ConditionalLogic. This a
 
 Project templates are included, offering skeleton architectures and educational code to get up and running quickly. 
 
+### TEAL Interactive Debugging
 
+Please see the [TEAL Interactive Debugging](./Debugger/Debugger.md) section for details on how to use the TEAL Interactive Debugger.
 
 ## **Roadmap**
 
@@ -426,9 +428,7 @@ myArray[0]++;
 
 New optimisers will be added over time, as part of this project or if supplied by the community.
 
-### Debugger
 
-A complete debugger for TEAL will be offered.
 
 ### Formal Analysis
 
