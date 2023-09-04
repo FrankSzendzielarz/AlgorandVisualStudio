@@ -22,7 +22,7 @@ After creating a project using a template here, please **Update Nuget Packages**
 Interactive TEAL debugging is now available. This is a major milestone for the project. 
 The roadmap now includes incorporating the 
 debugger into the proxy generated code. For now, manually created
-app calls can be debugged interactively..
+app calls can be debugged interactively.
 
 ## UPDATE (February 2023)
 
