@@ -4,6 +4,9 @@ Algorand for Visual Studio uses a subset of C# to compile to TEAL. Invalid synta
 
 This article offers guidance on limitations and options.
 
+## try catch throw
+The AVM has no support as yet for exception management, so try/catch syntax cannot be offered. Consequently we decided to avoid "throw" as a supported keyword. Instead the ``SmartContract`` ``Fail`` keyword should be used to immediately fail an operation.
+
 ## Byte Array Initialisers
 
 Byte arrays can only be initialised using the following type of syntax:
