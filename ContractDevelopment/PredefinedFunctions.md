@@ -193,6 +193,9 @@ Most operators are implemented. >> Right Shift is not implemented on BigInteger 
 - BigIntegerFromIntegral(long integral)
 - UBigIntegerFromIntegral(ulong integral)
 - CreateAsset
+- TealBytesFromDecimal(decimal dec)
+- DecimalFromTealBytes(byte[] dec)
+- Fail()
 
 
 
