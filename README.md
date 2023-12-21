@@ -17,6 +17,13 @@ The current version is an Beta release aimed at garnering feedback, bugs, requir
 ## USING THE TEMPLATES
 
 After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
+## UPDATE (December 2023)
+The following are now included:
+- Proxies now include additional methods that return a transaction list, for signing and sending by the developer manually. This allows for ABI method composability.
+- SmartContract base class includes a new Fail() command, which immediately terminates the program.
+- SmartContract base class now has DecimalToBytes and BytesToDecimal conversion helpers.
+
+The project is also changing its internal source structure, with improved testing too. Once this is complete, the project will be made open source. In parallel with that compatibility is being developed for ARC4 and ARC32 so that contracts will be interoperable with the Python and JavaScript compilers. 
 
 ## UPDATE (September 2023)
 Interactive TEAL debugging is now available. This is a major milestone for the project. 
