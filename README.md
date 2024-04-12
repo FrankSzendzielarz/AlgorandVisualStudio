@@ -3,14 +3,14 @@
 A warm welcome to Algorand for Visual Studio!
 
 This is a set of extensions to Microsoft's flagship developer tool, Visual Studio 2022, produced with the aim of making development on Algorand a simple, intuitive, familiar experience.
+It also includes a compiler that will work with any IDE and .NET build process, along with debugging tools.
 
-Professional software engineers from a range of backgrounds, such as C# game developers, line-of-business systems consultants will now be able to create Algorand applications easily using tools they are familiar with.
+Professional software engineers from a range of backgrounds, such as C# game developers, line-of-business systems consultants can now create Algorand applications easily using tools they are familiar with.
 
 On this page you will find **[getting started](#getting-started)** instructions for developers, details on the functional areas and **[capabilities](#capabilities)** , and the **[project roadmap](#roadmap)**.
 
 There is now **[a video series](https://www.youtube.com/playlist?list=PLYKanKMyGPgvuYhF9uv9E1GoOJx8q1for)** introducing both Algorand and this tooling, aimed at developers.
 
-The current version is an Beta release aimed at garnering feedback, bugs, requirements and any other modifications to general direction.  Do expect bugs, breaking changes, and shifts in direction. 
 
 *DISCLAIMER: This product is under development and should only be used in production scenarios at your own risk. Smart Contract authoring has inherent risks. We are not liable for anything that may occur from using this product.*
 
@@ -22,11 +22,11 @@ V 1.20 is a major update with a more robust compiler fixing various issues and i
 - SmartContractLibrary is now offered, where STATIC methods can be defined and included in Smart Contracts.(Documentation to be provided)
 - TEAL specific big integer is deprecated and replaced with System.Numerics.BigInteger
 - All native numeric types in C# including floating point decimal, but not binary floating point (float/double) are now supported with casting between them.
-- A decision was made to stay completely with C# native types: ABI encodings are handled implicitly 
+- A decision was made to stay completely with C# native types: ABI encodings are handled implicitly, or with explicit decorators. 
 - A Gherkin style (SpecFlow) test project is included
 - Updated project templates (the MAUI template is temporarily removed as the MAUI technology has moved on significantly and requires a major upgrade - for now the Reverse Proxy component is included to help with native app development)
 - Source has been restructured for easier maintenance and testing
-- Source is now open and included in this repo.
+- Source is now open and included in this repo.(License to be decided, coming soon.)
 
 ## UPDATE (December 2023)
 The following in v 1.12 are now included:
