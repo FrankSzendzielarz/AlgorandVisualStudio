@@ -1,0 +1,294 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.ICompiledContract
+  commentId: T:AlgoStudio.Core.ICompiledContract
+  id: ICompiledContract
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.ICompiledContract.ApprovalProgram
+  - AlgoStudio.Core.ICompiledContract.ClearState
+  - AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+  - AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+  - AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+  - AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+  langs:
+  - csharp
+  - vb
+  name: ICompiledContract
+  nameWithType: ICompiledContract
+  fullName: AlgoStudio.Core.ICompiledContract
+  type: Interface
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ICompiledContract
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 6
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public interface ICompiledContract
+    content.vb: Public Interface ICompiledContract
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+  commentId: P:AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+  id: NumberOfLocalByteSlices
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: NumberOfLocalByteSlices
+  nameWithType: ICompiledContract.NumberOfLocalByteSlices
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumberOfLocalByteSlices
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 8
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: int NumberOfLocalByteSlices { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NumberOfLocalByteSlices As Integer
+  overload: AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+  commentId: P:AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+  id: NumberOfLocalUInts
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: NumberOfLocalUInts
+  nameWithType: ICompiledContract.NumberOfLocalUInts
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumberOfLocalUInts
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: int NumberOfLocalUInts { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NumberOfLocalUInts As Integer
+  overload: AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+  commentId: P:AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+  id: NumberOfGlobalByteSlices
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: NumberOfGlobalByteSlices
+  nameWithType: ICompiledContract.NumberOfGlobalByteSlices
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumberOfGlobalByteSlices
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: int NumberOfGlobalByteSlices { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NumberOfGlobalByteSlices As Integer
+  overload: AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+  commentId: P:AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+  id: NumberOfGlobalUInts
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: NumberOfGlobalUInts
+  nameWithType: ICompiledContract.NumberOfGlobalUInts
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumberOfGlobalUInts
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: int NumberOfGlobalUInts { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NumberOfGlobalUInts As Integer
+  overload: AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ICompiledContract.ApprovalProgram
+  commentId: P:AlgoStudio.Core.ICompiledContract.ApprovalProgram
+  id: ApprovalProgram
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: ApprovalProgram
+  nameWithType: ICompiledContract.ApprovalProgram
+  fullName: AlgoStudio.Core.ICompiledContract.ApprovalProgram
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ApprovalProgram
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: string ApprovalProgram { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ApprovalProgram As String
+  overload: AlgoStudio.Core.ICompiledContract.ApprovalProgram*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ICompiledContract.ClearState
+  commentId: P:AlgoStudio.Core.ICompiledContract.ClearState
+  id: ClearState
+  parent: AlgoStudio.Core.ICompiledContract
+  langs:
+  - csharp
+  - vb
+  name: ClearState
+  nameWithType: ICompiledContract.ClearState
+  fullName: AlgoStudio.Core.ICompiledContract.ClearState
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledContract.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ClearState
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledContract.cs
+    startLine: 13
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: string ClearState { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property ClearState As String
+  overload: AlgoStudio.Core.ICompiledContract.ClearState*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+  name: NumberOfLocalByteSlices
+  nameWithType: ICompiledContract.NumberOfLocalByteSlices
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfLocalByteSlices
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+  name: NumberOfLocalUInts
+  nameWithType: ICompiledContract.NumberOfLocalUInts
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfLocalUInts
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+  name: NumberOfGlobalByteSlices
+  nameWithType: ICompiledContract.NumberOfGlobalByteSlices
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfGlobalByteSlices
+- uid: AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+  name: NumberOfGlobalUInts
+  nameWithType: ICompiledContract.NumberOfGlobalUInts
+  fullName: AlgoStudio.Core.ICompiledContract.NumberOfGlobalUInts
+- uid: AlgoStudio.Core.ICompiledContract.ApprovalProgram*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.ApprovalProgram
+  name: ApprovalProgram
+  nameWithType: ICompiledContract.ApprovalProgram
+  fullName: AlgoStudio.Core.ICompiledContract.ApprovalProgram
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: AlgoStudio.Core.ICompiledContract.ClearState*
+  commentId: Overload:AlgoStudio.Core.ICompiledContract.ClearState
+  name: ClearState
+  nameWithType: ICompiledContract.ClearState
+  fullName: AlgoStudio.Core.ICompiledContract.ClearState

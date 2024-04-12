@@ -1,0 +1,1415 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.ISmartContractPredefineds
+  commentId: T:AlgoStudio.Core.ISmartContractPredefineds
+  id: ISmartContractPredefineds
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+  - AlgoStudio.Core.ISmartContractPredefineds.CreateAsset(System.UInt64,System.UInt32,System.Boolean,System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+  - AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+  - AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+  - AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod
+  - AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+  - AlgoStudio.Core.ISmartContractPredefineds.LogBytes(System.Byte[])
+  - AlgoStudio.Core.ISmartContractPredefineds.LogInt(System.Int64)
+  - AlgoStudio.Core.ISmartContractPredefineds.LogUInt(System.UInt64)
+  - AlgoStudio.Core.ISmartContractPredefineds.Round
+  - AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: ISmartContractPredefineds
+  nameWithType: ISmartContractPredefineds
+  fullName: AlgoStudio.Core.ISmartContractPredefineds
+  type: Interface
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ISmartContractPredefineds
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 63
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: 'public interface ISmartContractPredefineds : IAlgorandCommonPredefineds'
+    content.vb: >-
+      Public Interface ISmartContractPredefineds
+          Inherits IAlgorandCommonPredefineds
+  inheritedMembers:
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[],System.Byte[]@,System.Byte[]@)
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[],System.UInt64,System.Byte[],System.Byte[],System.Byte[]@,System.Byte[]@)
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.MinTransactionFee
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.MinBalance
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.MaxTransactionLife
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.ZeroAddress
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.GroupSize
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.LogicSigVersion
+  - AlgoStudio.Core.IAlgorandCommonPredefineds.GroupId
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext(System.Int32)
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext(System.Int32)
+  id: SwitchLocalAccountContext(System.Int32)
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: SwitchLocalAccountContext(Int32)
+  nameWithType: ISmartContractPredefineds.SwitchLocalAccountContext(Int32)
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: SwitchLocalAccountContext
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 69
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  summary: "\nChange local account context to index in account array\n"
+  example: []
+  syntax:
+    content: void SwitchLocalAccountContext(int acccountIndex)
+    parameters:
+    - id: acccountIndex
+      type: System.Int32
+      description: ''
+    content.vb: Sub SwitchLocalAccountContext(acccountIndex As Integer)
+  overload: AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext*
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset(System.UInt64,System.UInt32,System.Boolean,System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.CreateAsset(System.UInt64,System.UInt32,System.Boolean,System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  id: CreateAsset(System.UInt64,System.UInt32,System.Boolean,System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: CreateAsset(UInt64, UInt32, Boolean, Byte[], Byte[], Byte[], Byte[], Byte[], Byte[], Byte[], Byte[])
+  nameWithType: ISmartContractPredefineds.CreateAsset(UInt64, UInt32, Boolean, Byte[], Byte[], Byte[], Byte[], Byte[], Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset(System.UInt64, System.UInt32, System.Boolean, System.Byte[], System.Byte[], System.Byte[], System.Byte[], System.Byte[], System.Byte[], System.Byte[], System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CreateAsset
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 71
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ulong CreateAsset(ulong total, uint decimals, bool defaultFrozen, byte[] unitName = null, byte[] assetName = null, byte[] url = null, byte[] metaDataHash = null, byte[] manager = null, byte[] reserve = null, byte[] freeze = null, byte[] clawback = null)
+    parameters:
+    - id: total
+      type: System.UInt64
+    - id: decimals
+      type: System.UInt32
+    - id: defaultFrozen
+      type: System.Boolean
+    - id: unitName
+      type: System.Byte[]
+    - id: assetName
+      type: System.Byte[]
+    - id: url
+      type: System.Byte[]
+    - id: metaDataHash
+      type: System.Byte[]
+    - id: manager
+      type: System.Byte[]
+    - id: reserve
+      type: System.Byte[]
+    - id: freeze
+      type: System.Byte[]
+    - id: clawback
+      type: System.Byte[]
+    return:
+      type: System.UInt64
+    content.vb: Function CreateAsset(total As ULong, decimals As UInteger, defaultFrozen As Boolean, unitName As Byte() = Nothing, assetName As Byte() = Nothing, url As Byte() = Nothing, metaDataHash As Byte() = Nothing, manager As Byte() = Nothing, reserve As Byte() = Nothing, freeze As Byte() = Nothing, clawback As Byte() = Nothing) As ULong
+  overload: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset*
+  nameWithType.vb: ISmartContractPredefineds.CreateAsset(UInt64, UInt32, Boolean, Byte(), Byte(), Byte(), Byte(), Byte(), Byte(), Byte(), Byte())
+  fullName.vb: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset(System.UInt64, System.UInt32, System.Boolean, System.Byte(), System.Byte(), System.Byte(), System.Byte(), System.Byte(), System.Byte(), System.Byte(), System.Byte())
+  name.vb: CreateAsset(UInt64, UInt32, Boolean, Byte(), Byte(), Byte(), Byte(), Byte(), Byte(), Byte(), Byte())
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogBytes(System.Byte[])
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.LogBytes(System.Byte[])
+  id: LogBytes(System.Byte[])
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: LogBytes(Byte[])
+  nameWithType: ISmartContractPredefineds.LogBytes(Byte[])
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogBytes(System.Byte[])
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LogBytes
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 73
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: void LogBytes(byte[] bytes)
+    parameters:
+    - id: bytes
+      type: System.Byte[]
+    content.vb: Sub LogBytes(bytes As Byte())
+  overload: AlgoStudio.Core.ISmartContractPredefineds.LogBytes*
+  nameWithType.vb: ISmartContractPredefineds.LogBytes(Byte())
+  fullName.vb: AlgoStudio.Core.ISmartContractPredefineds.LogBytes(System.Byte())
+  name.vb: LogBytes(Byte())
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogUInt(System.UInt64)
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.LogUInt(System.UInt64)
+  id: LogUInt(System.UInt64)
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: LogUInt(UInt64)
+  nameWithType: ISmartContractPredefineds.LogUInt(UInt64)
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogUInt(System.UInt64)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LogUInt
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 75
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: void LogUInt(ulong integral)
+    parameters:
+    - id: integral
+      type: System.UInt64
+    content.vb: Sub LogUInt(integral As ULong)
+  overload: AlgoStudio.Core.ISmartContractPredefineds.LogUInt*
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogInt(System.Int64)
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.LogInt(System.Int64)
+  id: LogInt(System.Int64)
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: LogInt(Int64)
+  nameWithType: ISmartContractPredefineds.LogInt(Int64)
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogInt(System.Int64)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LogInt
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 77
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: void LogInt(long integral)
+    parameters:
+    - id: integral
+      type: System.Int64
+    content.vb: Sub LogInt(integral As Long)
+  overload: AlgoStudio.Core.ISmartContractPredefineds.LogInt*
+- uid: AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod
+  commentId: M:AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod
+  id: InvokeSmartContractMethod
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: InvokeSmartContractMethod()
+  nameWithType: ISmartContractPredefineds.InvokeSmartContractMethod()
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod()
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: InvokeSmartContractMethod
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 83
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  summary: "\nARC4 method router\n"
+  example: []
+  syntax:
+    content: void InvokeSmartContractMethod()
+    content.vb: Sub InvokeSmartContractMethod
+  overload: AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod*
+- uid: AlgoStudio.Core.ISmartContractPredefineds.Round
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.Round
+  id: Round
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: Round
+  nameWithType: ISmartContractPredefineds.Round
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.Round
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Round
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 89
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ulong Round { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: ReadOnly Property Round As ULong
+  overload: AlgoStudio.Core.ISmartContractPredefineds.Round*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+  id: LatestTimeStamp
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: LatestTimeStamp
+  nameWithType: ISmartContractPredefineds.LatestTimeStamp
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LatestTimeStamp
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 91
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ulong LatestTimeStamp { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: ReadOnly Property LatestTimeStamp As ULong
+  overload: AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+  id: CurrentApplicationID
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: CurrentApplicationID
+  nameWithType: ISmartContractPredefineds.CurrentApplicationID
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CurrentApplicationID
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 93
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ulong CurrentApplicationID { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: ReadOnly Property CurrentApplicationID As ULong
+  overload: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+  id: CreatorAddress
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: CreatorAddress
+  nameWithType: ISmartContractPredefineds.CreatorAddress
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CreatorAddress
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 95
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: byte[] CreatorAddress { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: ReadOnly Property CreatorAddress As Byte()
+  overload: AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+  id: CurrentApplicationAddress
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: CurrentApplicationAddress
+  nameWithType: ISmartContractPredefineds.CurrentApplicationAddress
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CurrentApplicationAddress
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 97
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: byte[] CurrentApplicationAddress { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: ReadOnly Property CurrentApplicationAddress As Byte()
+  overload: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+  commentId: P:AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+  id: AssetReferences
+  parent: AlgoStudio.Core.ISmartContractPredefineds
+  langs:
+  - csharp
+  - vb
+  name: AssetReferences
+  nameWithType: ISmartContractPredefineds.AssetReferences
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: AssetReferences
+    path: ../../AlgoStudio/AlgoStudio.Core/IAlgorandCommonPredefineds.cs
+    startLine: 99
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: AssetReference[] AssetReferences { get; }
+    parameters: []
+    return:
+      type: AlgoStudio.Core.AssetReference[]
+    content.vb: ReadOnly Property AssetReferences As AssetReference()
+  overload: AlgoStudio.Core.ISmartContractPredefineds.AssetReferences*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Sha256(Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Sha256(Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Sha256(Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte())
+  name.vb: Sha256(Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+    name: Sha256
+    nameWithType: IAlgorandCommonPredefineds.Sha256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])
+    name: Sha256
+    nameWithType: IAlgorandCommonPredefineds.Sha256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Keccak256(Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Keccak256(Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Keccak256(Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte())
+  name.vb: Keccak256(Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+    name: Keccak256
+    nameWithType: IAlgorandCommonPredefineds.Keccak256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256(System.Byte[])
+    name: Keccak256
+    nameWithType: IAlgorandCommonPredefineds.Keccak256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Keccak256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Sha512_256(Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Sha512_256(Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Sha512_256(Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte())
+  name.vb: Sha512_256(Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+    name: Sha512_256
+    nameWithType: IAlgorandCommonPredefineds.Sha512_256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256(System.Byte[])
+    name: Sha512_256
+    nameWithType: IAlgorandCommonPredefineds.Sha512_256
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Sha512_256
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[],System.Byte[],System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Ed25519verify(Byte[], Byte[], Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Ed25519verify(Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[], System.Byte[], System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Ed25519verify(Byte(), Byte(), Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte(), System.Byte(), System.Byte())
+  name.vb: Ed25519verify(Byte(), Byte(), Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[],System.Byte[],System.Byte[])
+    name: Ed25519verify
+    nameWithType: IAlgorandCommonPredefineds.Ed25519verify
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify(System.Byte[],System.Byte[],System.Byte[])
+    name: Ed25519verify
+    nameWithType: IAlgorandCommonPredefineds.Ed25519verify
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ed25519verify
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Ecdsa_verify_secp256k1(Byte[], Byte[], Byte[], Byte[], Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(Byte[], Byte[], Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[], System.Byte[], System.Byte[], System.Byte[], System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(Byte(), Byte(), Byte(), Byte(), Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte(), System.Byte(), System.Byte(), System.Byte(), System.Byte())
+  name.vb: Ecdsa_verify_secp256k1(Byte(), Byte(), Byte(), Byte(), Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+    name: Ecdsa_verify_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Byte[])
+    name: Ecdsa_verify_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_verify_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[],System.Byte[]@,System.Byte[]@)
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[],System.Byte[]@,System.Byte[]@)
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Ecdsa_pk_decompress_secp256k1(Byte[], Byte[], Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[], System.Byte[], System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(Byte(), Byte(), Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte(), System.Byte(), System.Byte())
+  name.vb: Ecdsa_pk_decompress_secp256k1(Byte(), Byte(), Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[],System.Byte[]@,System.Byte[]@)
+    name: Ecdsa_pk_decompress_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1(System.Byte[],System.Byte[]@,System.Byte[]@)
+    name: Ecdsa_pk_decompress_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_decompress_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[],System.UInt64,System.Byte[],System.Byte[],System.Byte[]@,System.Byte[]@)
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[],System.UInt64,System.Byte[],System.Byte[],System.Byte[]@,System.Byte[]@)
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: Ecdsa_pk_recover_secp256k1(Byte[], UInt64, Byte[], Byte[], Byte[], Byte[])
+  nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(Byte[], UInt64, Byte[], Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[], System.UInt64, System.Byte[], System.Byte[], System.Byte[], System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(Byte(), UInt64, Byte(), Byte(), Byte(), Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte(), System.UInt64, System.Byte(), System.Byte(), System.Byte(), System.Byte())
+  name.vb: Ecdsa_pk_recover_secp256k1(Byte(), UInt64, Byte(), Byte(), Byte(), Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[],System.UInt64,System.Byte[],System.Byte[],System.Byte[]@,System.Byte[]@)
+    name: Ecdsa_pk_recover_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1(System.Byte[],System.UInt64,System.Byte[],System.Byte[],System.Byte[]@,System.Byte[]@)
+    name: Ecdsa_pk_recover_secp256k1
+    nameWithType: IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.Ecdsa_pk_recover_secp256k1
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: BigIntegerFromByteArray(Byte[])
+  nameWithType: IAlgorandCommonPredefineds.BigIntegerFromByteArray(Byte[])
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+  nameWithType.vb: IAlgorandCommonPredefineds.BigIntegerFromByteArray(Byte())
+  fullName.vb: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte())
+  name.vb: BigIntegerFromByteArray(Byte())
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+    name: BigIntegerFromByteArray
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerFromByteArray
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray(System.Byte[])
+    name: BigIntegerFromByteArray
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerFromByteArray
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromByteArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: BigIntegerToByteArray(BigInteger)
+  nameWithType: IAlgorandCommonPredefineds.BigIntegerToByteArray(BigInteger)
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+    name: BigIntegerToByteArray
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerToByteArray
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Numerics.BigInteger
+    name: BigInteger
+    nameWithType: BigInteger
+    fullName: System.Numerics.BigInteger
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray(System.Numerics.BigInteger)
+    name: BigIntegerToByteArray
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerToByteArray
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerToByteArray
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Numerics.BigInteger
+    name: BigInteger
+    nameWithType: BigInteger
+    fullName: System.Numerics.BigInteger
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+  commentId: M:AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  isExternal: true
+  name: BigIntegerFromIntegral(Int64)
+  nameWithType: IAlgorandCommonPredefineds.BigIntegerFromIntegral(Int64)
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+  spec.csharp:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+    name: BigIntegerFromIntegral
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerFromIntegral
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral(System.Int64)
+    name: BigIntegerFromIntegral
+    nameWithType: IAlgorandCommonPredefineds.BigIntegerFromIntegral
+    fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.BigIntegerFromIntegral
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Int64
+    name: Int64
+    nameWithType: Int64
+    fullName: System.Int64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.MinTransactionFee
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.MinTransactionFee
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: MinTransactionFee
+  nameWithType: IAlgorandCommonPredefineds.MinTransactionFee
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.MinTransactionFee
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.MinBalance
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.MinBalance
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: MinBalance
+  nameWithType: IAlgorandCommonPredefineds.MinBalance
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.MinBalance
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.MaxTransactionLife
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.MaxTransactionLife
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: MaxTransactionLife
+  nameWithType: IAlgorandCommonPredefineds.MaxTransactionLife
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.MaxTransactionLife
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.ZeroAddress
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.ZeroAddress
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: ZeroAddress
+  nameWithType: IAlgorandCommonPredefineds.ZeroAddress
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.ZeroAddress
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.GroupSize
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.GroupSize
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: GroupSize
+  nameWithType: IAlgorandCommonPredefineds.GroupSize
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.GroupSize
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.LogicSigVersion
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.LogicSigVersion
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: LogicSigVersion
+  nameWithType: IAlgorandCommonPredefineds.LogicSigVersion
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.LogicSigVersion
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds.GroupId
+  commentId: P:AlgoStudio.Core.IAlgorandCommonPredefineds.GroupId
+  parent: AlgoStudio.Core.IAlgorandCommonPredefineds
+  name: GroupId
+  nameWithType: IAlgorandCommonPredefineds.GroupId
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds.GroupId
+- uid: AlgoStudio.Core.IAlgorandCommonPredefineds
+  commentId: T:AlgoStudio.Core.IAlgorandCommonPredefineds
+  parent: AlgoStudio.Core
+  name: IAlgorandCommonPredefineds
+  nameWithType: IAlgorandCommonPredefineds
+  fullName: AlgoStudio.Core.IAlgorandCommonPredefineds
+- uid: AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext
+  name: SwitchLocalAccountContext
+  nameWithType: ISmartContractPredefineds.SwitchLocalAccountContext
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.SwitchLocalAccountContext
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.CreateAsset
+  name: CreateAsset
+  nameWithType: ISmartContractPredefineds.CreateAsset
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CreateAsset
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: System.UInt32
+  commentId: T:System.UInt32
+  parent: System
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogBytes*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.LogBytes
+  name: LogBytes
+  nameWithType: ISmartContractPredefineds.LogBytes
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogBytes
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogUInt*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.LogUInt
+  name: LogUInt
+  nameWithType: ISmartContractPredefineds.LogUInt
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogUInt
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LogInt*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.LogInt
+  name: LogInt
+  nameWithType: ISmartContractPredefineds.LogInt
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LogInt
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64
+- uid: AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod
+  name: InvokeSmartContractMethod
+  nameWithType: ISmartContractPredefineds.InvokeSmartContractMethod
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.InvokeSmartContractMethod
+- uid: AlgoStudio.Core.ISmartContractPredefineds.Round*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.Round
+  name: Round
+  nameWithType: ISmartContractPredefineds.Round
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.Round
+- uid: AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+  name: LatestTimeStamp
+  nameWithType: ISmartContractPredefineds.LatestTimeStamp
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.LatestTimeStamp
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+  name: CurrentApplicationID
+  nameWithType: ISmartContractPredefineds.CurrentApplicationID
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationID
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+  name: CreatorAddress
+  nameWithType: ISmartContractPredefineds.CreatorAddress
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CreatorAddress
+- uid: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+  name: CurrentApplicationAddress
+  nameWithType: ISmartContractPredefineds.CurrentApplicationAddress
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.CurrentApplicationAddress
+- uid: AlgoStudio.Core.ISmartContractPredefineds.AssetReferences*
+  commentId: Overload:AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+  name: AssetReferences
+  nameWithType: ISmartContractPredefineds.AssetReferences
+  fullName: AlgoStudio.Core.ISmartContractPredefineds.AssetReferences
+- uid: AlgoStudio.Core.AssetReference[]
+  isExternal: true
+  name: AssetReference[]
+  nameWithType: AssetReference[]
+  fullName: AlgoStudio.Core.AssetReference[]
+  nameWithType.vb: AssetReference()
+  fullName.vb: AlgoStudio.Core.AssetReference()
+  name.vb: AssetReference()
+  spec.csharp:
+  - uid: AlgoStudio.Core.AssetReference
+    name: AssetReference
+    nameWithType: AssetReference
+    fullName: AlgoStudio.Core.AssetReference
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: AlgoStudio.Core.AssetReference
+    name: AssetReference
+    nameWithType: AssetReference
+    fullName: AlgoStudio.Core.AssetReference
+  - name: ()
+    nameWithType: ()
+    fullName: ()

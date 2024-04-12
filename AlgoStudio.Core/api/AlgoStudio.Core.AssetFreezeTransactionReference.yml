@@ -1,0 +1,593 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.AssetFreezeTransactionReference
+  commentId: T:AlgoStudio.Core.AssetFreezeTransactionReference
+  id: AssetFreezeTransactionReference
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAsset
+  - AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetAccount
+  - AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetFrozen
+  langs:
+  - csharp
+  - vb
+  name: AssetFreezeTransactionReference
+  nameWithType: AssetFreezeTransactionReference
+  fullName: AlgoStudio.Core.AssetFreezeTransactionReference
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: AssetFreezeTransactionReference
+    path: ../../AlgoStudio/AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+    startLine: 7
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: 'public class AssetFreezeTransactionReference : TransactionReference'
+    content.vb: >-
+      Public Class AssetFreezeTransactionReference
+          Inherits TransactionReference
+  inheritance:
+  - System.Object
+  - AlgoStudio.Core.TransactionReference
+  inheritedMembers:
+  - AlgoStudio.Core.TransactionReference.Fee
+  - AlgoStudio.Core.TransactionReference.FirstValid
+  - AlgoStudio.Core.TransactionReference.LastValid
+  - AlgoStudio.Core.TransactionReference.Sender
+  - AlgoStudio.Core.TransactionReference.TxType
+  - AlgoStudio.Core.TransactionReference.Lease
+  - AlgoStudio.Core.TransactionReference.Note
+  - AlgoStudio.Core.TransactionReference.RekeyTo
+  - AlgoStudio.Core.TransactionReference.GroupIndex
+  - AlgoStudio.Core.TransactionReference.TxID
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetAccount
+  commentId: F:AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetAccount
+  id: FreezeAssetAccount
+  parent: AlgoStudio.Core.AssetFreezeTransactionReference
+  langs:
+  - csharp
+  - vb
+  name: FreezeAssetAccount
+  nameWithType: AssetFreezeTransactionReference.FreezeAssetAccount
+  fullName: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetAccount
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: FreezeAssetAccount
+    path: ../../AlgoStudio/AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] FreezeAssetAccount
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public FreezeAssetAccount As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAsset
+  commentId: F:AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAsset
+  id: FreezeAsset
+  parent: AlgoStudio.Core.AssetFreezeTransactionReference
+  langs:
+  - csharp
+  - vb
+  name: FreezeAsset
+  nameWithType: AssetFreezeTransactionReference.FreezeAsset
+  fullName: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAsset
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: FreezeAsset
+    path: ../../AlgoStudio/AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong FreezeAsset
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public FreezeAsset As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetFrozen
+  commentId: F:AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetFrozen
+  id: FreezeAssetFrozen
+  parent: AlgoStudio.Core.AssetFreezeTransactionReference
+  langs:
+  - csharp
+  - vb
+  name: FreezeAssetFrozen
+  nameWithType: AssetFreezeTransactionReference.FreezeAssetFrozen
+  fullName: AlgoStudio.Core.AssetFreezeTransactionReference.FreezeAssetFrozen
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: FreezeAssetFrozen
+    path: ../../AlgoStudio/AlgoStudio.Core/TransactionReferences/AssetFreezeTransactionReference.cs
+    startLine: 14
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public bool FreezeAssetFrozen
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public FreezeAssetFrozen As Boolean
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: AlgoStudio.Core.TransactionReference
+  commentId: T:AlgoStudio.Core.TransactionReference
+  parent: AlgoStudio.Core
+  name: TransactionReference
+  nameWithType: TransactionReference
+  fullName: AlgoStudio.Core.TransactionReference
+- uid: AlgoStudio.Core.TransactionReference.Fee
+  commentId: F:AlgoStudio.Core.TransactionReference.Fee
+  parent: AlgoStudio.Core.TransactionReference
+  name: Fee
+  nameWithType: TransactionReference.Fee
+  fullName: AlgoStudio.Core.TransactionReference.Fee
+- uid: AlgoStudio.Core.TransactionReference.FirstValid
+  commentId: F:AlgoStudio.Core.TransactionReference.FirstValid
+  parent: AlgoStudio.Core.TransactionReference
+  name: FirstValid
+  nameWithType: TransactionReference.FirstValid
+  fullName: AlgoStudio.Core.TransactionReference.FirstValid
+- uid: AlgoStudio.Core.TransactionReference.LastValid
+  commentId: F:AlgoStudio.Core.TransactionReference.LastValid
+  parent: AlgoStudio.Core.TransactionReference
+  name: LastValid
+  nameWithType: TransactionReference.LastValid
+  fullName: AlgoStudio.Core.TransactionReference.LastValid
+- uid: AlgoStudio.Core.TransactionReference.Sender
+  commentId: F:AlgoStudio.Core.TransactionReference.Sender
+  parent: AlgoStudio.Core.TransactionReference
+  name: Sender
+  nameWithType: TransactionReference.Sender
+  fullName: AlgoStudio.Core.TransactionReference.Sender
+- uid: AlgoStudio.Core.TransactionReference.TxType
+  commentId: F:AlgoStudio.Core.TransactionReference.TxType
+  parent: AlgoStudio.Core.TransactionReference
+  name: TxType
+  nameWithType: TransactionReference.TxType
+  fullName: AlgoStudio.Core.TransactionReference.TxType
+- uid: AlgoStudio.Core.TransactionReference.Lease
+  commentId: F:AlgoStudio.Core.TransactionReference.Lease
+  parent: AlgoStudio.Core.TransactionReference
+  name: Lease
+  nameWithType: TransactionReference.Lease
+  fullName: AlgoStudio.Core.TransactionReference.Lease
+- uid: AlgoStudio.Core.TransactionReference.Note
+  commentId: F:AlgoStudio.Core.TransactionReference.Note
+  parent: AlgoStudio.Core.TransactionReference
+  name: Note
+  nameWithType: TransactionReference.Note
+  fullName: AlgoStudio.Core.TransactionReference.Note
+- uid: AlgoStudio.Core.TransactionReference.RekeyTo
+  commentId: F:AlgoStudio.Core.TransactionReference.RekeyTo
+  parent: AlgoStudio.Core.TransactionReference
+  name: RekeyTo
+  nameWithType: TransactionReference.RekeyTo
+  fullName: AlgoStudio.Core.TransactionReference.RekeyTo
+- uid: AlgoStudio.Core.TransactionReference.GroupIndex
+  commentId: F:AlgoStudio.Core.TransactionReference.GroupIndex
+  parent: AlgoStudio.Core.TransactionReference
+  name: GroupIndex
+  nameWithType: TransactionReference.GroupIndex
+  fullName: AlgoStudio.Core.TransactionReference.GroupIndex
+- uid: AlgoStudio.Core.TransactionReference.TxID
+  commentId: F:AlgoStudio.Core.TransactionReference.TxID
+  parent: AlgoStudio.Core.TransactionReference
+  name: TxID
+  nameWithType: TransactionReference.TxID
+  fullName: AlgoStudio.Core.TransactionReference.TxID
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

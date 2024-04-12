@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.AccountReference
+  commentId: T:AlgoStudio.Core.AccountReference
+  id: AccountReference
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.AccountReference.Address
+  - AlgoStudio.Core.AccountReference.AssetBalance(AlgoStudio.Core.AssetReference)
+  - AlgoStudio.Core.AccountReference.Balance
+  - AlgoStudio.Core.AccountReference.Clawback(AlgoStudio.Core.AssetReference,System.UInt64)
+  - AlgoStudio.Core.AccountReference.Freeze(AlgoStudio.Core.AssetReference)
+  - AlgoStudio.Core.AccountReference.IsAssetFrozen(AlgoStudio.Core.AssetReference)
+  - AlgoStudio.Core.AccountReference.OptedIn(AlgoStudio.Core.SmartContractReference)
+  - AlgoStudio.Core.AccountReference.SetAsLocalAccountContext
+  - AlgoStudio.Core.AccountReference.UnFreeze(AlgoStudio.Core.AssetReference)
+  langs:
+  - csharp
+  - vb
+  name: AccountReference
+  nameWithType: AccountReference
+  fullName: AlgoStudio.Core.AccountReference
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: AccountReference
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 6
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public sealed class AccountReference
+    content.vb: Public NotInheritable Class AccountReference
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: AlgoStudio.Core.AccountReference.Address
+  commentId: M:AlgoStudio.Core.AccountReference.Address
+  id: Address
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: Address()
+  nameWithType: AccountReference.Address()
+  fullName: AlgoStudio.Core.AccountReference.Address()
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Address
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] Address()
+    return:
+      type: System.Byte[]
+    content.vb: Public Function Address As Byte()
+  overload: AlgoStudio.Core.AccountReference.Address*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.Balance
+  commentId: M:AlgoStudio.Core.AccountReference.Balance
+  id: Balance
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: Balance()
+  nameWithType: AccountReference.Balance()
+  fullName: AlgoStudio.Core.AccountReference.Balance()
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Balance
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong Balance()
+    return:
+      type: System.UInt64
+    content.vb: Public Function Balance As ULong
+  overload: AlgoStudio.Core.AccountReference.Balance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.AssetBalance(AlgoStudio.Core.AssetReference)
+  commentId: M:AlgoStudio.Core.AccountReference.AssetBalance(AlgoStudio.Core.AssetReference)
+  id: AssetBalance(AlgoStudio.Core.AssetReference)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: AssetBalance(AssetReference)
+  nameWithType: AccountReference.AssetBalance(AssetReference)
+  fullName: AlgoStudio.Core.AccountReference.AssetBalance(AlgoStudio.Core.AssetReference)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: AssetBalance
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 13
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong AssetBalance(AssetReference asset)
+    parameters:
+    - id: asset
+      type: AlgoStudio.Core.AssetReference
+    return:
+      type: System.UInt64
+    content.vb: Public Function AssetBalance(asset As AssetReference) As ULong
+  overload: AlgoStudio.Core.AccountReference.AssetBalance*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.IsAssetFrozen(AlgoStudio.Core.AssetReference)
+  commentId: M:AlgoStudio.Core.AccountReference.IsAssetFrozen(AlgoStudio.Core.AssetReference)
+  id: IsAssetFrozen(AlgoStudio.Core.AssetReference)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: IsAssetFrozen(AssetReference)
+  nameWithType: AccountReference.IsAssetFrozen(AssetReference)
+  fullName: AlgoStudio.Core.AccountReference.IsAssetFrozen(AlgoStudio.Core.AssetReference)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: IsAssetFrozen
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 15
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public bool IsAssetFrozen(AssetReference asset)
+    parameters:
+    - id: asset
+      type: AlgoStudio.Core.AssetReference
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsAssetFrozen(asset As AssetReference) As Boolean
+  overload: AlgoStudio.Core.AccountReference.IsAssetFrozen*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.OptedIn(AlgoStudio.Core.SmartContractReference)
+  commentId: M:AlgoStudio.Core.AccountReference.OptedIn(AlgoStudio.Core.SmartContractReference)
+  id: OptedIn(AlgoStudio.Core.SmartContractReference)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: OptedIn(SmartContractReference)
+  nameWithType: AccountReference.OptedIn(SmartContractReference)
+  fullName: AlgoStudio.Core.AccountReference.OptedIn(AlgoStudio.Core.SmartContractReference)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: OptedIn
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 17
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public bool OptedIn(SmartContractReference contract)
+    parameters:
+    - id: contract
+      type: AlgoStudio.Core.SmartContractReference
+    return:
+      type: System.Boolean
+    content.vb: Public Function OptedIn(contract As SmartContractReference) As Boolean
+  overload: AlgoStudio.Core.AccountReference.OptedIn*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.SetAsLocalAccountContext
+  commentId: M:AlgoStudio.Core.AccountReference.SetAsLocalAccountContext
+  id: SetAsLocalAccountContext
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: SetAsLocalAccountContext()
+  nameWithType: AccountReference.SetAsLocalAccountContext()
+  fullName: AlgoStudio.Core.AccountReference.SetAsLocalAccountContext()
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: SetAsLocalAccountContext
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 19
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public void SetAsLocalAccountContext()
+    content.vb: Public Sub SetAsLocalAccountContext
+  overload: AlgoStudio.Core.AccountReference.SetAsLocalAccountContext*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.Freeze(AlgoStudio.Core.AssetReference)
+  commentId: M:AlgoStudio.Core.AccountReference.Freeze(AlgoStudio.Core.AssetReference)
+  id: Freeze(AlgoStudio.Core.AssetReference)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: Freeze(AssetReference)
+  nameWithType: AccountReference.Freeze(AssetReference)
+  fullName: AlgoStudio.Core.AccountReference.Freeze(AlgoStudio.Core.AssetReference)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Freeze
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 21
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public void Freeze(AssetReference asset)
+    parameters:
+    - id: asset
+      type: AlgoStudio.Core.AssetReference
+    content.vb: Public Sub Freeze(asset As AssetReference)
+  overload: AlgoStudio.Core.AccountReference.Freeze*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.UnFreeze(AlgoStudio.Core.AssetReference)
+  commentId: M:AlgoStudio.Core.AccountReference.UnFreeze(AlgoStudio.Core.AssetReference)
+  id: UnFreeze(AlgoStudio.Core.AssetReference)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: UnFreeze(AssetReference)
+  nameWithType: AccountReference.UnFreeze(AssetReference)
+  fullName: AlgoStudio.Core.AccountReference.UnFreeze(AlgoStudio.Core.AssetReference)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: UnFreeze
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 23
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public void UnFreeze(AssetReference asset)
+    parameters:
+    - id: asset
+      type: AlgoStudio.Core.AssetReference
+    content.vb: Public Sub UnFreeze(asset As AssetReference)
+  overload: AlgoStudio.Core.AccountReference.UnFreeze*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.AccountReference.Clawback(AlgoStudio.Core.AssetReference,System.UInt64)
+  commentId: M:AlgoStudio.Core.AccountReference.Clawback(AlgoStudio.Core.AssetReference,System.UInt64)
+  id: Clawback(AlgoStudio.Core.AssetReference,System.UInt64)
+  parent: AlgoStudio.Core.AccountReference
+  langs:
+  - csharp
+  - vb
+  name: Clawback(AssetReference, UInt64)
+  nameWithType: AccountReference.Clawback(AssetReference, UInt64)
+  fullName: AlgoStudio.Core.AccountReference.Clawback(AlgoStudio.Core.AssetReference, System.UInt64)
+  type: Method
+  source:
+    remote:
+      path: AlgoStudio.Core/AccountReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Clawback
+    path: ../../AlgoStudio/AlgoStudio.Core/AccountReference.cs
+    startLine: 25
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public void Clawback(AssetReference asset, ulong Amount)
+    parameters:
+    - id: asset
+      type: AlgoStudio.Core.AssetReference
+    - id: Amount
+      type: System.UInt64
+    content.vb: Public Sub Clawback(asset As AssetReference, Amount As ULong)
+  overload: AlgoStudio.Core.AccountReference.Clawback*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.AccountReference.Address*
+  commentId: Overload:AlgoStudio.Core.AccountReference.Address
+  name: Address
+  nameWithType: AccountReference.Address
+  fullName: AlgoStudio.Core.AccountReference.Address
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: AlgoStudio.Core.AccountReference.Balance*
+  commentId: Overload:AlgoStudio.Core.AccountReference.Balance
+  name: Balance
+  nameWithType: AccountReference.Balance
+  fullName: AlgoStudio.Core.AccountReference.Balance
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: AlgoStudio.Core.AccountReference.AssetBalance*
+  commentId: Overload:AlgoStudio.Core.AccountReference.AssetBalance
+  name: AssetBalance
+  nameWithType: AccountReference.AssetBalance
+  fullName: AlgoStudio.Core.AccountReference.AssetBalance
+- uid: AlgoStudio.Core.AssetReference
+  commentId: T:AlgoStudio.Core.AssetReference
+  parent: AlgoStudio.Core
+  name: AssetReference
+  nameWithType: AssetReference
+  fullName: AlgoStudio.Core.AssetReference
+- uid: AlgoStudio.Core.AccountReference.IsAssetFrozen*
+  commentId: Overload:AlgoStudio.Core.AccountReference.IsAssetFrozen
+  name: IsAssetFrozen
+  nameWithType: AccountReference.IsAssetFrozen
+  fullName: AlgoStudio.Core.AccountReference.IsAssetFrozen
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: AlgoStudio.Core.AccountReference.OptedIn*
+  commentId: Overload:AlgoStudio.Core.AccountReference.OptedIn
+  name: OptedIn
+  nameWithType: AccountReference.OptedIn
+  fullName: AlgoStudio.Core.AccountReference.OptedIn
+- uid: AlgoStudio.Core.SmartContractReference
+  commentId: T:AlgoStudio.Core.SmartContractReference
+  parent: AlgoStudio.Core
+  name: SmartContractReference
+  nameWithType: SmartContractReference
+  fullName: AlgoStudio.Core.SmartContractReference
+- uid: AlgoStudio.Core.AccountReference.SetAsLocalAccountContext*
+  commentId: Overload:AlgoStudio.Core.AccountReference.SetAsLocalAccountContext
+  name: SetAsLocalAccountContext
+  nameWithType: AccountReference.SetAsLocalAccountContext
+  fullName: AlgoStudio.Core.AccountReference.SetAsLocalAccountContext
+- uid: AlgoStudio.Core.AccountReference.Freeze*
+  commentId: Overload:AlgoStudio.Core.AccountReference.Freeze
+  name: Freeze
+  nameWithType: AccountReference.Freeze
+  fullName: AlgoStudio.Core.AccountReference.Freeze
+- uid: AlgoStudio.Core.AccountReference.UnFreeze*
+  commentId: Overload:AlgoStudio.Core.AccountReference.UnFreeze
+  name: UnFreeze
+  nameWithType: AccountReference.UnFreeze
+  fullName: AlgoStudio.Core.AccountReference.UnFreeze
+- uid: AlgoStudio.Core.AccountReference.Clawback*
+  commentId: Overload:AlgoStudio.Core.AccountReference.Clawback
+  name: Clawback
+  nameWithType: AccountReference.Clawback
+  fullName: AlgoStudio.Core.AccountReference.Clawback

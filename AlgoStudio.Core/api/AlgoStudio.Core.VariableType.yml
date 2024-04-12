@@ -1,0 +1,310 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.VariableType
+  commentId: T:AlgoStudio.Core.VariableType
+  id: VariableType
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.VariableType.ABIStruct
+  - AlgoStudio.Core.VariableType.ByteArrayReference
+  - AlgoStudio.Core.VariableType.ByteSlice
+  - AlgoStudio.Core.VariableType.InnerTransaction
+  - AlgoStudio.Core.VariableType.UInt64
+  - AlgoStudio.Core.VariableType.UlongReference
+  - AlgoStudio.Core.VariableType.Unsupported
+  - AlgoStudio.Core.VariableType.ValueTuple
+  langs:
+  - csharp
+  - vb
+  name: VariableType
+  nameWithType: VariableType
+  fullName: AlgoStudio.Core.VariableType
+  type: Enum
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: VariableType
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 6
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public enum VariableType
+    content.vb: Public Enum VariableType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: AlgoStudio.Core.VariableType.UInt64
+  commentId: F:AlgoStudio.Core.VariableType.UInt64
+  id: UInt64
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: UInt64
+  nameWithType: VariableType.UInt64
+  fullName: AlgoStudio.Core.VariableType.UInt64
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: UInt64
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 8
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: UInt64 = 0
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.ByteSlice
+  commentId: F:AlgoStudio.Core.VariableType.ByteSlice
+  id: ByteSlice
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: ByteSlice
+  nameWithType: VariableType.ByteSlice
+  fullName: AlgoStudio.Core.VariableType.ByteSlice
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ByteSlice
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ByteSlice = 1
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.ValueTuple
+  commentId: F:AlgoStudio.Core.VariableType.ValueTuple
+  id: ValueTuple
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: ValueTuple
+  nameWithType: VariableType.ValueTuple
+  fullName: AlgoStudio.Core.VariableType.ValueTuple
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ValueTuple
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ValueTuple = 2
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.Unsupported
+  commentId: F:AlgoStudio.Core.VariableType.Unsupported
+  id: Unsupported
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: Unsupported
+  nameWithType: VariableType.Unsupported
+  fullName: AlgoStudio.Core.VariableType.Unsupported
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Unsupported
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: Unsupported = 3
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.InnerTransaction
+  commentId: F:AlgoStudio.Core.VariableType.InnerTransaction
+  id: InnerTransaction
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: InnerTransaction
+  nameWithType: VariableType.InnerTransaction
+  fullName: AlgoStudio.Core.VariableType.InnerTransaction
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: InnerTransaction
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: InnerTransaction = 4
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.UlongReference
+  commentId: F:AlgoStudio.Core.VariableType.UlongReference
+  id: UlongReference
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: UlongReference
+  nameWithType: VariableType.UlongReference
+  fullName: AlgoStudio.Core.VariableType.UlongReference
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: UlongReference
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 13
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: UlongReference = 5
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.ByteArrayReference
+  commentId: F:AlgoStudio.Core.VariableType.ByteArrayReference
+  id: ByteArrayReference
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: ByteArrayReference
+  nameWithType: VariableType.ByteArrayReference
+  fullName: AlgoStudio.Core.VariableType.ByteArrayReference
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ByteArrayReference
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 14
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ByteArrayReference = 6
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.VariableType.ABIStruct
+  commentId: F:AlgoStudio.Core.VariableType.ABIStruct
+  id: ABIStruct
+  parent: AlgoStudio.Core.VariableType
+  langs:
+  - csharp
+  - vb
+  name: ABIStruct
+  nameWithType: VariableType.ABIStruct
+  fullName: AlgoStudio.Core.VariableType.ABIStruct
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/VariableType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ABIStruct
+    path: ../../AlgoStudio/AlgoStudio.Core/VariableType.cs
+    startLine: 15
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ABIStruct = 7
+    return:
+      type: AlgoStudio.Core.VariableType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.VariableType
+  commentId: T:AlgoStudio.Core.VariableType
+  parent: AlgoStudio.Core
+  name: VariableType
+  nameWithType: VariableType
+  fullName: AlgoStudio.Core.VariableType

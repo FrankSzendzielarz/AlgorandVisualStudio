@@ -1,0 +1,3 @@
+﻿Feature: SmartSignaturePredefinedMethods
+
+coming soon

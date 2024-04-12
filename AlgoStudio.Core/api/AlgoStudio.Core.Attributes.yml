@@ -1,0 +1,64 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.Attributes
+  commentId: N:AlgoStudio.Core.Attributes
+  id: AlgoStudio.Core.Attributes
+  children:
+  - AlgoStudio.Core.Attributes.ABIFixedSizeAttribute
+  - AlgoStudio.Core.Attributes.ABIStructAttribute
+  - AlgoStudio.Core.Attributes.ABITypeDecoratorAttribute
+  - AlgoStudio.Core.Attributes.InnerTransactionCallAttribute
+  - AlgoStudio.Core.Attributes.SmartContractMethodAttribute
+  - AlgoStudio.Core.Attributes.SmartSignatureMethodAttribute
+  - AlgoStudio.Core.Attributes.StorageAttribute
+  langs:
+  - csharp
+  - vb
+  name: AlgoStudio.Core.Attributes
+  nameWithType: AlgoStudio.Core.Attributes
+  fullName: AlgoStudio.Core.Attributes
+  type: Namespace
+  assemblies:
+  - AlgoStudio - Backup.Core
+references:
+- uid: AlgoStudio.Core.Attributes.ABIFixedSizeAttribute
+  commentId: T:AlgoStudio.Core.Attributes.ABIFixedSizeAttribute
+  name: ABIFixedSizeAttribute
+  nameWithType: ABIFixedSizeAttribute
+  fullName: AlgoStudio.Core.Attributes.ABIFixedSizeAttribute
+- uid: AlgoStudio.Core.Attributes.ABIStructAttribute
+  commentId: T:AlgoStudio.Core.Attributes.ABIStructAttribute
+  name: ABIStructAttribute
+  nameWithType: ABIStructAttribute
+  fullName: AlgoStudio.Core.Attributes.ABIStructAttribute
+- uid: AlgoStudio.Core.Attributes.ABITypeDecoratorAttribute
+  commentId: T:AlgoStudio.Core.Attributes.ABITypeDecoratorAttribute
+  name: ABITypeDecoratorAttribute
+  nameWithType: ABITypeDecoratorAttribute
+  fullName: AlgoStudio.Core.Attributes.ABITypeDecoratorAttribute
+- uid: AlgoStudio.Core.Attributes.InnerTransactionCallAttribute
+  commentId: T:AlgoStudio.Core.Attributes.InnerTransactionCallAttribute
+  name: InnerTransactionCallAttribute
+  nameWithType: InnerTransactionCallAttribute
+  fullName: AlgoStudio.Core.Attributes.InnerTransactionCallAttribute
+- uid: AlgoStudio.Core.Attributes.SmartContractMethodAttribute
+  commentId: T:AlgoStudio.Core.Attributes.SmartContractMethodAttribute
+  name: SmartContractMethodAttribute
+  nameWithType: SmartContractMethodAttribute
+  fullName: AlgoStudio.Core.Attributes.SmartContractMethodAttribute
+- uid: AlgoStudio.Core.Attributes.SmartSignatureMethodAttribute
+  commentId: T:AlgoStudio.Core.Attributes.SmartSignatureMethodAttribute
+  name: SmartSignatureMethodAttribute
+  nameWithType: SmartSignatureMethodAttribute
+  fullName: AlgoStudio.Core.Attributes.SmartSignatureMethodAttribute
+- uid: AlgoStudio.Core.Attributes.StorageAttribute
+  commentId: T:AlgoStudio.Core.Attributes.StorageAttribute
+  parent: AlgoStudio.Core.Attributes
+  name: StorageAttribute
+  nameWithType: StorageAttribute
+  fullName: AlgoStudio.Core.Attributes.StorageAttribute
+- uid: AlgoStudio.Core.Attributes
+  commentId: N:AlgoStudio.Core.Attributes
+  name: AlgoStudio.Core.Attributes
+  nameWithType: AlgoStudio.Core.Attributes
+  fullName: AlgoStudio.Core.Attributes

@@ -1,0 +1,1164 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.AppCall
+  commentId: T:AlgoStudio.Core.AppCall
+  id: AppCall
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.AppCall.#ctor(System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,AlgoStudio.Core.OnCompleteType,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.AppCall.ApplicationID
+  - AlgoStudio.Core.AppCall.ApprovalProgram
+  - AlgoStudio.Core.AppCall.ClearStateProgram
+  - AlgoStudio.Core.AppCall.ExtraProgramPages
+  - AlgoStudio.Core.AppCall.GlobalNumByteSlice
+  - AlgoStudio.Core.AppCall.GlobalNumUint
+  - AlgoStudio.Core.AppCall.LocalNumByteSlice
+  - AlgoStudio.Core.AppCall.LocalNumUint
+  - AlgoStudio.Core.AppCall.NumAccounts
+  - AlgoStudio.Core.AppCall.NumAppArgs
+  - AlgoStudio.Core.AppCall.NumApplications
+  - AlgoStudio.Core.AppCall.NumAssets
+  - AlgoStudio.Core.AppCall.OnCompletion
+  langs:
+  - csharp
+  - vb
+  name: AppCall
+  nameWithType: AppCall
+  fullName: AlgoStudio.Core.AppCall
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: AppCall
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 7
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: 'public sealed class AppCall : InnerTransaction'
+    content.vb: >-
+      Public NotInheritable Class AppCall
+          Inherits InnerTransaction
+  inheritance:
+  - System.Object
+  - AlgoStudio.Core.InnerTransaction
+  inheritedMembers:
+  - AlgoStudio.Core.InnerTransaction.Fee
+  - AlgoStudio.Core.InnerTransaction.FirstValid
+  - AlgoStudio.Core.InnerTransaction.LastValid
+  - AlgoStudio.Core.InnerTransaction.Sender
+  - AlgoStudio.Core.InnerTransaction.TxType
+  - AlgoStudio.Core.InnerTransaction.Lease
+  - AlgoStudio.Core.InnerTransaction.Note
+  - AlgoStudio.Core.InnerTransaction.RekeyTo
+  - AlgoStudio.Core.InnerTransaction.GroupIndex
+  - AlgoStudio.Core.InnerTransaction.TxID
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: AlgoStudio.Core.AppCall.NumAppArgs
+  commentId: P:AlgoStudio.Core.AppCall.NumAppArgs
+  id: NumAppArgs
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: NumAppArgs
+  nameWithType: AppCall.NumAppArgs
+  fullName: AlgoStudio.Core.AppCall.NumAppArgs
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumAppArgs
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong NumAppArgs { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property NumAppArgs As ULong
+  overload: AlgoStudio.Core.AppCall.NumAppArgs*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.NumAccounts
+  commentId: P:AlgoStudio.Core.AppCall.NumAccounts
+  id: NumAccounts
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: NumAccounts
+  nameWithType: AppCall.NumAccounts
+  fullName: AlgoStudio.Core.AppCall.NumAccounts
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumAccounts
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong NumAccounts { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property NumAccounts As ULong
+  overload: AlgoStudio.Core.AppCall.NumAccounts*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.NumAssets
+  commentId: P:AlgoStudio.Core.AppCall.NumAssets
+  id: NumAssets
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: NumAssets
+  nameWithType: AppCall.NumAssets
+  fullName: AlgoStudio.Core.AppCall.NumAssets
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumAssets
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 14
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong NumAssets { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property NumAssets As ULong
+  overload: AlgoStudio.Core.AppCall.NumAssets*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.NumApplications
+  commentId: P:AlgoStudio.Core.AppCall.NumApplications
+  id: NumApplications
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: NumApplications
+  nameWithType: AppCall.NumApplications
+  fullName: AlgoStudio.Core.AppCall.NumApplications
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NumApplications
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 16
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong NumApplications { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property NumApplications As ULong
+  overload: AlgoStudio.Core.AppCall.NumApplications*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.GlobalNumUint
+  commentId: P:AlgoStudio.Core.AppCall.GlobalNumUint
+  id: GlobalNumUint
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: GlobalNumUint
+  nameWithType: AppCall.GlobalNumUint
+  fullName: AlgoStudio.Core.AppCall.GlobalNumUint
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: GlobalNumUint
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 18
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong GlobalNumUint { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property GlobalNumUint As ULong
+  overload: AlgoStudio.Core.AppCall.GlobalNumUint*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.GlobalNumByteSlice
+  commentId: P:AlgoStudio.Core.AppCall.GlobalNumByteSlice
+  id: GlobalNumByteSlice
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: GlobalNumByteSlice
+  nameWithType: AppCall.GlobalNumByteSlice
+  fullName: AlgoStudio.Core.AppCall.GlobalNumByteSlice
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: GlobalNumByteSlice
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 20
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong GlobalNumByteSlice { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property GlobalNumByteSlice As ULong
+  overload: AlgoStudio.Core.AppCall.GlobalNumByteSlice*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.LocalNumUint
+  commentId: P:AlgoStudio.Core.AppCall.LocalNumUint
+  id: LocalNumUint
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: LocalNumUint
+  nameWithType: AppCall.LocalNumUint
+  fullName: AlgoStudio.Core.AppCall.LocalNumUint
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LocalNumUint
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 22
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong LocalNumUint { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property LocalNumUint As ULong
+  overload: AlgoStudio.Core.AppCall.LocalNumUint*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.LocalNumByteSlice
+  commentId: P:AlgoStudio.Core.AppCall.LocalNumByteSlice
+  id: LocalNumByteSlice
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: LocalNumByteSlice
+  nameWithType: AppCall.LocalNumByteSlice
+  fullName: AlgoStudio.Core.AppCall.LocalNumByteSlice
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LocalNumByteSlice
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 24
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong LocalNumByteSlice { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property LocalNumByteSlice As ULong
+  overload: AlgoStudio.Core.AppCall.LocalNumByteSlice*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.ApplicationID
+  commentId: P:AlgoStudio.Core.AppCall.ApplicationID
+  id: ApplicationID
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: ApplicationID
+  nameWithType: AppCall.ApplicationID
+  fullName: AlgoStudio.Core.AppCall.ApplicationID
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ApplicationID
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 26
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong ApplicationID { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property ApplicationID As ULong
+  overload: AlgoStudio.Core.AppCall.ApplicationID*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.OnCompletion
+  commentId: P:AlgoStudio.Core.AppCall.OnCompletion
+  id: OnCompletion
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: OnCompletion
+  nameWithType: AppCall.OnCompletion
+  fullName: AlgoStudio.Core.AppCall.OnCompletion
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: OnCompletion
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 28
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong OnCompletion { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property OnCompletion As ULong
+  overload: AlgoStudio.Core.AppCall.OnCompletion*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.ApprovalProgram
+  commentId: P:AlgoStudio.Core.AppCall.ApprovalProgram
+  id: ApprovalProgram
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: ApprovalProgram
+  nameWithType: AppCall.ApprovalProgram
+  fullName: AlgoStudio.Core.AppCall.ApprovalProgram
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ApprovalProgram
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 30
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] ApprovalProgram { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property ApprovalProgram As Byte()
+  overload: AlgoStudio.Core.AppCall.ApprovalProgram*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.ClearStateProgram
+  commentId: P:AlgoStudio.Core.AppCall.ClearStateProgram
+  id: ClearStateProgram
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: ClearStateProgram
+  nameWithType: AppCall.ClearStateProgram
+  fullName: AlgoStudio.Core.AppCall.ClearStateProgram
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ClearStateProgram
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 32
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] ClearStateProgram { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property ClearStateProgram As Byte()
+  overload: AlgoStudio.Core.AppCall.ClearStateProgram*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.ExtraProgramPages
+  commentId: P:AlgoStudio.Core.AppCall.ExtraProgramPages
+  id: ExtraProgramPages
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: ExtraProgramPages
+  nameWithType: AppCall.ExtraProgramPages
+  fullName: AlgoStudio.Core.AppCall.ExtraProgramPages
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ExtraProgramPages
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 34
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong ExtraProgramPages { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property ExtraProgramPages As ULong
+  overload: AlgoStudio.Core.AppCall.ExtraProgramPages*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.AppCall.#ctor(System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,AlgoStudio.Core.OnCompleteType,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.AppCall.#ctor(System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,AlgoStudio.Core.OnCompleteType,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  id: '#ctor(System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,System.UInt64,AlgoStudio.Core.OnCompleteType,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])'
+  parent: AlgoStudio.Core.AppCall
+  langs:
+  - csharp
+  - vb
+  name: AppCall(UInt64, UInt64, UInt64, UInt64, UInt64, UInt64, OnCompleteType, Nullable<UInt64>, Nullable<UInt64>, Byte[], Byte[], Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  nameWithType: AppCall.AppCall(UInt64, UInt64, UInt64, UInt64, UInt64, UInt64, OnCompleteType, Nullable<UInt64>, Nullable<UInt64>, Byte[], Byte[], Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.AppCall.AppCall(System.UInt64, System.UInt64, System.UInt64, System.UInt64, System.UInt64, System.UInt64, AlgoStudio.Core.OnCompleteType, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Byte[], System.Byte[], System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, AlgoStudio.Core.AccountReference, System.Nullable<System.UInt64>, System.Byte[], System.Byte[], System.Byte[])
+  type: Constructor
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/AppCall.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: .ctor
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/AppCall.cs
+    startLine: 39
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public AppCall(ulong numAppArgs, ulong numAccounts, ulong numAssets, ulong numApplications, ulong localNumUint, ulong localNumByteSlice, OnCompleteType onCompletion, ulong? globalNumUint = 0UL, ulong? globalNumByteSlice = 0UL, byte[] approvalProgram = null, byte[] clearStateProgram = null, ulong? extraProgramPages = 0UL, ulong? fee = 0UL, ulong? firstValid = 0UL, ulong? lastValid = 0UL, AccountReference sender = null, ulong? txType = 0UL, byte[] lease = null, byte[] note = null, byte[] rekeyTo = null)
+    parameters:
+    - id: numAppArgs
+      type: System.UInt64
+    - id: numAccounts
+      type: System.UInt64
+    - id: numAssets
+      type: System.UInt64
+    - id: numApplications
+      type: System.UInt64
+    - id: localNumUint
+      type: System.UInt64
+    - id: localNumByteSlice
+      type: System.UInt64
+    - id: onCompletion
+      type: AlgoStudio.Core.OnCompleteType
+    - id: globalNumUint
+      type: System.Nullable{System.UInt64}
+    - id: globalNumByteSlice
+      type: System.Nullable{System.UInt64}
+    - id: approvalProgram
+      type: System.Byte[]
+    - id: clearStateProgram
+      type: System.Byte[]
+    - id: extraProgramPages
+      type: System.Nullable{System.UInt64}
+    - id: fee
+      type: System.Nullable{System.UInt64}
+    - id: firstValid
+      type: System.Nullable{System.UInt64}
+    - id: lastValid
+      type: System.Nullable{System.UInt64}
+    - id: sender
+      type: AlgoStudio.Core.AccountReference
+    - id: txType
+      type: System.Nullable{System.UInt64}
+    - id: lease
+      type: System.Byte[]
+    - id: note
+      type: System.Byte[]
+    - id: rekeyTo
+      type: System.Byte[]
+    content.vb: Public Sub New(numAppArgs As ULong, numAccounts As ULong, numAssets As ULong, numApplications As ULong, localNumUint As ULong, localNumByteSlice As ULong, onCompletion As OnCompleteType, globalNumUint As ULong? = 0UL, globalNumByteSlice As ULong? = 0UL, approvalProgram As Byte() = Nothing, clearStateProgram As Byte() = Nothing, extraProgramPages As ULong? = 0UL, fee As ULong? = 0UL, firstValid As ULong? = 0UL, lastValid As ULong? = 0UL, sender As AccountReference = Nothing, txType As ULong? = 0UL, lease As Byte() = Nothing, note As Byte() = Nothing, rekeyTo As Byte() = Nothing)
+  overload: AlgoStudio.Core.AppCall.#ctor*
+  nameWithType.vb: AppCall.AppCall(UInt64, UInt64, UInt64, UInt64, UInt64, UInt64, OnCompleteType, Nullable(Of UInt64), Nullable(Of UInt64), Byte(), Byte(), Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: AlgoStudio.Core.AppCall.AppCall(System.UInt64, System.UInt64, System.UInt64, System.UInt64, System.UInt64, System.UInt64, AlgoStudio.Core.OnCompleteType, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Byte(), System.Byte(), System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), AlgoStudio.Core.AccountReference, System.Nullable(Of System.UInt64), System.Byte(), System.Byte(), System.Byte())
+  name.vb: AppCall(UInt64, UInt64, UInt64, UInt64, UInt64, UInt64, OnCompleteType, Nullable(Of UInt64), Nullable(Of UInt64), Byte(), Byte(), Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: AlgoStudio.Core.InnerTransaction
+  commentId: T:AlgoStudio.Core.InnerTransaction
+  parent: AlgoStudio.Core
+  name: InnerTransaction
+  nameWithType: InnerTransaction
+  fullName: AlgoStudio.Core.InnerTransaction
+- uid: AlgoStudio.Core.InnerTransaction.Fee
+  commentId: P:AlgoStudio.Core.InnerTransaction.Fee
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Fee
+  nameWithType: InnerTransaction.Fee
+  fullName: AlgoStudio.Core.InnerTransaction.Fee
+- uid: AlgoStudio.Core.InnerTransaction.FirstValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.FirstValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: FirstValid
+  nameWithType: InnerTransaction.FirstValid
+  fullName: AlgoStudio.Core.InnerTransaction.FirstValid
+- uid: AlgoStudio.Core.InnerTransaction.LastValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.LastValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: LastValid
+  nameWithType: InnerTransaction.LastValid
+  fullName: AlgoStudio.Core.InnerTransaction.LastValid
+- uid: AlgoStudio.Core.InnerTransaction.Sender
+  commentId: P:AlgoStudio.Core.InnerTransaction.Sender
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Sender
+  nameWithType: InnerTransaction.Sender
+  fullName: AlgoStudio.Core.InnerTransaction.Sender
+- uid: AlgoStudio.Core.InnerTransaction.TxType
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxType
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxType
+  nameWithType: InnerTransaction.TxType
+  fullName: AlgoStudio.Core.InnerTransaction.TxType
+- uid: AlgoStudio.Core.InnerTransaction.Lease
+  commentId: P:AlgoStudio.Core.InnerTransaction.Lease
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Lease
+  nameWithType: InnerTransaction.Lease
+  fullName: AlgoStudio.Core.InnerTransaction.Lease
+- uid: AlgoStudio.Core.InnerTransaction.Note
+  commentId: P:AlgoStudio.Core.InnerTransaction.Note
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Note
+  nameWithType: InnerTransaction.Note
+  fullName: AlgoStudio.Core.InnerTransaction.Note
+- uid: AlgoStudio.Core.InnerTransaction.RekeyTo
+  commentId: P:AlgoStudio.Core.InnerTransaction.RekeyTo
+  parent: AlgoStudio.Core.InnerTransaction
+  name: RekeyTo
+  nameWithType: InnerTransaction.RekeyTo
+  fullName: AlgoStudio.Core.InnerTransaction.RekeyTo
+- uid: AlgoStudio.Core.InnerTransaction.GroupIndex
+  commentId: P:AlgoStudio.Core.InnerTransaction.GroupIndex
+  parent: AlgoStudio.Core.InnerTransaction
+  name: GroupIndex
+  nameWithType: InnerTransaction.GroupIndex
+  fullName: AlgoStudio.Core.InnerTransaction.GroupIndex
+- uid: AlgoStudio.Core.InnerTransaction.TxID
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxID
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxID
+  nameWithType: InnerTransaction.TxID
+  fullName: AlgoStudio.Core.InnerTransaction.TxID
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.AppCall.NumAppArgs*
+  commentId: Overload:AlgoStudio.Core.AppCall.NumAppArgs
+  name: NumAppArgs
+  nameWithType: AppCall.NumAppArgs
+  fullName: AlgoStudio.Core.AppCall.NumAppArgs
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: AlgoStudio.Core.AppCall.NumAccounts*
+  commentId: Overload:AlgoStudio.Core.AppCall.NumAccounts
+  name: NumAccounts
+  nameWithType: AppCall.NumAccounts
+  fullName: AlgoStudio.Core.AppCall.NumAccounts
+- uid: AlgoStudio.Core.AppCall.NumAssets*
+  commentId: Overload:AlgoStudio.Core.AppCall.NumAssets
+  name: NumAssets
+  nameWithType: AppCall.NumAssets
+  fullName: AlgoStudio.Core.AppCall.NumAssets
+- uid: AlgoStudio.Core.AppCall.NumApplications*
+  commentId: Overload:AlgoStudio.Core.AppCall.NumApplications
+  name: NumApplications
+  nameWithType: AppCall.NumApplications
+  fullName: AlgoStudio.Core.AppCall.NumApplications
+- uid: AlgoStudio.Core.AppCall.GlobalNumUint*
+  commentId: Overload:AlgoStudio.Core.AppCall.GlobalNumUint
+  name: GlobalNumUint
+  nameWithType: AppCall.GlobalNumUint
+  fullName: AlgoStudio.Core.AppCall.GlobalNumUint
+- uid: AlgoStudio.Core.AppCall.GlobalNumByteSlice*
+  commentId: Overload:AlgoStudio.Core.AppCall.GlobalNumByteSlice
+  name: GlobalNumByteSlice
+  nameWithType: AppCall.GlobalNumByteSlice
+  fullName: AlgoStudio.Core.AppCall.GlobalNumByteSlice
+- uid: AlgoStudio.Core.AppCall.LocalNumUint*
+  commentId: Overload:AlgoStudio.Core.AppCall.LocalNumUint
+  name: LocalNumUint
+  nameWithType: AppCall.LocalNumUint
+  fullName: AlgoStudio.Core.AppCall.LocalNumUint
+- uid: AlgoStudio.Core.AppCall.LocalNumByteSlice*
+  commentId: Overload:AlgoStudio.Core.AppCall.LocalNumByteSlice
+  name: LocalNumByteSlice
+  nameWithType: AppCall.LocalNumByteSlice
+  fullName: AlgoStudio.Core.AppCall.LocalNumByteSlice
+- uid: AlgoStudio.Core.AppCall.ApplicationID*
+  commentId: Overload:AlgoStudio.Core.AppCall.ApplicationID
+  name: ApplicationID
+  nameWithType: AppCall.ApplicationID
+  fullName: AlgoStudio.Core.AppCall.ApplicationID
+- uid: AlgoStudio.Core.AppCall.OnCompletion*
+  commentId: Overload:AlgoStudio.Core.AppCall.OnCompletion
+  name: OnCompletion
+  nameWithType: AppCall.OnCompletion
+  fullName: AlgoStudio.Core.AppCall.OnCompletion
+- uid: AlgoStudio.Core.AppCall.ApprovalProgram*
+  commentId: Overload:AlgoStudio.Core.AppCall.ApprovalProgram
+  name: ApprovalProgram
+  nameWithType: AppCall.ApprovalProgram
+  fullName: AlgoStudio.Core.AppCall.ApprovalProgram
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: AlgoStudio.Core.AppCall.ClearStateProgram*
+  commentId: Overload:AlgoStudio.Core.AppCall.ClearStateProgram
+  name: ClearStateProgram
+  nameWithType: AppCall.ClearStateProgram
+  fullName: AlgoStudio.Core.AppCall.ClearStateProgram
+- uid: AlgoStudio.Core.AppCall.ExtraProgramPages*
+  commentId: Overload:AlgoStudio.Core.AppCall.ExtraProgramPages
+  name: ExtraProgramPages
+  nameWithType: AppCall.ExtraProgramPages
+  fullName: AlgoStudio.Core.AppCall.ExtraProgramPages
+- uid: AlgoStudio.Core.AppCall.#ctor*
+  commentId: Overload:AlgoStudio.Core.AppCall.#ctor
+  name: AppCall
+  nameWithType: AppCall.AppCall
+  fullName: AlgoStudio.Core.AppCall.AppCall
+- uid: AlgoStudio.Core.OnCompleteType
+  commentId: T:AlgoStudio.Core.OnCompleteType
+  parent: AlgoStudio.Core
+  name: OnCompleteType
+  nameWithType: OnCompleteType
+  fullName: AlgoStudio.Core.OnCompleteType
+- uid: System.Nullable{System.UInt64}
+  commentId: T:System.Nullable{System.UInt64}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<UInt64>
+  nameWithType: Nullable<UInt64>
+  fullName: System.Nullable<System.UInt64>
+  nameWithType.vb: Nullable(Of UInt64)
+  fullName.vb: System.Nullable(Of System.UInt64)
+  name.vb: Nullable(Of UInt64)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.AccountReference
+  commentId: T:AlgoStudio.Core.AccountReference
+  parent: AlgoStudio.Core
+  name: AccountReference
+  nameWithType: AccountReference
+  fullName: AlgoStudio.Core.AccountReference
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

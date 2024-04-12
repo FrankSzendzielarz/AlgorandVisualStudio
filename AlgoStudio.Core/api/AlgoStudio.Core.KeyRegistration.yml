@@ -1,0 +1,909 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.KeyRegistration
+  commentId: T:AlgoStudio.Core.KeyRegistration
+  id: KeyRegistration
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.KeyRegistration.#ctor(System.Byte[],System.Byte[],System.Byte[],System.UInt64,System.UInt64,System.UInt64,System.Boolean,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.KeyRegistration.Nonparticipation
+  - AlgoStudio.Core.KeyRegistration.SelectionPK
+  - AlgoStudio.Core.KeyRegistration.StateProofPK
+  - AlgoStudio.Core.KeyRegistration.VoteFirst
+  - AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+  - AlgoStudio.Core.KeyRegistration.VoteLast
+  - AlgoStudio.Core.KeyRegistration.VotePK
+  langs:
+  - csharp
+  - vb
+  name: KeyRegistration
+  nameWithType: KeyRegistration
+  fullName: AlgoStudio.Core.KeyRegistration
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: KeyRegistration
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 7
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: 'public sealed class KeyRegistration : InnerTransaction'
+    content.vb: >-
+      Public NotInheritable Class KeyRegistration
+          Inherits InnerTransaction
+  inheritance:
+  - System.Object
+  - AlgoStudio.Core.InnerTransaction
+  inheritedMembers:
+  - AlgoStudio.Core.InnerTransaction.Fee
+  - AlgoStudio.Core.InnerTransaction.FirstValid
+  - AlgoStudio.Core.InnerTransaction.LastValid
+  - AlgoStudio.Core.InnerTransaction.Sender
+  - AlgoStudio.Core.InnerTransaction.TxType
+  - AlgoStudio.Core.InnerTransaction.Lease
+  - AlgoStudio.Core.InnerTransaction.Note
+  - AlgoStudio.Core.InnerTransaction.RekeyTo
+  - AlgoStudio.Core.InnerTransaction.GroupIndex
+  - AlgoStudio.Core.InnerTransaction.TxID
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: AlgoStudio.Core.KeyRegistration.VotePK
+  commentId: P:AlgoStudio.Core.KeyRegistration.VotePK
+  id: VotePK
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: VotePK
+  nameWithType: KeyRegistration.VotePK
+  fullName: AlgoStudio.Core.KeyRegistration.VotePK
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: VotePK
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] VotePK { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property VotePK As Byte()
+  overload: AlgoStudio.Core.KeyRegistration.VotePK*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.SelectionPK
+  commentId: P:AlgoStudio.Core.KeyRegistration.SelectionPK
+  id: SelectionPK
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: SelectionPK
+  nameWithType: KeyRegistration.SelectionPK
+  fullName: AlgoStudio.Core.KeyRegistration.SelectionPK
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: SelectionPK
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] SelectionPK { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property SelectionPK As Byte()
+  overload: AlgoStudio.Core.KeyRegistration.SelectionPK*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.StateProofPK
+  commentId: P:AlgoStudio.Core.KeyRegistration.StateProofPK
+  id: StateProofPK
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: StateProofPK
+  nameWithType: KeyRegistration.StateProofPK
+  fullName: AlgoStudio.Core.KeyRegistration.StateProofPK
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: StateProofPK
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 13
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] StateProofPK { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property StateProofPK As Byte()
+  overload: AlgoStudio.Core.KeyRegistration.StateProofPK*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.VoteFirst
+  commentId: P:AlgoStudio.Core.KeyRegistration.VoteFirst
+  id: VoteFirst
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: VoteFirst
+  nameWithType: KeyRegistration.VoteFirst
+  fullName: AlgoStudio.Core.KeyRegistration.VoteFirst
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: VoteFirst
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 15
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong VoteFirst { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property VoteFirst As ULong
+  overload: AlgoStudio.Core.KeyRegistration.VoteFirst*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.VoteLast
+  commentId: P:AlgoStudio.Core.KeyRegistration.VoteLast
+  id: VoteLast
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: VoteLast
+  nameWithType: KeyRegistration.VoteLast
+  fullName: AlgoStudio.Core.KeyRegistration.VoteLast
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: VoteLast
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 17
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong VoteLast { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property VoteLast As ULong
+  overload: AlgoStudio.Core.KeyRegistration.VoteLast*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+  commentId: P:AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+  id: VoteKeyDilution
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: VoteKeyDilution
+  nameWithType: KeyRegistration.VoteKeyDilution
+  fullName: AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: VoteKeyDilution
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 19
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong VoteKeyDilution { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property VoteKeyDilution As ULong
+  overload: AlgoStudio.Core.KeyRegistration.VoteKeyDilution*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.Nonparticipation
+  commentId: P:AlgoStudio.Core.KeyRegistration.Nonparticipation
+  id: Nonparticipation
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: Nonparticipation
+  nameWithType: KeyRegistration.Nonparticipation
+  fullName: AlgoStudio.Core.KeyRegistration.Nonparticipation
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Nonparticipation
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 21
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public bool Nonparticipation { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property Nonparticipation As Boolean
+  overload: AlgoStudio.Core.KeyRegistration.Nonparticipation*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.KeyRegistration.#ctor(System.Byte[],System.Byte[],System.Byte[],System.UInt64,System.UInt64,System.UInt64,System.Boolean,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.KeyRegistration.#ctor(System.Byte[],System.Byte[],System.Byte[],System.UInt64,System.UInt64,System.UInt64,System.Boolean,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  id: '#ctor(System.Byte[],System.Byte[],System.Byte[],System.UInt64,System.UInt64,System.UInt64,System.Boolean,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])'
+  parent: AlgoStudio.Core.KeyRegistration
+  langs:
+  - csharp
+  - vb
+  name: KeyRegistration(Byte[], Byte[], Byte[], UInt64, UInt64, UInt64, Boolean, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  nameWithType: KeyRegistration.KeyRegistration(Byte[], Byte[], Byte[], UInt64, UInt64, UInt64, Boolean, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.KeyRegistration.KeyRegistration(System.Byte[], System.Byte[], System.Byte[], System.UInt64, System.UInt64, System.UInt64, System.Boolean, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, AlgoStudio.Core.AccountReference, System.Nullable<System.UInt64>, System.Byte[], System.Byte[], System.Byte[])
+  type: Constructor
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: .ctor
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/KeyRegistration.cs
+    startLine: 25
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public KeyRegistration(byte[] votePK, byte[] selectionPK, byte[] stateProofPK, ulong voteFirst, ulong voteLast, ulong voteKeyDilution, bool nonparticipation, ulong? fee = 0UL, ulong? firstValid = 0UL, ulong? lastValid = 0UL, AccountReference sender = null, ulong? txType = 0UL, byte[] lease = null, byte[] note = null, byte[] rekeyTo = null)
+    parameters:
+    - id: votePK
+      type: System.Byte[]
+    - id: selectionPK
+      type: System.Byte[]
+    - id: stateProofPK
+      type: System.Byte[]
+    - id: voteFirst
+      type: System.UInt64
+    - id: voteLast
+      type: System.UInt64
+    - id: voteKeyDilution
+      type: System.UInt64
+    - id: nonparticipation
+      type: System.Boolean
+    - id: fee
+      type: System.Nullable{System.UInt64}
+    - id: firstValid
+      type: System.Nullable{System.UInt64}
+    - id: lastValid
+      type: System.Nullable{System.UInt64}
+    - id: sender
+      type: AlgoStudio.Core.AccountReference
+    - id: txType
+      type: System.Nullable{System.UInt64}
+    - id: lease
+      type: System.Byte[]
+    - id: note
+      type: System.Byte[]
+    - id: rekeyTo
+      type: System.Byte[]
+    content.vb: Public Sub New(votePK As Byte(), selectionPK As Byte(), stateProofPK As Byte(), voteFirst As ULong, voteLast As ULong, voteKeyDilution As ULong, nonparticipation As Boolean, fee As ULong? = 0UL, firstValid As ULong? = 0UL, lastValid As ULong? = 0UL, sender As AccountReference = Nothing, txType As ULong? = 0UL, lease As Byte() = Nothing, note As Byte() = Nothing, rekeyTo As Byte() = Nothing)
+  overload: AlgoStudio.Core.KeyRegistration.#ctor*
+  nameWithType.vb: KeyRegistration.KeyRegistration(Byte(), Byte(), Byte(), UInt64, UInt64, UInt64, Boolean, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: AlgoStudio.Core.KeyRegistration.KeyRegistration(System.Byte(), System.Byte(), System.Byte(), System.UInt64, System.UInt64, System.UInt64, System.Boolean, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), AlgoStudio.Core.AccountReference, System.Nullable(Of System.UInt64), System.Byte(), System.Byte(), System.Byte())
+  name.vb: KeyRegistration(Byte(), Byte(), Byte(), UInt64, UInt64, UInt64, Boolean, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: AlgoStudio.Core.InnerTransaction
+  commentId: T:AlgoStudio.Core.InnerTransaction
+  parent: AlgoStudio.Core
+  name: InnerTransaction
+  nameWithType: InnerTransaction
+  fullName: AlgoStudio.Core.InnerTransaction
+- uid: AlgoStudio.Core.InnerTransaction.Fee
+  commentId: P:AlgoStudio.Core.InnerTransaction.Fee
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Fee
+  nameWithType: InnerTransaction.Fee
+  fullName: AlgoStudio.Core.InnerTransaction.Fee
+- uid: AlgoStudio.Core.InnerTransaction.FirstValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.FirstValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: FirstValid
+  nameWithType: InnerTransaction.FirstValid
+  fullName: AlgoStudio.Core.InnerTransaction.FirstValid
+- uid: AlgoStudio.Core.InnerTransaction.LastValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.LastValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: LastValid
+  nameWithType: InnerTransaction.LastValid
+  fullName: AlgoStudio.Core.InnerTransaction.LastValid
+- uid: AlgoStudio.Core.InnerTransaction.Sender
+  commentId: P:AlgoStudio.Core.InnerTransaction.Sender
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Sender
+  nameWithType: InnerTransaction.Sender
+  fullName: AlgoStudio.Core.InnerTransaction.Sender
+- uid: AlgoStudio.Core.InnerTransaction.TxType
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxType
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxType
+  nameWithType: InnerTransaction.TxType
+  fullName: AlgoStudio.Core.InnerTransaction.TxType
+- uid: AlgoStudio.Core.InnerTransaction.Lease
+  commentId: P:AlgoStudio.Core.InnerTransaction.Lease
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Lease
+  nameWithType: InnerTransaction.Lease
+  fullName: AlgoStudio.Core.InnerTransaction.Lease
+- uid: AlgoStudio.Core.InnerTransaction.Note
+  commentId: P:AlgoStudio.Core.InnerTransaction.Note
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Note
+  nameWithType: InnerTransaction.Note
+  fullName: AlgoStudio.Core.InnerTransaction.Note
+- uid: AlgoStudio.Core.InnerTransaction.RekeyTo
+  commentId: P:AlgoStudio.Core.InnerTransaction.RekeyTo
+  parent: AlgoStudio.Core.InnerTransaction
+  name: RekeyTo
+  nameWithType: InnerTransaction.RekeyTo
+  fullName: AlgoStudio.Core.InnerTransaction.RekeyTo
+- uid: AlgoStudio.Core.InnerTransaction.GroupIndex
+  commentId: P:AlgoStudio.Core.InnerTransaction.GroupIndex
+  parent: AlgoStudio.Core.InnerTransaction
+  name: GroupIndex
+  nameWithType: InnerTransaction.GroupIndex
+  fullName: AlgoStudio.Core.InnerTransaction.GroupIndex
+- uid: AlgoStudio.Core.InnerTransaction.TxID
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxID
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxID
+  nameWithType: InnerTransaction.TxID
+  fullName: AlgoStudio.Core.InnerTransaction.TxID
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.KeyRegistration.VotePK*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.VotePK
+  name: VotePK
+  nameWithType: KeyRegistration.VotePK
+  fullName: AlgoStudio.Core.KeyRegistration.VotePK
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: AlgoStudio.Core.KeyRegistration.SelectionPK*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.SelectionPK
+  name: SelectionPK
+  nameWithType: KeyRegistration.SelectionPK
+  fullName: AlgoStudio.Core.KeyRegistration.SelectionPK
+- uid: AlgoStudio.Core.KeyRegistration.StateProofPK*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.StateProofPK
+  name: StateProofPK
+  nameWithType: KeyRegistration.StateProofPK
+  fullName: AlgoStudio.Core.KeyRegistration.StateProofPK
+- uid: AlgoStudio.Core.KeyRegistration.VoteFirst*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.VoteFirst
+  name: VoteFirst
+  nameWithType: KeyRegistration.VoteFirst
+  fullName: AlgoStudio.Core.KeyRegistration.VoteFirst
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: AlgoStudio.Core.KeyRegistration.VoteLast*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.VoteLast
+  name: VoteLast
+  nameWithType: KeyRegistration.VoteLast
+  fullName: AlgoStudio.Core.KeyRegistration.VoteLast
+- uid: AlgoStudio.Core.KeyRegistration.VoteKeyDilution*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+  name: VoteKeyDilution
+  nameWithType: KeyRegistration.VoteKeyDilution
+  fullName: AlgoStudio.Core.KeyRegistration.VoteKeyDilution
+- uid: AlgoStudio.Core.KeyRegistration.Nonparticipation*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.Nonparticipation
+  name: Nonparticipation
+  nameWithType: KeyRegistration.Nonparticipation
+  fullName: AlgoStudio.Core.KeyRegistration.Nonparticipation
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: AlgoStudio.Core.KeyRegistration.#ctor*
+  commentId: Overload:AlgoStudio.Core.KeyRegistration.#ctor
+  name: KeyRegistration
+  nameWithType: KeyRegistration.KeyRegistration
+  fullName: AlgoStudio.Core.KeyRegistration.KeyRegistration
+- uid: System.Nullable{System.UInt64}
+  commentId: T:System.Nullable{System.UInt64}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<UInt64>
+  nameWithType: Nullable<UInt64>
+  fullName: System.Nullable<System.UInt64>
+  nameWithType.vb: Nullable(Of UInt64)
+  fullName.vb: System.Nullable(Of System.UInt64)
+  name.vb: Nullable(Of UInt64)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: AlgoStudio.Core.AccountReference
+  commentId: T:AlgoStudio.Core.AccountReference
+  parent: AlgoStudio.Core
+  name: AccountReference
+  nameWithType: AccountReference
+  fullName: AlgoStudio.Core.AccountReference
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

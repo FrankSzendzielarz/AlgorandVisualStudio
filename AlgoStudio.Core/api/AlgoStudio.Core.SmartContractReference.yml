@@ -1,0 +1,859 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.SmartContractReference
+  commentId: T:AlgoStudio.Core.SmartContractReference
+  id: SmartContractReference
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.SmartContractReference.Address
+  - AlgoStudio.Core.SmartContractReference.ApprovalProgram
+  - AlgoStudio.Core.SmartContractReference.Balance
+  - AlgoStudio.Core.SmartContractReference.ClearStateProgram
+  - AlgoStudio.Core.SmartContractReference.Creator
+  - AlgoStudio.Core.SmartContractReference.ExtraProgramPages
+  - AlgoStudio.Core.SmartContractReference.GlobalNumByteSlice
+  - AlgoStudio.Core.SmartContractReference.GlobalNumUint
+  - AlgoStudio.Core.SmartContractReference.Id
+  - AlgoStudio.Core.SmartContractReference.LocalNumByteSlice
+  - AlgoStudio.Core.SmartContractReference.LocalNumUint
+  langs:
+  - csharp
+  - vb
+  name: SmartContractReference
+  nameWithType: SmartContractReference
+  fullName: AlgoStudio.Core.SmartContractReference
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: SmartContractReference
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public class SmartContractReference
+    content.vb: Public Class SmartContractReference
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: AlgoStudio.Core.SmartContractReference.Id
+  commentId: F:AlgoStudio.Core.SmartContractReference.Id
+  id: Id
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: SmartContractReference.Id
+  fullName: AlgoStudio.Core.SmartContractReference.Id
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Id
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 14
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong Id
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public Id As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.ApprovalProgram
+  commentId: F:AlgoStudio.Core.SmartContractReference.ApprovalProgram
+  id: ApprovalProgram
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: ApprovalProgram
+  nameWithType: SmartContractReference.ApprovalProgram
+  fullName: AlgoStudio.Core.SmartContractReference.ApprovalProgram
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ApprovalProgram
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 16
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] ApprovalProgram
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public ApprovalProgram As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.ClearStateProgram
+  commentId: F:AlgoStudio.Core.SmartContractReference.ClearStateProgram
+  id: ClearStateProgram
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: ClearStateProgram
+  nameWithType: SmartContractReference.ClearStateProgram
+  fullName: AlgoStudio.Core.SmartContractReference.ClearStateProgram
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ClearStateProgram
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 18
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] ClearStateProgram
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public ClearStateProgram As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.GlobalNumUint
+  commentId: F:AlgoStudio.Core.SmartContractReference.GlobalNumUint
+  id: GlobalNumUint
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: GlobalNumUint
+  nameWithType: SmartContractReference.GlobalNumUint
+  fullName: AlgoStudio.Core.SmartContractReference.GlobalNumUint
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: GlobalNumUint
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 20
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong GlobalNumUint
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public GlobalNumUint As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.GlobalNumByteSlice
+  commentId: F:AlgoStudio.Core.SmartContractReference.GlobalNumByteSlice
+  id: GlobalNumByteSlice
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: GlobalNumByteSlice
+  nameWithType: SmartContractReference.GlobalNumByteSlice
+  fullName: AlgoStudio.Core.SmartContractReference.GlobalNumByteSlice
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: GlobalNumByteSlice
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 22
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong GlobalNumByteSlice
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public GlobalNumByteSlice As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.LocalNumUint
+  commentId: F:AlgoStudio.Core.SmartContractReference.LocalNumUint
+  id: LocalNumUint
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: LocalNumUint
+  nameWithType: SmartContractReference.LocalNumUint
+  fullName: AlgoStudio.Core.SmartContractReference.LocalNumUint
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LocalNumUint
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 24
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong LocalNumUint
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public LocalNumUint As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.LocalNumByteSlice
+  commentId: F:AlgoStudio.Core.SmartContractReference.LocalNumByteSlice
+  id: LocalNumByteSlice
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: LocalNumByteSlice
+  nameWithType: SmartContractReference.LocalNumByteSlice
+  fullName: AlgoStudio.Core.SmartContractReference.LocalNumByteSlice
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: LocalNumByteSlice
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 26
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong LocalNumByteSlice
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public LocalNumByteSlice As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.ExtraProgramPages
+  commentId: F:AlgoStudio.Core.SmartContractReference.ExtraProgramPages
+  id: ExtraProgramPages
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: ExtraProgramPages
+  nameWithType: SmartContractReference.ExtraProgramPages
+  fullName: AlgoStudio.Core.SmartContractReference.ExtraProgramPages
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ExtraProgramPages
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 28
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public ulong ExtraProgramPages
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public ExtraProgramPages As ULong
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.Creator
+  commentId: F:AlgoStudio.Core.SmartContractReference.Creator
+  id: Creator
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: Creator
+  nameWithType: SmartContractReference.Creator
+  fullName: AlgoStudio.Core.SmartContractReference.Creator
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Creator
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 30
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] Creator
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public Creator As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.Address
+  commentId: F:AlgoStudio.Core.SmartContractReference.Address
+  id: Address
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: Address
+  nameWithType: SmartContractReference.Address
+  fullName: AlgoStudio.Core.SmartContractReference.Address
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Address
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 32
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] Address
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public Address As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: AlgoStudio.Core.SmartContractReference.Balance
+  commentId: F:AlgoStudio.Core.SmartContractReference.Balance
+  id: Balance
+  parent: AlgoStudio.Core.SmartContractReference
+  langs:
+  - csharp
+  - vb
+  name: Balance
+  nameWithType: SmartContractReference.Balance
+  fullName: AlgoStudio.Core.SmartContractReference.Balance
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/SmartContractReference.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Balance
+    path: ../../AlgoStudio/AlgoStudio.Core/SmartContractReference.cs
+    startLine: 34
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: >-
+      [Storage(StorageType.Protocol)]
+
+      public byte[] Balance
+    return:
+      type: System.Byte[]
+    content.vb: >-
+      <Storage(StorageType.Protocol)>
+
+      Public Balance As Byte()
+  attributes:
+  - type: AlgoStudio.Core.Attributes.StorageAttribute
+    ctor: AlgoStudio.Core.Attributes.StorageAttribute.#ctor(AlgoStudio.Core.StorageType)
+    arguments:
+    - type: AlgoStudio.Core.StorageType
+      value: 3
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

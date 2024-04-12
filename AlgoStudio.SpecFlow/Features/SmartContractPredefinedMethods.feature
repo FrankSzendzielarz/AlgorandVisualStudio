@@ -1,0 +1,3 @@
+﻿Feature: SmartContractPredefinedMethods
+
+coming soon

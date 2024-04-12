@@ -1,0 +1,95 @@
+### YamlMime:TableOfContent
+- uid: AlgoStudio.Core
+  name: AlgoStudio.Core
+  items:
+  - uid: AlgoStudio.Core.AccountReference
+    name: AccountReference
+  - uid: AlgoStudio.Core.AppCall
+    name: AppCall
+  - uid: AlgoStudio.Core.AppCallTransactionReference
+    name: AppCallTransactionReference
+  - uid: AlgoStudio.Core.AssetAccept
+    name: AssetAccept
+  - uid: AlgoStudio.Core.AssetClawback
+    name: AssetClawback
+  - uid: AlgoStudio.Core.AssetClawbackTransactionReference
+    name: AssetClawbackTransactionReference
+  - uid: AlgoStudio.Core.AssetConfiguration
+    name: AssetConfiguration
+  - uid: AlgoStudio.Core.AssetConfigurationTransactionReference
+    name: AssetConfigurationTransactionReference
+  - uid: AlgoStudio.Core.AssetFreeze
+    name: AssetFreeze
+  - uid: AlgoStudio.Core.AssetFreezeTransactionReference
+    name: AssetFreezeTransactionReference
+  - uid: AlgoStudio.Core.AssetReference
+    name: AssetReference
+  - uid: AlgoStudio.Core.AssetTransfer
+    name: AssetTransfer
+  - uid: AlgoStudio.Core.AssetTransferTransactionReference
+    name: AssetTransferTransactionReference
+  - uid: AlgoStudio.Core.BigIntegerExtensions
+    name: BigIntegerExtensions
+  - uid: AlgoStudio.Core.ByteArrayExtensions
+    name: ByteArrayExtensions
+  - uid: AlgoStudio.Core.Constants
+    name: Constants
+  - uid: AlgoStudio.Core.IAlgorandCommonPredefineds
+    name: IAlgorandCommonPredefineds
+  - uid: AlgoStudio.Core.ICompiledContract
+    name: ICompiledContract
+  - uid: AlgoStudio.Core.ICompiledSignature
+    name: ICompiledSignature
+  - uid: AlgoStudio.Core.InnerTransaction
+    name: InnerTransaction
+  - uid: AlgoStudio.Core.IntegerExtensions
+    name: IntegerExtensions
+  - uid: AlgoStudio.Core.IntentionallyNotImplementedException
+    name: IntentionallyNotImplementedException
+  - uid: AlgoStudio.Core.ISmartContractPredefineds
+    name: ISmartContractPredefineds
+  - uid: AlgoStudio.Core.ISmartSignaturePredefineds
+    name: ISmartSignaturePredefineds
+  - uid: AlgoStudio.Core.KeyRegistration
+    name: KeyRegistration
+  - uid: AlgoStudio.Core.KeyRegistrationTransactionReference
+    name: KeyRegistrationTransactionReference
+  - uid: AlgoStudio.Core.OnCompleteType
+    name: OnCompleteType
+  - uid: AlgoStudio.Core.Payment
+    name: Payment
+  - uid: AlgoStudio.Core.PaymentTransactionReference
+    name: PaymentTransactionReference
+  - uid: AlgoStudio.Core.SmartContract
+    name: SmartContract
+  - uid: AlgoStudio.Core.SmartContractLibrary
+    name: SmartContractLibrary
+  - uid: AlgoStudio.Core.SmartContractReference
+    name: SmartContractReference
+  - uid: AlgoStudio.Core.SmartSignature
+    name: SmartSignature
+  - uid: AlgoStudio.Core.StorageType
+    name: StorageType
+  - uid: AlgoStudio.Core.StringExtensions
+    name: StringExtensions
+  - uid: AlgoStudio.Core.TransactionReference
+    name: TransactionReference
+  - uid: AlgoStudio.Core.VariableType
+    name: VariableType
+- uid: AlgoStudio.Core.Attributes
+  name: AlgoStudio.Core.Attributes
+  items:
+  - uid: AlgoStudio.Core.Attributes.ABIFixedSizeAttribute
+    name: ABIFixedSizeAttribute
+  - uid: AlgoStudio.Core.Attributes.ABIStructAttribute
+    name: ABIStructAttribute
+  - uid: AlgoStudio.Core.Attributes.ABITypeDecoratorAttribute
+    name: ABITypeDecoratorAttribute
+  - uid: AlgoStudio.Core.Attributes.InnerTransactionCallAttribute
+    name: InnerTransactionCallAttribute
+  - uid: AlgoStudio.Core.Attributes.SmartContractMethodAttribute
+    name: SmartContractMethodAttribute
+  - uid: AlgoStudio.Core.Attributes.SmartSignatureMethodAttribute
+    name: SmartSignatureMethodAttribute
+  - uid: AlgoStudio.Core.Attributes.StorageAttribute
+    name: StorageAttribute

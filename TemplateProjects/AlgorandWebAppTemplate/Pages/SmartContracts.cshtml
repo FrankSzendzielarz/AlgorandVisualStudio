@@ -1,0 +1,106 @@
+﻿@page
+@model SmartContractsModel
+@{
+    ViewData["Title"] = "Algorand";
+}
+<h1>@ViewData["Title"]</h1>
+<form method="Post">
+
+    <div class="row mt-4">
+        <div class="col-12">The following demo allows this web page to ask an Algorand smart contract to add two numbers with a limit.</div>
+    </div>
+    <div class="row">
+        <div class="col-12">The Algorand smart contract uses contract to contract calling to perform the addition and then invoke a second contract to enforce the numerical limit.</div>
+    </div>
+    <div class="row">
+        <div class="col-12">The contracts first need to be deployed so that their respective <a href="https://developer.algorand.org/docs/get-details/dapps/smart-contracts/apps/?from_query=app%20id&query=App%20Id&object_source=false#issuing-transactions-from-an-application" target="_blank">App Ids</a> can be passed to the call transaction. </div>
+    </div>
+
+    <div class="row mt-4 ">
+        <h2>Deployment</h2>
+    </div>
+    @if (!Model.Deployed)
+    {
+        <div class="row mt-4">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary" asp-page-handler="Deploy">Deploy Contracts</button>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-success mt-2" role="alert">
+            Contracts deployed!
+        </div>
+    
+        <div class="row">
+            <div class="col-3">Add Two Numbers App Id:</div>
+            <div class="col-3">@Model.AddNumbersAppId</div>
+            <div class="col-6"> </div>
+            <input type="hidden" asp-for="AddNumbersAppId" />
+        </div>
+        <div class="row">
+            <div class="col-3">Limit Numbers App Id:</div>
+            <div class="col-3">@Model.LimitNumberAppId</div>
+            <div class="col-6"> </div>
+            <input type="hidden" asp-for="LimitNumberAppId" />
+        </div>
+
+        <div class="row mt-4 ">
+            <h2>Execution</h2>
+        </div>
+
+        <div class="row mt-4 ">
+            <h4>Numbers to add</h4>
+        </div>
+        <div class="row">
+            <div class="col-12">These numbers will be added and limited to either the positive or negative value of the limiter. For example, 10+10 with limit 15 will return 15, while -10-10 with limit 15 will return -15.</div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">First number:</div>
+            <div class="col-3">Second number:</div>
+            <div class="col-3">Limiter:</div>
+            <div class="col-3">Call Count:</div>
+        </div>
+       
+        <div class="row">
+            <div class="col-3"><input asp-for="Number1" /></div>
+            <div class="col-3"><input asp-for="Number2" /></div>
+            <div class="col-3"><input asp-for="Limit" /></div>
+            <div class="col-3">@Model.CallCounter</div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-3">Result:</div>
+            
+        </div>
+
+        <div class="row">
+            
+            <div class="col-3">@Model.LimitedResult</div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12 mt-4 ">
+                <button type="submit" class="btn btn-primary" asp-page-handler="Add">Add Numbers</button>
+            </div>
+        </div>
+        @if (!String.IsNullOrEmpty(Model.Error)){
+            <div class="alert alert-danger mt-2" role="alert">
+                Error: <br /> @Model.Error
+            </div>
+        }
+
+
+    }
+
+    @if (Model.DeployedError)
+    {
+        
+            <div class="alert alert-danger mt-2" role="alert">
+                Deployment error: <br/> @Model.Error
+            </div>
+        
+    }
+
+</form>
+

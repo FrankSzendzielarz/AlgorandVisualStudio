@@ -1,0 +1,40 @@
+{
+  "name": "SplitPayments",
+  "state": {},
+  "methods": [
+    {
+      "name": "SplitPayment",
+      "desc": " Split payment according to percentage\r\n        ",
+      "onCompletion": [
+        "NoOp"
+      ],
+      "args": [
+        {
+          "type": "pay",
+          "typeDetail": "AlgoStudio.Core.PaymentTransactionReference",
+          "name": "incomingPayment"
+        },
+        {
+          "type": "ufixed32x3",
+          "typeDetail": "uint",
+          "name": "percentageOne"
+        },
+        {
+          "type": "address",
+          "typeDetail": "AlgoStudio.Core.AccountReference",
+          "name": "split1"
+        },
+        {
+          "type": "address",
+          "typeDetail": "AlgoStudio.Core.AccountReference",
+          "name": "split2"
+        }
+      ],
+      "selector": "Split",
+      "returns": {
+        "type": "bool",
+        "typeDetail": "bool"
+      }
+    }
+  ]
+}

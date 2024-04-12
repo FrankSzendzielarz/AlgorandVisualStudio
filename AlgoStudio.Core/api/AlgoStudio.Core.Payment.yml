@@ -1,0 +1,730 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.Payment
+  commentId: T:AlgoStudio.Core.Payment
+  id: Payment
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.Payment.#ctor(AlgoStudio.Core.AccountReference,System.UInt64,AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  - AlgoStudio.Core.Payment.Amount
+  - AlgoStudio.Core.Payment.CloseRemainderTo
+  - AlgoStudio.Core.Payment.Receiver
+  langs:
+  - csharp
+  - vb
+  name: Payment
+  nameWithType: Payment
+  fullName: AlgoStudio.Core.Payment
+  type: Class
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/Payment.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Payment
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/Payment.cs
+    startLine: 7
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: 'public sealed class Payment : InnerTransaction'
+    content.vb: >-
+      Public NotInheritable Class Payment
+          Inherits InnerTransaction
+  inheritance:
+  - System.Object
+  - AlgoStudio.Core.InnerTransaction
+  inheritedMembers:
+  - AlgoStudio.Core.InnerTransaction.Fee
+  - AlgoStudio.Core.InnerTransaction.FirstValid
+  - AlgoStudio.Core.InnerTransaction.LastValid
+  - AlgoStudio.Core.InnerTransaction.Sender
+  - AlgoStudio.Core.InnerTransaction.TxType
+  - AlgoStudio.Core.InnerTransaction.Lease
+  - AlgoStudio.Core.InnerTransaction.Note
+  - AlgoStudio.Core.InnerTransaction.RekeyTo
+  - AlgoStudio.Core.InnerTransaction.GroupIndex
+  - AlgoStudio.Core.InnerTransaction.TxID
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: AlgoStudio.Core.Payment.Receiver
+  commentId: P:AlgoStudio.Core.Payment.Receiver
+  id: Receiver
+  parent: AlgoStudio.Core.Payment
+  langs:
+  - csharp
+  - vb
+  name: Receiver
+  nameWithType: Payment.Receiver
+  fullName: AlgoStudio.Core.Payment.Receiver
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/Payment.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Receiver
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/Payment.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] Receiver { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property Receiver As Byte()
+  overload: AlgoStudio.Core.Payment.Receiver*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.Payment.Amount
+  commentId: P:AlgoStudio.Core.Payment.Amount
+  id: Amount
+  parent: AlgoStudio.Core.Payment
+  langs:
+  - csharp
+  - vb
+  name: Amount
+  nameWithType: Payment.Amount
+  fullName: AlgoStudio.Core.Payment.Amount
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/Payment.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Amount
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/Payment.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public ulong Amount { get; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public ReadOnly Property Amount As ULong
+  overload: AlgoStudio.Core.Payment.Amount*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.Payment.CloseRemainderTo
+  commentId: P:AlgoStudio.Core.Payment.CloseRemainderTo
+  id: CloseRemainderTo
+  parent: AlgoStudio.Core.Payment
+  langs:
+  - csharp
+  - vb
+  name: CloseRemainderTo
+  nameWithType: Payment.CloseRemainderTo
+  fullName: AlgoStudio.Core.Payment.CloseRemainderTo
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/Payment.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CloseRemainderTo
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/Payment.cs
+    startLine: 14
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public byte[] CloseRemainderTo { get; }
+    parameters: []
+    return:
+      type: System.Byte[]
+    content.vb: Public ReadOnly Property CloseRemainderTo As Byte()
+  overload: AlgoStudio.Core.Payment.CloseRemainderTo*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: AlgoStudio.Core.Payment.#ctor(AlgoStudio.Core.AccountReference,System.UInt64,AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  commentId: M:AlgoStudio.Core.Payment.#ctor(AlgoStudio.Core.AccountReference,System.UInt64,AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])
+  id: '#ctor(AlgoStudio.Core.AccountReference,System.UInt64,AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Nullable{System.UInt64},System.Nullable{System.UInt64},AlgoStudio.Core.AccountReference,System.Nullable{System.UInt64},System.Byte[],System.Byte[],System.Byte[])'
+  parent: AlgoStudio.Core.Payment
+  langs:
+  - csharp
+  - vb
+  name: Payment(AccountReference, UInt64, AccountReference, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  nameWithType: Payment.Payment(AccountReference, UInt64, AccountReference, Nullable<UInt64>, Nullable<UInt64>, Nullable<UInt64>, AccountReference, Nullable<UInt64>, Byte[], Byte[], Byte[])
+  fullName: AlgoStudio.Core.Payment.Payment(AlgoStudio.Core.AccountReference, System.UInt64, AlgoStudio.Core.AccountReference, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, System.Nullable<System.UInt64>, AlgoStudio.Core.AccountReference, System.Nullable<System.UInt64>, System.Byte[], System.Byte[], System.Byte[])
+  type: Constructor
+  source:
+    remote:
+      path: AlgoStudio.Core/InnerTransactions/Payment.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: .ctor
+    path: ../../AlgoStudio/AlgoStudio.Core/InnerTransactions/Payment.cs
+    startLine: 18
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public Payment(AccountReference receiver, ulong amount, AccountReference closeRemainderTo = null, ulong? fee = 0UL, ulong? firstValid = 0UL, ulong? lastValid = 0UL, AccountReference sender = null, ulong? txType = 0UL, byte[] lease = null, byte[] note = null, byte[] rekeyTo = null)
+    parameters:
+    - id: receiver
+      type: AlgoStudio.Core.AccountReference
+    - id: amount
+      type: System.UInt64
+    - id: closeRemainderTo
+      type: AlgoStudio.Core.AccountReference
+    - id: fee
+      type: System.Nullable{System.UInt64}
+    - id: firstValid
+      type: System.Nullable{System.UInt64}
+    - id: lastValid
+      type: System.Nullable{System.UInt64}
+    - id: sender
+      type: AlgoStudio.Core.AccountReference
+    - id: txType
+      type: System.Nullable{System.UInt64}
+    - id: lease
+      type: System.Byte[]
+    - id: note
+      type: System.Byte[]
+    - id: rekeyTo
+      type: System.Byte[]
+    content.vb: Public Sub New(receiver As AccountReference, amount As ULong, closeRemainderTo As AccountReference = Nothing, fee As ULong? = 0UL, firstValid As ULong? = 0UL, lastValid As ULong? = 0UL, sender As AccountReference = Nothing, txType As ULong? = 0UL, lease As Byte() = Nothing, note As Byte() = Nothing, rekeyTo As Byte() = Nothing)
+  overload: AlgoStudio.Core.Payment.#ctor*
+  nameWithType.vb: Payment.Payment(AccountReference, UInt64, AccountReference, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: AlgoStudio.Core.Payment.Payment(AlgoStudio.Core.AccountReference, System.UInt64, AlgoStudio.Core.AccountReference, System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), System.Nullable(Of System.UInt64), AlgoStudio.Core.AccountReference, System.Nullable(Of System.UInt64), System.Byte(), System.Byte(), System.Byte())
+  name.vb: Payment(AccountReference, UInt64, AccountReference, Nullable(Of UInt64), Nullable(Of UInt64), Nullable(Of UInt64), AccountReference, Nullable(Of UInt64), Byte(), Byte(), Byte())
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: AlgoStudio.Core.InnerTransaction
+  commentId: T:AlgoStudio.Core.InnerTransaction
+  parent: AlgoStudio.Core
+  name: InnerTransaction
+  nameWithType: InnerTransaction
+  fullName: AlgoStudio.Core.InnerTransaction
+- uid: AlgoStudio.Core.InnerTransaction.Fee
+  commentId: P:AlgoStudio.Core.InnerTransaction.Fee
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Fee
+  nameWithType: InnerTransaction.Fee
+  fullName: AlgoStudio.Core.InnerTransaction.Fee
+- uid: AlgoStudio.Core.InnerTransaction.FirstValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.FirstValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: FirstValid
+  nameWithType: InnerTransaction.FirstValid
+  fullName: AlgoStudio.Core.InnerTransaction.FirstValid
+- uid: AlgoStudio.Core.InnerTransaction.LastValid
+  commentId: P:AlgoStudio.Core.InnerTransaction.LastValid
+  parent: AlgoStudio.Core.InnerTransaction
+  name: LastValid
+  nameWithType: InnerTransaction.LastValid
+  fullName: AlgoStudio.Core.InnerTransaction.LastValid
+- uid: AlgoStudio.Core.InnerTransaction.Sender
+  commentId: P:AlgoStudio.Core.InnerTransaction.Sender
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Sender
+  nameWithType: InnerTransaction.Sender
+  fullName: AlgoStudio.Core.InnerTransaction.Sender
+- uid: AlgoStudio.Core.InnerTransaction.TxType
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxType
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxType
+  nameWithType: InnerTransaction.TxType
+  fullName: AlgoStudio.Core.InnerTransaction.TxType
+- uid: AlgoStudio.Core.InnerTransaction.Lease
+  commentId: P:AlgoStudio.Core.InnerTransaction.Lease
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Lease
+  nameWithType: InnerTransaction.Lease
+  fullName: AlgoStudio.Core.InnerTransaction.Lease
+- uid: AlgoStudio.Core.InnerTransaction.Note
+  commentId: P:AlgoStudio.Core.InnerTransaction.Note
+  parent: AlgoStudio.Core.InnerTransaction
+  name: Note
+  nameWithType: InnerTransaction.Note
+  fullName: AlgoStudio.Core.InnerTransaction.Note
+- uid: AlgoStudio.Core.InnerTransaction.RekeyTo
+  commentId: P:AlgoStudio.Core.InnerTransaction.RekeyTo
+  parent: AlgoStudio.Core.InnerTransaction
+  name: RekeyTo
+  nameWithType: InnerTransaction.RekeyTo
+  fullName: AlgoStudio.Core.InnerTransaction.RekeyTo
+- uid: AlgoStudio.Core.InnerTransaction.GroupIndex
+  commentId: P:AlgoStudio.Core.InnerTransaction.GroupIndex
+  parent: AlgoStudio.Core.InnerTransaction
+  name: GroupIndex
+  nameWithType: InnerTransaction.GroupIndex
+  fullName: AlgoStudio.Core.InnerTransaction.GroupIndex
+- uid: AlgoStudio.Core.InnerTransaction.TxID
+  commentId: P:AlgoStudio.Core.InnerTransaction.TxID
+  parent: AlgoStudio.Core.InnerTransaction
+  name: TxID
+  nameWithType: InnerTransaction.TxID
+  fullName: AlgoStudio.Core.InnerTransaction.TxID
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AlgoStudio.Core.Payment.Receiver*
+  commentId: Overload:AlgoStudio.Core.Payment.Receiver
+  name: Receiver
+  nameWithType: Payment.Receiver
+  fullName: AlgoStudio.Core.Payment.Receiver
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: AlgoStudio.Core.Payment.Amount*
+  commentId: Overload:AlgoStudio.Core.Payment.Amount
+  name: Amount
+  nameWithType: Payment.Amount
+  fullName: AlgoStudio.Core.Payment.Amount
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: AlgoStudio.Core.Payment.CloseRemainderTo*
+  commentId: Overload:AlgoStudio.Core.Payment.CloseRemainderTo
+  name: CloseRemainderTo
+  nameWithType: Payment.CloseRemainderTo
+  fullName: AlgoStudio.Core.Payment.CloseRemainderTo
+- uid: AlgoStudio.Core.Payment.#ctor*
+  commentId: Overload:AlgoStudio.Core.Payment.#ctor
+  name: Payment
+  nameWithType: Payment.Payment
+  fullName: AlgoStudio.Core.Payment.Payment
+- uid: AlgoStudio.Core.AccountReference
+  commentId: T:AlgoStudio.Core.AccountReference
+  parent: AlgoStudio.Core
+  name: AccountReference
+  nameWithType: AccountReference
+  fullName: AlgoStudio.Core.AccountReference
+- uid: System.Nullable{System.UInt64}
+  commentId: T:System.Nullable{System.UInt64}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<UInt64>
+  nameWithType: Nullable<UInt64>
+  fullName: System.Nullable<System.UInt64>
+  nameWithType.vb: Nullable(Of UInt64)
+  fullName.vb: System.Nullable(Of System.UInt64)
+  name.vb: Nullable(Of UInt64)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

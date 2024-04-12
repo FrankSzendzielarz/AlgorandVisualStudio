@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.ICompiledSignature
+  commentId: T:AlgoStudio.Core.ICompiledSignature
+  id: ICompiledSignature
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.ICompiledSignature.Program
+  langs:
+  - csharp
+  - vb
+  name: ICompiledSignature
+  nameWithType: ICompiledSignature
+  fullName: AlgoStudio.Core.ICompiledSignature
+  type: Interface
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledSignature.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ICompiledSignature
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledSignature.cs
+    startLine: 6
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public interface ICompiledSignature
+    content.vb: Public Interface ICompiledSignature
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: AlgoStudio.Core.ICompiledSignature.Program
+  commentId: P:AlgoStudio.Core.ICompiledSignature.Program
+  id: Program
+  parent: AlgoStudio.Core.ICompiledSignature
+  langs:
+  - csharp
+  - vb
+  name: Program
+  nameWithType: ICompiledSignature.Program
+  fullName: AlgoStudio.Core.ICompiledSignature.Program
+  type: Property
+  source:
+    remote:
+      path: AlgoStudio.Core/ICompiledSignature.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Program
+    path: ../../AlgoStudio/AlgoStudio.Core/ICompiledSignature.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: string Program { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Program As String
+  overload: AlgoStudio.Core.ICompiledSignature.Program*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.ICompiledSignature.Program*
+  commentId: Overload:AlgoStudio.Core.ICompiledSignature.Program
+  name: Program
+  nameWithType: ICompiledSignature.Program
+  fullName: AlgoStudio.Core.ICompiledSignature.Program
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

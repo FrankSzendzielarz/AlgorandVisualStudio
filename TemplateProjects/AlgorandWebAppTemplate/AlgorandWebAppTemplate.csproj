@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<CompilerVisibleProperty Include="OptimisersLocation" />
+	</ItemGroup>
+	<PropertyGroup>
+		<OptimisersLocation>C:\Users\frank\source\repos\AlgoStudio\TemplateProjects\AlgorandWebAppTemplate\Optimisers\</OptimisersLocation>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Algorand2" Version="2.0.0.2024031514" />
+		<PackageReference Include="AlgoStudio" Version="*-*" PrivateAssets="All" ReferenceOutputAssembly="true" OutputItemType="analyzer" />
+	</ItemGroup>
+
+</Project>

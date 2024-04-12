@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<PropertyGroup>
+		<OptimisersLocation>.\Optimisers</OptimisersLocation>
+	</PropertyGroup>
+	<ItemGroup>
+		<CompilerVisibleProperty Include="OptimisersLocation" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Algorand2" Version="2.0.0.2024031514" />
+		<PackageReference Include="AlgoStudio" Version="1.4.87" PrivateAssets="All" ReferenceOutputAssembly="true" OutputItemType="analyzer" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Signers\" />
+	</ItemGroup>
+
+</Project>

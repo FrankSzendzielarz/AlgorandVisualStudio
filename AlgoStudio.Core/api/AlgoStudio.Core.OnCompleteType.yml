@@ -1,0 +1,244 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.OnCompleteType
+  commentId: T:AlgoStudio.Core.OnCompleteType
+  id: OnCompleteType
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.OnCompleteType.ClearState
+  - AlgoStudio.Core.OnCompleteType.CloseOut
+  - AlgoStudio.Core.OnCompleteType.DeleteApplication
+  - AlgoStudio.Core.OnCompleteType.NoOp
+  - AlgoStudio.Core.OnCompleteType.OptIn
+  - AlgoStudio.Core.OnCompleteType.UpdateApplication
+  langs:
+  - csharp
+  - vb
+  name: OnCompleteType
+  nameWithType: OnCompleteType
+  fullName: AlgoStudio.Core.OnCompleteType
+  type: Enum
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: OnCompleteType
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 6
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public enum OnCompleteType
+    content.vb: Public Enum OnCompleteType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: AlgoStudio.Core.OnCompleteType.NoOp
+  commentId: F:AlgoStudio.Core.OnCompleteType.NoOp
+  id: NoOp
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: NoOp
+  nameWithType: OnCompleteType.NoOp
+  fullName: AlgoStudio.Core.OnCompleteType.NoOp
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: NoOp
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 8
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: NoOp = 0
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.OnCompleteType.OptIn
+  commentId: F:AlgoStudio.Core.OnCompleteType.OptIn
+  id: OptIn
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: OptIn
+  nameWithType: OnCompleteType.OptIn
+  fullName: AlgoStudio.Core.OnCompleteType.OptIn
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: OptIn
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: OptIn = 1
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.OnCompleteType.CloseOut
+  commentId: F:AlgoStudio.Core.OnCompleteType.CloseOut
+  id: CloseOut
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: CloseOut
+  nameWithType: OnCompleteType.CloseOut
+  fullName: AlgoStudio.Core.OnCompleteType.CloseOut
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: CloseOut
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: CloseOut = 2
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.OnCompleteType.ClearState
+  commentId: F:AlgoStudio.Core.OnCompleteType.ClearState
+  id: ClearState
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: ClearState
+  nameWithType: OnCompleteType.ClearState
+  fullName: AlgoStudio.Core.OnCompleteType.ClearState
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: ClearState
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: ClearState = 3
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.OnCompleteType.UpdateApplication
+  commentId: F:AlgoStudio.Core.OnCompleteType.UpdateApplication
+  id: UpdateApplication
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: UpdateApplication
+  nameWithType: OnCompleteType.UpdateApplication
+  fullName: AlgoStudio.Core.OnCompleteType.UpdateApplication
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: UpdateApplication
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: UpdateApplication = 4
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.OnCompleteType.DeleteApplication
+  commentId: F:AlgoStudio.Core.OnCompleteType.DeleteApplication
+  id: DeleteApplication
+  parent: AlgoStudio.Core.OnCompleteType
+  langs:
+  - csharp
+  - vb
+  name: DeleteApplication
+  nameWithType: OnCompleteType.DeleteApplication
+  fullName: AlgoStudio.Core.OnCompleteType.DeleteApplication
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/OnCompleteType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: DeleteApplication
+    path: ../../AlgoStudio/AlgoStudio.Core/OnCompleteType.cs
+    startLine: 13
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: DeleteApplication = 5
+    return:
+      type: AlgoStudio.Core.OnCompleteType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.OnCompleteType
+  commentId: T:AlgoStudio.Core.OnCompleteType
+  parent: AlgoStudio.Core
+  name: OnCompleteType
+  nameWithType: OnCompleteType
+  fullName: AlgoStudio.Core.OnCompleteType

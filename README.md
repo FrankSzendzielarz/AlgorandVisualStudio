@@ -17,6 +17,17 @@ The current version is an Beta release aimed at garnering feedback, bugs, requir
 ## USING THE TEMPLATES
 
 After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
+## UPDATE (April 2024)
+V 1.20 is a major update with a more robust compiler fixing various issues and introducing new features:
+- SmartContractLibrary is now offered, where STATIC methods can be defined and included in Smart Contracts.(Documentation to be provided)
+- TEAL specific big integer is deprecated and replaced with System.Numerics.BigInteger
+- All native numeric types in C# including floating point decimal, but not binary floating point (float/double) are now supported with casting between them.
+- A decision was made to stay completely with C# native types: ABI encodings are handled implicitly 
+- A Gherkin style (SpecFlow) test project is included
+- Updated project templates (the MAUI template is temporarily removed as the MAUI technology has moved on significantly and requires a major upgrade - for now the Reverse Proxy component is included to help with native app development)
+- Source has been restructured for easier maintenance and testing
+- Source is now open and included in this repo.
+
 ## UPDATE (December 2023)
 The following in v 1.12 are now included:
 - Proxies now include additional methods that return a transaction list, for signing and sending by the developer manually. This allows for ABI method composability.
@@ -53,28 +64,28 @@ The latest version at 1.4 now includes the following changes.
 ## Documentation Structure
 
 - Contract Development
-    - [Contracts as Classes](./ContractDevelopment/ContractsAsClasses.md)
-    - [C# Guidelines](./ContractDevelopment/CSharpGuidelines.md)
-    - [Predefined methods and properties](./ContractDevelopment/PredefinedFunctions.md)
-    - [Deployment](./ContractDevelopment/Deployment.md)
-    - [Smart Contracts](./ContractDevelopment/SmartContracts.md)
-    - [Smart Signatures](./ContractDevelopment/SmartSignatures.md)
+    - [Contracts as Classes](./docs/ContractDevelopment/ContractsAsClasses.md)
+    - [C# Guidelines](./docs/ContractDevelopment/CSharpGuidelines.md)
+    - [Predefined methods and properties](./docs/ContractDevelopment/PredefinedFunctions.md)
+    - [Deployment](./docs/ContractDevelopment/Deployment.md)
+    - [Smart Contracts](./docs/ContractDevelopment/SmartContracts.md)
+    - [Smart Signatures](./docs/ContractDevelopment/SmartSignatures.md)
 - IDE
-    - [IDE Support](./IDE/IDE.md)
+    - [IDE Support](./docs/IDE/IDE.md)
 - Optimisers
-    - [Optimisers and Framework](./Optimisers/Optimisers.md)
+    - [Optimisers and Framework](./docs/Optimisers/Optimisers.md)
 - Transactions
-    - [Contract to Contract Calls](./Transactions/ContractToContract.md)
-    - [Inner Transactions](./Transactions/InnerTransactions.md)
-    - [Entity References](./Transactions/TransactionReferences.md)
+    - [Contract to Contract Calls](./docs/Transactions/ContractToContract.md)
+    - [Inner Transactions](./docs/Transactions/InnerTransactions.md)
+    - [Entity References](./docs/Transactions/TransactionReferences.md)
 - Project Templates
-    - [Console Template](./ProjectTemplates/Console.md)
-    - [MAUI Template](./ProjectTemplates/MAUI.md)
-    - [Web Template](./ProjectTemplates/Web.md)
-    - [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
-    - [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
+    - [Console Template](./docs/ProjectTemplates/Console.md)
+    - [MAUI Template](./docs/ProjectTemplates/MAUI.md)
+    - [Web Template](./docs/ProjectTemplates/Web.md)
+    - [Console for Sandbox](./docs/ProjectTemplates/ConsoleForSandbox.md)
+    - [Smart Signature](./docs/ProjectTemplates/ConsoleSmartSignature.md)
 - Debugger
-  - [Teal Interactive Debugger](./Debugger/Debugger.md)
+  - [Teal Interactive Debugger](./docs/Debugger/Debugger.md)
 
 
 
@@ -166,11 +177,11 @@ The console and web applications include various examples of smart contract usag
 
 Please follow the guidance in each of the links below to continue:
 
-- [Maui](./ProjectTemplates/MAUI.md)
-- [Web](./ProjectTemplates/Web.md)
-- [Console](./ProjectTemplates/Console.md)
-- [Console for Sandbox](./ProjectTemplates/ConsoleForSandbox.md)
-- [Smart Signature](./ProjectTemplates/ConsoleSmartSignature.md)
+- [Maui](./docs/ProjectTemplates/MAUI.md)
+- [Web](./docs/ProjectTemplates/Web.md)
+- [Console](./docs/ProjectTemplates/Console.md)
+- [Console for Sandbox](./docs/ProjectTemplates/ConsoleForSandbox.md)
+- [Smart Signature](./docs/ProjectTemplates/ConsoleSmartSignature.md)
 
 
 
@@ -180,7 +191,7 @@ Please follow the guidance in each of the links below to continue:
 
 ### C# Compiler
 
-**[For guidance on basic Smart Contract development please click here](./ContractDevelopment/SmartContracts.md)**
+**[For guidance on basic Smart Contract development please click here](./docs/ContractDevelopment/SmartContracts.md)**
 
 Once the extension is installed, you will have access to project templates with a Code Analyzer ("Algorand for Visual Studio") and a shared library ("Algorand for Visual Studio.Core"). The shared library offers some base classes, one of which is called SmartContract.
 
@@ -196,7 +207,7 @@ The template projects are integrated with the Algorand2 .NET SDK. A Utility clas
 
 ### ABI and Smart Contracts as Classes
 
-**[For details on ABI methods and contracts-as-classes please click here](./ContractDevelopment/ContractsAsClasses.md)**
+**[For details on ABI methods and contracts-as-classes please click here](./docs/ContractDevelopment/ContractsAsClasses.md)**
 
 Algorand for Visual Studio supports client to contract calling and contract to contract calling, with some support for Algorand ABI. 
 
@@ -277,7 +288,7 @@ Smart Signatures are authored like this and applied to Transactions using their 
     }
 ```
 
-**[Please click here for details on Smart Signatures](./ProjectTemplates/ConsoleSmartSignature.md).**
+**[Please click here for details on Smart Signatures](./docs/ProjectTemplates/ConsoleSmartSignature.md).**
 
 
 ### Inner Transactions
@@ -286,7 +297,7 @@ Algorand for Visual Studio  supports being able to invoke arbitrary transactions
 
 Because of the way TEAL handles grouped inner transactions, the C# compiler has to enforce special restrictions on how these are used. 
 
-**[Please click here for details on Inner Transactions](./Transactions/InnerTransactions.md).**
+**[Please click here for details on Inner Transactions](./docs/Transactions/InnerTransactions.md).**
 
 ### Contract to Contract Calls
 
@@ -294,7 +305,7 @@ While Inner Transaction application call transactions can be constructed to call
 
 The ABI support allows references to be constructed as ```SmartContractReference``` classes. These can then be used to invoke the ABI methods on another smart contract, in a contract-as-class style.
 
-**[For click here for guidance on Contract to Contract calls](./Transactions/ContractToContract.md).**
+**[For click here for guidance on Contract to Contract calls](./docs/Transactions/ContractToContract.md).**
 
 ### IDE Support
 
@@ -302,12 +313,12 @@ This version of Algorand for Visual Studio introduces various IDE extensions to 
 
 IDE support remains on the roadmap too as the ARC4 and Application spec matures.
 
-**[Please click here to see the IDE guidance](./IDE/IDE.md).**
+**[Please click here to see the IDE guidance](./docs/IDE/IDE.md).**
 
 
 ### Optimisers and Optimisation Framework
 
-**[Please see Optimisers](./Optimisers/Optimisers.md)** for details on including the default optimisers into your project and how to extend and add your own.
+**[Please see Optimisers](./docs/Optimisers/Optimisers.md)** for details on including the default optimisers into your project and how to extend and add your own.
 
 This version adds a framework for including optimisers into your project. 
 
@@ -360,7 +371,7 @@ Project templates are included, offering skeleton architectures and educational 
 
 ### TEAL Interactive Debugging
 
-Please see the [TEAL Interactive Debugging](./Debugger/Debugger.md) section for details on how to use the TEAL Interactive Debugger.
+Please see the [TEAL Interactive Debugging](./docs/Debugger/Debugger.md) section for details on how to use the TEAL Interactive Debugger.
 
 ## **Roadmap**
 

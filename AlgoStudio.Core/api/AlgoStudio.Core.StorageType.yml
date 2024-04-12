@@ -1,0 +1,178 @@
+### YamlMime:ManagedReference
+items:
+- uid: AlgoStudio.Core.StorageType
+  commentId: T:AlgoStudio.Core.StorageType
+  id: StorageType
+  parent: AlgoStudio.Core
+  children:
+  - AlgoStudio.Core.StorageType.Global
+  - AlgoStudio.Core.StorageType.Local
+  - AlgoStudio.Core.StorageType.Protocol
+  - AlgoStudio.Core.StorageType.Scratch
+  langs:
+  - csharp
+  - vb
+  name: StorageType
+  nameWithType: StorageType
+  fullName: AlgoStudio.Core.StorageType
+  type: Enum
+  source:
+    remote:
+      path: AlgoStudio.Core/StorageType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: StorageType
+    path: ../../AlgoStudio/AlgoStudio.Core/StorageType.cs
+    startLine: 7
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: public enum StorageType
+    content.vb: Public Enum StorageType
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: AlgoStudio.Core.StorageType.Global
+  commentId: F:AlgoStudio.Core.StorageType.Global
+  id: Global
+  parent: AlgoStudio.Core.StorageType
+  langs:
+  - csharp
+  - vb
+  name: Global
+  nameWithType: StorageType.Global
+  fullName: AlgoStudio.Core.StorageType.Global
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/StorageType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Global
+    path: ../../AlgoStudio/AlgoStudio.Core/StorageType.cs
+    startLine: 9
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: Global = 0
+    return:
+      type: AlgoStudio.Core.StorageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.StorageType.Local
+  commentId: F:AlgoStudio.Core.StorageType.Local
+  id: Local
+  parent: AlgoStudio.Core.StorageType
+  langs:
+  - csharp
+  - vb
+  name: Local
+  nameWithType: StorageType.Local
+  fullName: AlgoStudio.Core.StorageType.Local
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/StorageType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Local
+    path: ../../AlgoStudio/AlgoStudio.Core/StorageType.cs
+    startLine: 10
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: Local = 1
+    return:
+      type: AlgoStudio.Core.StorageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.StorageType.Scratch
+  commentId: F:AlgoStudio.Core.StorageType.Scratch
+  id: Scratch
+  parent: AlgoStudio.Core.StorageType
+  langs:
+  - csharp
+  - vb
+  name: Scratch
+  nameWithType: StorageType.Scratch
+  fullName: AlgoStudio.Core.StorageType.Scratch
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/StorageType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Scratch
+    path: ../../AlgoStudio/AlgoStudio.Core/StorageType.cs
+    startLine: 11
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: Scratch = 2
+    return:
+      type: AlgoStudio.Core.StorageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: AlgoStudio.Core.StorageType.Protocol
+  commentId: F:AlgoStudio.Core.StorageType.Protocol
+  id: Protocol
+  parent: AlgoStudio.Core.StorageType
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: StorageType.Protocol
+  fullName: AlgoStudio.Core.StorageType.Protocol
+  type: Field
+  source:
+    remote:
+      path: AlgoStudio.Core/StorageType.cs
+      branch: MigrateTests
+      repo: https://frankstech@dev.azure.com/frankstech/Algorand%20for%20Visual%20Studio/_git/Algorand%20for%20Visual%20Studio
+    id: Protocol
+    path: ../../AlgoStudio/AlgoStudio.Core/StorageType.cs
+    startLine: 12
+  assemblies:
+  - AlgoStudio - Backup.Core
+  namespace: AlgoStudio.Core
+  syntax:
+    content: Protocol = 3
+    return:
+      type: AlgoStudio.Core.StorageType
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: AlgoStudio.Core
+  commentId: N:AlgoStudio.Core
+  name: AlgoStudio.Core
+  nameWithType: AlgoStudio.Core
+  fullName: AlgoStudio.Core
+- uid: AlgoStudio.Core.StorageType
+  commentId: T:AlgoStudio.Core.StorageType
+  parent: AlgoStudio.Core
+  name: StorageType
+  nameWithType: StorageType
+  fullName: AlgoStudio.Core.StorageType
