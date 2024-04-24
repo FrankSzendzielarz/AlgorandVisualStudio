@@ -30,6 +30,7 @@ items:
     content: 'public class AssetFreezeTransactionReference : TransactionReference'
     content.vb: >-
       Public Class AssetFreezeTransactionReference
+
           Inherits TransactionReference
   inheritance:
   - System.Object

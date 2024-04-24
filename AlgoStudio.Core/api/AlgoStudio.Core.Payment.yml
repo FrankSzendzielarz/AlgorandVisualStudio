@@ -31,6 +31,7 @@ items:
     content: 'public sealed class Payment : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class Payment
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

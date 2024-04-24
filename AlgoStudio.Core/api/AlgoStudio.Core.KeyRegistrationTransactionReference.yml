@@ -34,6 +34,7 @@ items:
     content: 'public class KeyRegistrationTransactionReference : TransactionReference'
     content.vb: >-
       Public Class KeyRegistrationTransactionReference
+
           Inherits TransactionReference
   inheritance:
   - System.Object

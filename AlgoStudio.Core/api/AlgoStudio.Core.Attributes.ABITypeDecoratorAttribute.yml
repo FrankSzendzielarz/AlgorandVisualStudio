@@ -36,6 +36,7 @@ items:
       <AttributeUsage(AttributeTargets.Parameter Or AttributeTargets.ReturnValue, AllowMultiple:=False)>
 
       Public Class ABITypeDecoratorAttribute
+
           Inherits Attribute
   inheritance:
   - System.Object

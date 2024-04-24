@@ -35,6 +35,7 @@ items:
     content: 'public sealed class KeyRegistration : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class KeyRegistration
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

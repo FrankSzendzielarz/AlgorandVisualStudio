@@ -4,6 +4,7 @@ using AlgoStudio.Core;
 using AlgoStudio.SpecFlow.Proxies.Types.Decimal;
 using Arithmetic;
 using Proxies;
+using Subroutines;
 
 
 
@@ -69,6 +70,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"UsesSmartContractLibrary", new UsesSmartContractLibrary.UsesSmartContractLibrary()},
             {"ArrayTestContract1", new ArrayTestContract1.ArrayTestContract1()},
             {"Expressions1", new Expressions1.Expressions1()},
+            {"Subroutines", new Subroutines.Subroutines()},
         };
 
         internal static Dictionary<string, SmartContract> csharpContracts = new Dictionary<string, SmartContract>()
@@ -94,7 +96,6 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"Int64Bitwise", new AlgoStudio.SpecFlow.Contracts.Types.Int64.Int64Bitwise()},
             {"Int64Conditions", new AlgoStudio.SpecFlow.Contracts.Types.Int64.Int64Conditions()},
             {"Int64Unary", new AlgoStudio.SpecFlow.Contracts.Types.Int64.Int64Unary()},
-
             {"UInt32Arithmetic", new AlgoStudio.SpecFlow.Contracts.Types.UInt32.UInt32Arithmetic()},
             {"UInt32Bitwise", new AlgoStudio.SpecFlow.Contracts.Types.UInt32.UInt32Bitwise()},
             {"UInt32Conditions", new AlgoStudio.SpecFlow.Contracts.Types.UInt32.UInt32Conditions()},
@@ -130,6 +131,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"UsesSmartContractLibrary", new Contracts.Libraries.UsesSmartContractLibrary()},
             {"ArrayTestContract1", new Contracts.Arrays.ArrayTestContract1()},
             {"Expressions1", new Contracts.Expressions.Expressions1()},
+            {"Subroutines", new Contracts.Subroutines.Subroutines()},
 
         };
 
@@ -190,6 +192,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"UsesSmartContractLibrary",(x,api)=>new UsesSmartContractLibraryProxy(api,x)   },
             {"ArrayTestContract1",(x,api)=>new ArrayTestContract1Proxy(api,x)   },
             {"Expressions1",(x,api)=>new Expressions1Proxy(api,x)   },
+            {"Subroutines",(x,api)=>new SubroutinesProxy(api,x)   },
 
         };
 

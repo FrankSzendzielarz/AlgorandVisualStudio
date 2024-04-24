@@ -278,16 +278,18 @@ namespace AlgoStudio.Compiler.CompilerStates
                     if (FirstParent<InnerTransactionLocalFunction>() != null) throw new ErrorDiagnosticException("E035");
 
                     var childFunction = Scope.AllSubScopes.Where(scope => scope.IsSymbolisedBy(invocationSymbol)).FirstOrDefault();
+                    string name = LocalFunction.GetUniqueName(invocationSymbol);
                     if (childFunction == null)
                     {
                         //should be a sibling-scoped or parent-scope function
                         var visibleScope = Scope.AllVisibleSuperScopes.Where(scope => scope.IsSymbolisedBy(invocationSymbol)).FirstOrDefault();
-                        invokeMethodAndPreserveStack(invocationSymbol, invocationSymbol.Name, visibleScope);
+                        invokeMethodAndPreserveStack(invocationSymbol, name, visibleScope);
                     }
                     else
                     {
                         // no need to work with the stack on child static scopes
-                        Code.callsub(invocationSymbol.Name);
+                        
+                        Code.callsub(name);
                     }
 
                     break;

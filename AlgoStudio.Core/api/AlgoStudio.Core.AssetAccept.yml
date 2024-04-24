@@ -31,6 +31,7 @@ items:
     content: 'public sealed class AssetAccept : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class AssetAccept
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

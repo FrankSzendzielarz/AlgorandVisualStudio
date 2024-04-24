@@ -40,6 +40,7 @@ items:
     content: 'public sealed class AssetConfiguration : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class AssetConfiguration
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

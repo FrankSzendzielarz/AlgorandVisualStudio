@@ -27,7 +27,9 @@ items:
     content: 'public class IntentionallyNotImplementedException : NotImplementedException, ISerializable'
     content.vb: >-
       Public Class IntentionallyNotImplementedException
+
           Inherits NotImplementedException
+
           Implements ISerializable
   inheritance:
   - System.Object

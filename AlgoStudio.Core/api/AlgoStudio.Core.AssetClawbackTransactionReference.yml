@@ -31,6 +31,7 @@ items:
     content: 'public class AssetClawbackTransactionReference : TransactionReference'
     content.vb: >-
       Public Class AssetClawbackTransactionReference
+
           Inherits TransactionReference
   inheritance:
   - System.Object

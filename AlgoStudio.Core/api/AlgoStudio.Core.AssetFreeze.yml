@@ -31,6 +31,7 @@ items:
     content: 'public sealed class AssetFreeze : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class AssetFreeze
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

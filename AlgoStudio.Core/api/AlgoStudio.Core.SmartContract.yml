@@ -73,6 +73,7 @@ items:
     content: 'public abstract class SmartContract : ISmartContractPredefineds, IAlgorandCommonPredefineds'
     content.vb: >-
       Public MustInherit Class SmartContract
+
           Implements ISmartContractPredefineds, IAlgorandCommonPredefineds
   inheritance:
   - System.Object

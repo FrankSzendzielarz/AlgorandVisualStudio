@@ -33,6 +33,7 @@ items:
       <AttributeUsage(AttributeTargets.Struct, AllowMultiple:=False)>
 
       Public Class ABIStructAttribute
+
           Inherits Attribute
   inheritance:
   - System.Object

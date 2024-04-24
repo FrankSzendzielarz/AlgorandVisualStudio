@@ -33,6 +33,7 @@ items:
       <AttributeUsage(AttributeTargets.Method, AllowMultiple:=False)>
 
       Public Class SmartContractMethodAttribute
+
           Inherits Attribute
   inheritance:
   - System.Object

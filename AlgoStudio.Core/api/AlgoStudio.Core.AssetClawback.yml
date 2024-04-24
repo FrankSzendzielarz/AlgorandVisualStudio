@@ -32,6 +32,7 @@ items:
     content: 'public sealed class AssetClawback : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class AssetClawback
+
           Inherits InnerTransaction
   inheritance:
   - System.Object

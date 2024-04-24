@@ -48,6 +48,7 @@ items:
     content: 'public abstract class SmartSignature : ISmartSignaturePredefineds, IAlgorandCommonPredefineds'
     content.vb: >-
       Public MustInherit Class SmartSignature
+
           Implements ISmartSignaturePredefineds, IAlgorandCommonPredefineds
   inheritance:
   - System.Object

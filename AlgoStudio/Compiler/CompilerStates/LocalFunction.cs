@@ -11,8 +11,28 @@ namespace AlgoStudio.Compiler.CompilerStates
     internal class LocalFunction : CompilerState
     {
         protected IMethodSymbol localFunctionSymbol;
+
+        internal static string GetUniqueName(IMethodSymbol methodSymbol)
+        {
+            var syntaxRef = methodSymbol.DeclaringSyntaxReferences.FirstOrDefault();
+            if (syntaxRef == null)
+            {
+                return methodSymbol.Name;
+            }
+
+            var syntaxNode = syntaxRef.GetSyntax();
+            var location = syntaxNode.GetLocation();
+            var lineSpan = location.GetLineSpan();
+
+            var startLine = lineSpan.StartLinePosition.Line; // The start line of the local function
+
+            // Return the unique name
+            return $"{methodSymbol.Name}_{startLine}";
+        }
+
         internal LocalFunction(CompilerState parent, IMethodSymbol func, SemanticModel semanticModel) : base(parent)
         {
+
             //New Code target and new Scope
             var code = new CodeBuilder();
             Code.AddChildCode(code);
@@ -23,7 +43,7 @@ namespace AlgoStudio.Compiler.CompilerStates
             localFunctionSymbol = func;
 
             Code.AddEmptyLine();
-            Code.AddLabel(func.Name);
+            Code.AddLabel(GetUniqueName(func));
 
             List<Variable> variables = new List<Variable>();
             foreach (var param in func.Parameters)
@@ -64,7 +84,7 @@ namespace AlgoStudio.Compiler.CompilerStates
                 variable.AddSaveCode(Code, Scope);
             }
 
-
+           
 
         }
 

@@ -30,6 +30,7 @@ items:
     content: 'public class PaymentTransactionReference : TransactionReference'
     content.vb: >-
       Public Class PaymentTransactionReference
+
           Inherits TransactionReference
   inheritance:
   - System.Object

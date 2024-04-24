@@ -34,6 +34,7 @@ items:
       <AttributeUsage(AttributeTargets.Field, AllowMultiple:=False)>
 
       Public Class ABIFixedSizeAttribute
+
           Inherits Attribute
   inheritance:
   - System.Object

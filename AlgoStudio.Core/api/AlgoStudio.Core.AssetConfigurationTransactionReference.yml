@@ -39,6 +39,7 @@ items:
     content: 'public class AssetConfigurationTransactionReference : TransactionReference'
     content.vb: >-
       Public Class AssetConfigurationTransactionReference
+
           Inherits TransactionReference
   inheritance:
   - System.Object

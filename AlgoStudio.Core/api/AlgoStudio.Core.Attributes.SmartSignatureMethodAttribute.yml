@@ -33,6 +33,7 @@ items:
       <AttributeUsage(AttributeTargets.Method, AllowMultiple:=False)>
 
       Public Class SmartSignatureMethodAttribute
+
           Inherits Attribute
   inheritance:
   - System.Object

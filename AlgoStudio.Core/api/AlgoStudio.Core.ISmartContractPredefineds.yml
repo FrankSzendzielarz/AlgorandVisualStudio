@@ -39,6 +39,7 @@ items:
     content: 'public interface ISmartContractPredefineds : IAlgorandCommonPredefineds'
     content.vb: >-
       Public Interface ISmartContractPredefineds
+
           Inherits IAlgorandCommonPredefineds
   inheritedMembers:
   - AlgoStudio.Core.IAlgorandCommonPredefineds.Sha256(System.Byte[])

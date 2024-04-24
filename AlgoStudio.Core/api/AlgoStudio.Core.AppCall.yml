@@ -41,6 +41,7 @@ items:
     content: 'public sealed class AppCall : InnerTransaction'
     content.vb: >-
       Public NotInheritable Class AppCall
+
           Inherits InnerTransaction
   inheritance:
   - System.Object
