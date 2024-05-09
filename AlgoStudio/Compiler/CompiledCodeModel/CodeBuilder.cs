@@ -130,7 +130,7 @@ namespace AlgoStudio.Compiler.CompiledCodeModel
             {
                 if (child is SmartContractProgramCode sc && sc.Name == "ClearStateProgram")
                 {
-                    code.AppendLine($"{new string(' ', CodeLineWidth)}//Opcode size");
+                   // code.AppendLine($"{new string(' ', CodeLineWidth)}//Opcode size");
                     var c = child.GetApprovalProgramCode(compilationGroup,new List<CodeBuilder>());
                     code.Append(c.code);
                     cost += c.cost;
@@ -168,7 +168,7 @@ namespace AlgoStudio.Compiler.CompiledCodeModel
             
             
 
-            code.AppendLine($"{new string(' ', CodeLineWidth)}//Opcode size");
+           // code.AppendLine($"{new string(' ', CodeLineWidth)}//Opcode size");
 
 
             foreach (var codeStep in optimisedLines)
@@ -176,7 +176,7 @@ namespace AlgoStudio.Compiler.CompiledCodeModel
                 cost += codeStep.Size;
                 int width = codeStep.Line.Length;
                 int spacer = Math.Max(CodeLineWidth - width, 0);
-                code.AppendLine($"{codeStep.Line}{new string(' ', spacer)}//{cost}       ");
+                code.AppendLine($"{codeStep.Line}");// {new string(' ', spacer)}//{cost}       ");
             }
 
             var children = childCodeBlocksAndLibraryDependencies(compilationGroup, knownCode);
