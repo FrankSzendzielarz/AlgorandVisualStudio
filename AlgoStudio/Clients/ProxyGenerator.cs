@@ -125,116 +125,11 @@ namespace AlgoStudio.Clients
                                     .DescendantNodes()
                                     .OfType<MethodDeclarationSyntax>();
 
-            var methodSymbols = methodSyntaxes
-                                    .Select(ms => (ms, msym: semanticModel.GetDeclaredSymbol(ms)));
-
-            foreach (var methodSymbol in methodSymbols)
+            
+            foreach (var methodSyntax in methodSyntaxes)
             {
-                var ABImethod = methodSymbol
-                                .msym
-                                .GetAttributes()
-                                .Where(a => a.AttributeClass.Name == nameof(SmartContractMethodAttribute))
-                                .FirstOrDefault();
-
-                if (ABImethod != null)
-                {
-                    MethodDescription md = new MethodDescription();
-                    contractDescription.Methods.Add(md);    
-
-                    var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
-                    var callType = (Core.OnCompleteType)callTypeConst.Value;
-
-                    md.OnCompletion.Add(callType.ToString());
-
-                    var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
-                    var selector = (string)selectorConst.Value;
-                    if (selector == null)
-                    {
-                        // the selector override is not specified so we must use the same selector method as 
-                        // the compiler does...
-                        selector = methodSymbol.msym.ToABIReference();
-                    }
-                    md.Selector = selector;
-
-                    
-                    var returnType = methodSymbol.msym.ReturnType;
-                    md.Returns = new ReturnTypeDescription()
-                    {
-                        Type = TypeHelpers.CSTypeToAbiType(returnType),
-                        TypeDetail = returnType.ToString()
-                    };
-
-                    md.Name =  methodSymbol.msym.Name;
-                   
-                    var refToCurrentAppCall = methodSymbol.msym.Parameters.Where(p => TransactionRefVariable.IsTxRef(p.Type)).LastOrDefault();
-                    foreach (var parm in methodSymbol.msym.Parameters)
-                    {
-                        //the last transaction parameter is the current app call and this must not be part of the spec
-                        if (refToCurrentAppCall==null || !refToCurrentAppCall.Equals(parm, SymbolEqualityComparer.Default) )
-                        {
-                            //check if the parameter has an ABI type modifier and use that instead of the
-                            //default 
-                            var typeModifier = parm
-                                .GetAttributes()
-                                .Where(a => a.AttributeClass.Name == nameof(ABITypeDecoratorAttribute))
-                                .FirstOrDefault();
-
-                            string parameterTypeDescription="unknown";
-                            if (typeModifier == null)
-                            {
-                                parameterTypeDescription = TypeHelpers.CSTypeToAbiType(parm.Type);
-                            }
-                            else
-                            {
-                                if (typeModifier.ConstructorArguments.Where(kv => kv.Type.Name == "String").Any())
-                                {
-                                    var parmTypeConst = typeModifier.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
-                                    parameterTypeDescription = (string)parmTypeConst.Value;
-                                }
-                            }
-
-                            md.Args.Add(new ArgumentDescription()
-                            {
-                                Name = parm.Name,
-                                Type = parameterTypeDescription,
-                                TypeDetail = parm.Type.ToString()
-                            });
-
-                        }
-                    }
-
-                
-
-                    //Add any leading structured trivia
-                    if (methodSymbol.ms.HasStructuredTrivia)
-                    {
-                        var trivia = methodSymbol.ms.GetLeadingTrivia()
-                                                    .Select(i => i.GetStructure())
-                                                    .OfType<DocumentationCommentTriviaSyntax>()
-                                                    .FirstOrDefault();
-
-                        if (trivia != null)
-                        {
-                            var summary = trivia.ChildNodes()
-                                .OfType<XmlElementSyntax>()
-                                .Where(i => i.StartTag.Name.ToString().ToLower().Equals("summary"))
-                                .FirstOrDefault();
-
-                            if (summary != null && summary.Content!=null)
-                            {
-                                md.Desc = summary.Content.FirstOrDefault().ToString().Trim().Replace("///","");
-                            }
-
-                        }
-                    }
-
-                    
-                    
-                    
-                    
-                }
-
-
+                MethodDescription md=MethodDescription.FromMethod(methodSyntax,semanticModel);
+                if (md!=null) contractDescription.Methods.Add(md);
             }
         }
 
@@ -521,7 +416,7 @@ namespace AlgoStudio.Clients
                     {
                         // the selector override is not specified so we must use the same selector method as 
                         // the compiler does...
-                        selector = methodSymbol.msym.ToABIReference();
+                        selector = methodSymbol.msym.GetMethodSelector(semanticModel);
                     }
 
                     var returnType = methodSymbol.msym.ReturnType;
@@ -688,7 +583,7 @@ namespace AlgoStudio.Clients
                     {
                         // the selector override is not specified so we must use the same selector method as 
                         // the compiler does...
-                        selector = methodSymbol.msym.ToABIReference();
+                        selector = methodSymbol.msym.GetMethodSelector(semanticModel);
                     }
 
                     var returnType = methodSymbol.msym.ReturnType;

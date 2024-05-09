@@ -1,4 +1,5 @@
-﻿using AlgoStudio.Compiler.Variables;
+﻿using AlgoStudio.Compiler;
+using AlgoStudio.Compiler.Variables;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
@@ -299,7 +300,6 @@ namespace AlgoStudio.ABI
             { "ushort", ABI.ABIType["uint16"]},
             { typeof(UInt16).Name , ABI.ABIType["uint16"]},
             { "System.Numerics.BigInteger", ABI.ABIType["bigint"] },
-            { "System.Numerics.BigInteger",ABI.ABIType["ubigint"] },
             { "decimal", ABI.ABIType["decimal"] },
             { typeof(Decimal).Name, ABI.ABIType["decimal"]},
             { "string", ABI.ABIType["string"]},
@@ -467,6 +467,11 @@ namespace AlgoStudio.ABI
                     return $"{at}[]";
                 }
 
+                if (Utilities.IsAbiStruct(ts))
+                {
+                    return $"byte[][]";
+                }
+
             }
             else
             {
@@ -475,7 +480,14 @@ namespace AlgoStudio.ABI
                     return $"{at}";
                 }
 
+                if (Utilities.IsAbiStruct(ts))
+                {
+                    return $"byte[]";
+                }
             }
+
+
+
 
 
             //check if it's a transaction array reference type

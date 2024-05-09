@@ -5,12 +5,121 @@ using System.Text;
 using Newtonsoft.Json;
 using AlgoStudio.Compiler;
 using AlgoStudio;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using AlgoStudio.Core.Attributes;
+using AlgoStudio.Compiler.Variables;
+using Org.BouncyCastle.Crypto.Digests;
+
 
 namespace AlgoStudio.ABI
 {
 
     public class MethodDescription
     {
+
+        
+
+
+        public static MethodDescription FromMethod(MethodDeclarationSyntax ms, SemanticModel model)
+        {
+            var methodSymbol = model.GetDeclaredSymbol(ms);
+
+            MethodDescription md = null;
+            var ABImethod = methodSymbol
+                                .GetAttributes()
+                                .Where(a => a.AttributeClass.Name == nameof(SmartContractMethodAttribute))
+                                .FirstOrDefault();
+            if (ABImethod != null)
+            {
+                md = new MethodDescription();
+
+                var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
+                var callType = (Core.OnCompleteType)callTypeConst.Value;
+
+                md.OnCompletion.Add(callType.ToString());
+
+                var returnType = methodSymbol.ReturnType;
+                md.Returns = new ReturnTypeDescription()
+                {
+                    Type = TypeHelpers.CSTypeToAbiType(returnType),
+                    TypeDetail = returnType.ToString()
+                };
+
+                md.Name = methodSymbol.Name;
+
+                var refToCurrentAppCall = methodSymbol.Parameters.Where(p => TransactionRefVariable.IsTxRef(p.Type)).LastOrDefault();
+                foreach (var parm in methodSymbol.Parameters)
+                {
+                    //the last transaction parameter is the current app call and this must not be part of the spec
+                    if (refToCurrentAppCall == null || !refToCurrentAppCall.Equals(parm, SymbolEqualityComparer.Default))
+                    {
+                        //check if the parameter has an ABI type modifier and use that instead of the
+                        //default 
+                        var typeModifier = parm
+                            .GetAttributes()
+                            .Where(a => a.AttributeClass.Name == nameof(ABITypeDecoratorAttribute))
+                            .FirstOrDefault();
+
+                        string parameterTypeDescription = "unknown";
+                        if (typeModifier == null)
+                        {
+                            parameterTypeDescription = TypeHelpers.CSTypeToAbiType(parm.Type);
+                        }
+                        else
+                        {
+                            if (typeModifier.ConstructorArguments.Where(kv => kv.Type.Name == "String").Any())
+                            {
+                                var parmTypeConst = typeModifier.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
+                                parameterTypeDescription = (string)parmTypeConst.Value;
+                            }
+                        }
+
+                        md.Args.Add(new ArgumentDescription()
+                        {
+                            Name = parm.Name,
+                            Type = parameterTypeDescription,
+                            TypeDetail = parm.Type.ToString()
+                        });
+
+                    }
+                }
+
+                //Add any leading structured trivia
+                if (ms.HasStructuredTrivia)
+                {
+                    var trivia = ms.GetLeadingTrivia()
+                                                .Select(i => i.GetStructure())
+                                                .OfType<DocumentationCommentTriviaSyntax>()
+                                                .FirstOrDefault();
+
+                    if (trivia != null)
+                    {
+                        var summary = trivia.ChildNodes()
+                            .OfType<XmlElementSyntax>()
+                            .Where(i => i.StartTag.Name.ToString().ToLower().Equals("summary"))
+                            .FirstOrDefault();
+
+                        if (summary != null && summary.Content != null)
+                        {
+                            md.Desc = summary.Content.FirstOrDefault().ToString().Trim().Replace("///", "");
+                        }
+
+                    }
+                }
+
+                var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
+                md.Selector = (string)selectorConst.Value;
+                md.Selector = md.ToSelector();
+
+
+            }
+
+
+            return md;
+        }
+
         [JsonRequired]
         public string Name { get; set; }
 
@@ -26,12 +135,17 @@ namespace AlgoStudio.ABI
 
         public string ToARC4MethodSignature()
         {
-            return $"{Name}({String.Join(",",Args.Select(a=>a.Type))}){Returns.Type}";
+            return $"{Name}({String.Join(",", Args.Select(a => a.Type))}){Returns.Type}";
         }
 
         public byte[] ToARC4MethodSelector()
         {
-            return Algorand.Utils.Digester.Digest(Encoding.ASCII.GetBytes(ToARC4MethodSignature())).Take(4).ToArray();
+            var data = Encoding.ASCII.GetBytes(ToARC4MethodSignature());
+            Sha512tDigest digest = new Sha512tDigest(256);
+            digest.BlockUpdate(data, 0, data.Length);
+            byte[] output = new byte[32];
+            digest.DoFinal(output, 0);
+            return output.Take(4).ToArray();
         }
 
         public string ToSelector()
@@ -62,7 +176,7 @@ namespace AlgoStudio.ABI
                 .ToList();
 
             var nonTxRefArgs = argsAndTransactionReferences.Where(a => String.IsNullOrWhiteSpace(a.refType)).ToList();
-            var txRefArgs=argsAndTransactionReferences.Where(a => !String.IsNullOrWhiteSpace(a.refType)).ToList();
+            var txRefArgs = argsAndTransactionReferences.Where(a => !String.IsNullOrWhiteSpace(a.refType)).ToList();
 
 
             scr.AppendLine(
@@ -74,7 +188,7 @@ $@"{"\t\t"}///<summary>
                 scr.AppendLine($@"{"\t\t"}///<param name=""{arg.arg.Name}"">{arg.arg.Desc}</param>");
             }
             scr.AppendLine($@"{"\t\t"}///<param name=""result"">{Returns.Desc}</param>");
-            
+
             string retType;
             if (txRefArgs.Count == 0)
             {
@@ -87,7 +201,7 @@ $@"{"\t\t"}///<summary>
             }
             else
             {
-                retType = $"({String.Join(",", txRefArgs.Select(a=>$"{a.refType} {a.arg.Name}").Concat(new List<string> { "AppCall"} ) )})";
+                retType = $"({String.Join(",", txRefArgs.Select(a => $"{a.refType} {a.arg.Name}").Concat(new List<string> { "AppCall" }))})";
             }
 
             var t = TypeHelpers.GetCSType(Name + "return", Returns.Type, Returns.TypeDetail, structs, false);
@@ -110,7 +224,7 @@ $@"{"\t\t"}///<summary>
                 );
             scr.AppendLine(");");
 
-            
+
 
         }
     }

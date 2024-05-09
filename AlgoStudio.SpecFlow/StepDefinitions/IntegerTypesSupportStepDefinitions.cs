@@ -7,7 +7,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
     {
 
 
-        Dictionary<string, Type> types = new Dictionary<string, Type>()
+        internal static Dictionary<string, Type> types = new Dictionary<string, Type>()
         {
             { "bool" , typeof(bool) },
             { "byte" , typeof(byte) },

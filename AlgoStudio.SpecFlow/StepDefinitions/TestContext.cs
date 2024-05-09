@@ -71,6 +71,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"ArrayTestContract1", new ArrayTestContract1.ArrayTestContract1()},
             {"Expressions1", new Expressions1.Expressions1()},
             {"Subroutines", new Subroutines.Subroutines()},
+            {"JsonAddNumbers", new AddNumbers.AddNumbers()},
         };
 
         internal static Dictionary<string, SmartContract> csharpContracts = new Dictionary<string, SmartContract>()
@@ -132,6 +133,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"ArrayTestContract1", new Contracts.Arrays.ArrayTestContract1()},
             {"Expressions1", new Contracts.Expressions.Expressions1()},
             {"Subroutines", new Contracts.Subroutines.Subroutines()},
+            {"JsonAddNumbers", new Contracts.Json.AddNumbers()},
 
         };
 
@@ -193,6 +195,7 @@ namespace AlgoStudio.SpecFlow.StepDefinitions
             {"ArrayTestContract1",(x,api)=>new ArrayTestContract1Proxy(api,x)   },
             {"Expressions1",(x,api)=>new Expressions1Proxy(api,x)   },
             {"Subroutines",(x,api)=>new SubroutinesProxy(api,x)   },
+            {"JsonAddNumbers", (x,api)=>new AddNumbersProxy(api,x)  },
 
         };
 

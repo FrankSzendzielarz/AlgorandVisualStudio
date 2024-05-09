@@ -26,7 +26,7 @@ namespace AlgoStudio.Compiler.CompilerStates
             var code = new SmartSignatureMethodCode();
             if (string.IsNullOrWhiteSpace(optionalLabel))
             {
-                code.Name = func.ToABIReference();
+                code.Name = $"0x{func.GetMethodSelector(semanticModel)}"; 
             }
             else
             {

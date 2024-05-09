@@ -21,7 +21,7 @@ namespace AlgoStudio.SourceGenerator
 #if DEBUG
             if (!Debugger.IsAttached)
             {
-       //         Debugger.Launch();
+        //        Debugger.Launch();
             }
 #endif 
             context.RegisterForSyntaxNotifications(() => new CodeFilesReceiver());

@@ -1,4 +1,5 @@
-﻿using AlgoStudio.Compiler.Variables;
+﻿using AlgoStudio.ABI;
+using AlgoStudio.Compiler.Variables;
 
 using AlgoStudio.Core.Attributes;
 using Microsoft.CodeAnalysis;
@@ -140,13 +141,21 @@ namespace AlgoStudio.Compiler
             return (PredefinedSignedIntegerTypes.Contains(typeSymbol));
         }
 
-        internal static string ToABIReference(this IMethodSymbol method)
+        internal static string GetMethodSelector(this IMethodSymbol method, SemanticModel model)
         {
-            //TODO - when arc4 is accepted, modify this to comply
-            string methodSig = method.ToString();
-            var hasher = SHA512.Create();
-            var hash = hasher.ComputeHash(Encoding.UTF8.GetBytes(methodSig));
-            return "0x" + hash.ToHex().Substring(0, 8);
+            var methodSyntaxRef = method.DeclaringSyntaxReferences.FirstOrDefault() ;
+            if (methodSyntaxRef!=null)
+            {
+                SyntaxNode syntaxNode = methodSyntaxRef.GetSyntax();
+                MethodDeclarationSyntax methodDeclarationSyntax = syntaxNode as MethodDeclarationSyntax;
+                if (methodDeclarationSyntax != null)
+                {
+                    MethodDescription md = MethodDescription.FromMethod(methodDeclarationSyntax, model);
+                    return md.Selector;
+                }
+
+            }
+            return "";
         }
 
         internal static string ToHex(this byte[] bytes)
