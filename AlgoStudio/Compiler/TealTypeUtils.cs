@@ -1,4 +1,4 @@
-﻿using AlgoStudio.ABI;
+﻿using AlgoStudio.ABI.ARC4;
 using AlgoStudio.Compiler.Variables;
 
 using AlgoStudio.Core.Attributes;

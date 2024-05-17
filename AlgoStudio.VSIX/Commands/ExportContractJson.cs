@@ -1,4 +1,5 @@
-﻿using AlgoStudio.Clients;
+﻿using AlgoStudio.ABI.ARC32;
+using AlgoStudio.Clients;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 using Microsoft.VisualStudio.Shell;
@@ -165,7 +166,7 @@ namespace AlgoStudio.VSIX
             {
                 try
                 {
-                    var appModel = ProxyGenerator.GenerateContractDescription(semanticModel, classDeclaration);
+                    var appModel = AppDescription.GenerateContractDescription(semanticModel, classDeclaration);
 
                     if (appModel != null)
                     {

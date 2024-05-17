@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AlgoStudio.ABI.ARC32;
+using AlgoStudio.ABI.ARC4;
 
 namespace AlgoStudio.Clients
 {
@@ -43,135 +45,7 @@ namespace AlgoStudio.Clients
             { "string","return Encoding.UTF8.GetString(result);" }
         };
 
-        #region Smart Contract to App Json
-        public static ContractDescription GenerateContractDescription(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass)
-        {
-            semanticModel = semanticModel ?? throw new ArgumentNullException(nameof(semanticModel));
-            smartContractClass = smartContractClass ?? throw new ArgumentNullException(nameof(smartContractClass));
 
-            ContractDescription contractDescription = null;
-            var classSymbol = semanticModel.GetDeclaredSymbol(smartContractClass);
-            if (classSymbol != null && Utilities.IsSmartContract(classSymbol as INamedTypeSymbol))
-            {
-
-                contractDescription = new ContractDescription();
-                contractDescription.Name = smartContractClass.Identifier.Text;
-
-                if (smartContractClass.HasStructuredTrivia)
-                {
-                    var classTrivia = smartContractClass.GetLeadingTrivia()
-                                                      .Select(i => i.GetStructure())
-                                                      .OfType<DocumentationCommentTriviaSyntax>()
-                                                      .FirstOrDefault();
-                 
-                    if (classTrivia != null)
-                    {
-                        var summary = classTrivia.ChildNodes()
-                            .OfType<XmlElementSyntax>()
-                            .Where(i => i.StartTag.Name.ToString().ToLower().Equals("summary"))
-                            .FirstOrDefault();
-
-                        if (summary != null && summary.Content != null)
-                        {
-                            contractDescription.Desc = summary.Content.FirstOrDefault().ToString().Trim().Replace("///", "");
-                        }
-
-                    }
-                }
-
-                defineContractDescriptionMethods(semanticModel, smartContractClass, contractDescription);
-                defineContractDescriptionFields(semanticModel, smartContractClass, contractDescription);
-
-                
-            }
-
-            return contractDescription;
-
-        }
-
-        private static void defineContractDescriptionFields(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, ContractDescription contractDescription)
-        {
-            var fieldDeclarations = smartContractClass
-                                              .DescendantNodes()
-                                              .OfType<VariableDeclarationSyntax>()
-                                              .SelectMany(s => s.Variables)
-                                              .Select(s => (syntax: s, symbol: semanticModel.GetDeclaredSymbol(s), attribute: semanticModel.GetDeclaredSymbol(s)?
-                                                            .GetAttributes()
-                                                            .Where(a => a.AttributeClass.Name == nameof(StorageAttribute))
-                                                            .FirstOrDefault())
-                                                     )
-                                              .Where(s => s.attribute != null);
-
-            foreach (var field in fieldDeclarations)
-            {
-                var st = field.attribute.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.StorageType)).First();
-                Core.StorageType storageType = (Core.StorageType)st.Value;
-
-                switch (storageType)
-                {
-                    case Core.StorageType.Global: addStateVarToContractDescription(field.syntax, field.symbol, contractDescription, semanticModel, false); break;
-                    case Core.StorageType.Local: addStateVarToContractDescription(field.syntax, field.symbol, contractDescription, semanticModel, true); break;
-                    default:
-                        throw new Exception("Unsupported field type");
-
-                }
-            }
-        }
-
-        private static void defineContractDescriptionMethods(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, ContractDescription contractDescription)
-        {
-
-            var methodSyntaxes = smartContractClass
-                                    .DescendantNodes()
-                                    .OfType<MethodDeclarationSyntax>();
-
-            
-            foreach (var methodSyntax in methodSyntaxes)
-            {
-                MethodDescription md=MethodDescription.FromMethod(methodSyntax,semanticModel);
-                if (md!=null) contractDescription.Methods.Add(md);
-            }
-        }
-
-        private static void addStateVarToContractDescription(VariableDeclaratorSyntax syntax, ISymbol symbol, ContractDescription contractDescription, SemanticModel semanticModel, bool local)
-        {
-            StorageElement storageElement = new StorageElement();
-
-            if (syntax.HasStructuredTrivia)
-            {
-                var trivia = syntax.GetLeadingTrivia()
-                                            .Select(i => i.GetStructure())
-                                            .OfType<DocumentationCommentTriviaSyntax>()
-                                            .FirstOrDefault();
-                if (trivia != null)
-                    storageElement.Desc=trivia.ToFullString().Trim();
-            }
-
-            storageElement.Type = TypeHelpers.CSTypeToAbiType((syntax.Parent as VariableDeclarationSyntax).Type,  semanticModel);
-            storageElement.TypeDetail = (syntax.Parent as VariableDeclarationSyntax).Type.ToString();
-            storageElement.Key = syntax.Identifier.ValueText;
-            string name = syntax.Identifier.ValueText;
-            
-           
-            
-            if (local)
-            {
-                if (contractDescription.State.Account == null) contractDescription.State.Account = new StorageSection();
-                contractDescription.State.Account.Declared.Add(name,storageElement);
-            }
-            else
-            {
-                if (contractDescription.State.App == null) contractDescription.State.App = new StorageSection();
-                contractDescription.State.App.Declared.Add(name, storageElement);
-            }
-
-            
-
-
-
-
-        }
-        #endregion Smart Contract to App Json
 
 
 

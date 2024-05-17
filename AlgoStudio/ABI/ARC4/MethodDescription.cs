@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using AlgoStudio.Compiler;
-using AlgoStudio;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -13,13 +12,24 @@ using AlgoStudio.Compiler.Variables;
 using Org.BouncyCastle.Crypto.Digests;
 
 
-namespace AlgoStudio.ABI
+namespace AlgoStudio.ABI.ARC4
 {
 
     public class MethodDescription
     {
+        [JsonRequired]
+        public string Name { get; set; }
 
-        
+        public string Desc { get; set; }
+
+        [JsonIgnore]
+        public List<string> OnCompletion { get; set; } = new List<string>();
+
+        public List<ArgumentDescription> Args { get; set; } = new List<ArgumentDescription> { };
+
+        public string Selector { get; set; }
+
+        public ReturnTypeDescription Returns { get; set; }
 
 
         public static MethodDescription FromMethod(MethodDeclarationSyntax ms, SemanticModel model)
@@ -35,6 +45,7 @@ namespace AlgoStudio.ABI
             {
                 md = new MethodDescription();
 
+                //TODO - Modify this now to handle multiple on complete types
                 var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
                 var callType = (Core.OnCompleteType)callTypeConst.Value;
 
@@ -119,28 +130,11 @@ namespace AlgoStudio.ABI
 
             return md;
         }
-
-        [JsonRequired]
-        public string Name { get; set; }
-
-        public string Desc { get; set; }
-
-        public List<string> OnCompletion { get; set; } = new List<string>();
-
-        public List<ArgumentDescription> Args { get; set; } = new List<ArgumentDescription> { };
-
-        public string Selector { get; set; }
-
-        public ReturnTypeDescription Returns { get; set; }
-
-        public string ToARC4MethodSignature()
-        {
-            return $"{Name}({String.Join(",", Args.Select(a => a.Type))}){Returns.Type}";
-        }
+        public string ARC4MethodSignature => $"{Name}({string.Join(",", Args.Select(a => a.Type))}){Returns.Type}";
 
         public byte[] ToARC4MethodSelector()
         {
-            var data = Encoding.ASCII.GetBytes(ToARC4MethodSignature());
+            var data = Encoding.ASCII.GetBytes(ARC4MethodSignature);
             Sha512tDigest digest = new Sha512tDigest(256);
             digest.BlockUpdate(data, 0, data.Length);
             byte[] output = new byte[32];
@@ -150,7 +144,7 @@ namespace AlgoStudio.ABI
 
         public string ToSelector()
         {
-            if (String.IsNullOrEmpty(Selector))
+            if (string.IsNullOrEmpty(Selector))
                 return ToARC4MethodSelector().ToHex();
             else
                 return Selector;
@@ -175,8 +169,8 @@ namespace AlgoStudio.ABI
                 })
                 .ToList();
 
-            var nonTxRefArgs = argsAndTransactionReferences.Where(a => String.IsNullOrWhiteSpace(a.refType)).ToList();
-            var txRefArgs = argsAndTransactionReferences.Where(a => !String.IsNullOrWhiteSpace(a.refType)).ToList();
+            var nonTxRefArgs = argsAndTransactionReferences.Where(a => string.IsNullOrWhiteSpace(a.refType)).ToList();
+            var txRefArgs = argsAndTransactionReferences.Where(a => !string.IsNullOrWhiteSpace(a.refType)).ToList();
 
 
             scr.AppendLine(
@@ -201,22 +195,22 @@ $@"{"\t\t"}///<summary>
             }
             else
             {
-                retType = $"({String.Join(",", txRefArgs.Select(a => $"{a.refType} {a.arg.Name}").Concat(new List<string> { "AppCall" }))})";
+                retType = $"({string.Join(",", txRefArgs.Select(a => $"{a.refType} {a.arg.Name}").Concat(new List<string> { "AppCall" }))})";
             }
 
             var t = TypeHelpers.GetCSType(Name + "return", Returns.Type, Returns.TypeDetail, structs, false);
             var retParm = $"out {t.type} result";
 
 
-            scr.AppendLine($"\t\t[SmartContractMethod(OnCompleteType.NoOp, \"{this.ToSelector()}\")]");
+            scr.AppendLine($"\t\t[SmartContractMethod(OnCompleteType.NoOp, \"{ToSelector()}\")]");
             scr.Append($"\t\tpublic abstract {retType} {Name}(");
-            scr.Append(String.Join(",", txRefArgs
+            scr.Append(string.Join(",", txRefArgs
                 .Select(s => $"{s.refType} {s.arg.Name}")
                 )
 
                 );
             if (txRefArgs.Count > 0) { scr.Append(","); }
-            scr.Append(String.Join(",", nonTxRefArgs
+            scr.Append(string.Join(",", nonTxRefArgs
                 .Select(s => $"{TypeHelpers.GetCSType(Name + "_arg_" + s.arg.Name, s.arg.Type, s.arg.TypeDetail, structs, false).type} {s.arg.Name}")
                 .Append(retParm)
                 )

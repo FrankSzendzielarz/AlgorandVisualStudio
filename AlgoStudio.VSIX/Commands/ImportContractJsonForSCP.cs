@@ -1,4 +1,4 @@
-﻿using AlgoStudio.ABI;
+﻿using AlgoStudio.ABI.ARC32;
 using AlgoStudio.VSIX.Controls;
 using EnvDTE;
 using Microsoft.CodeAnalysis;
@@ -168,10 +168,10 @@ namespace AlgoStudio.VSIX
             fd.Filter = "Json documents (.json)|*.json";
             fd.DefaultExt = ".json";
 
-            ContractDescription cd = null;
+            AppDescription cd = null;
             if (fd.ShowDialog() ?? false)
             {
-                cd = ContractDescription.LoadFromFile(fd.FileName);
+                cd = AppDescription.LoadFromFile(fd.FileName);
                 if (cd == null)
                 {
                     VsShellUtilities.ShowMessageBox(

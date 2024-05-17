@@ -1,4 +1,4 @@
-﻿using AlgoStudio.ABI;
+﻿using AlgoStudio.ABI.ARC32;
 using System.Windows.Controls;
 
 namespace AlgoStudio.VSIX.Controls
@@ -8,9 +8,9 @@ namespace AlgoStudio.VSIX.Controls
     /// </summary>
     public partial class ContractJsonToSCP : BaseDialogWindow
     {
-        private ContractDescription contractDescription;
+        private AppDescription contractDescription;
         public string ResultText = "";
-        public ContractJsonToSCP(ContractDescription cd,string nameSpace)
+        public ContractJsonToSCP(AppDescription cd,string nameSpace)
         {
             contractDescription = cd;
             InitializeComponent();

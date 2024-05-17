@@ -1,6 +1,9 @@
-﻿using AlgoStudio.Clients;
-
+﻿using AlgoStudio.ABI.ARC4;
+using AlgoStudio.Clients;
+using AlgoStudio.Compiler;
+using AlgoStudio.Core.Attributes;
 using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -9,31 +12,28 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace AlgoStudio.ABI
+namespace AlgoStudio.ABI.ARC32
 {
 
 
     /// <summary>
-    /// Represents an ARC4 contract description
+    /// Represents an ARC32 app description
     /// </summary>
-    public class ContractDescription
+    [JsonConverter(typeof(AppDescriptionConverter))]
+    public class AppDescription
     {
+        #region Members
+        public ContractDescription Contract { get; set; }
 
-
-
-        [JsonRequired]
-        public string Name { get; set; }
-        public string Desc { get; set; }
-        public Dictionary<string, NetworkAppId> Networks { get; set; }
         public StateDescription State { get; set; } = new StateDescription();
 
-        [JsonRequired]
-        public List<MethodDescription> Methods { get; set; } = new List<MethodDescription>();
+        public CallConfigSpec Bare_call_config { get; set; }
 
+        public Dictionary<string,HintSpec> Hints = new Dictionary<string, HintSpec>();
 
+        #endregion
 
-
-
+        #region Methods
 
         public static bool Verify(out List<string> errors)
         {
@@ -45,7 +45,6 @@ namespace AlgoStudio.ABI
 
             throw new NotImplementedException();
         }
-
 
         public void SaveToFile(string filename)
         {
@@ -61,7 +60,15 @@ namespace AlgoStudio.ABI
             }));
         }
 
-        public static ContractDescription LoadFromFile(string fileName)
+        //TODO - 1. DONE Loaded Hints needs to set the OnCompletions for each method
+        //       2. The Hints need to be identified by the arc4 method signature, not the selector,
+        //          though we will export the arc32 json with manual selector if they are specified instead
+        //       3. Hints that specify additional ABI methods for default values obtained by app call need
+        //          to include calls to those methods in generated proxies, but we don't need to add them into the
+        //          Arc4 methods after reading the arc32 file for any reason.
+
+
+        public static AppDescription LoadFromFile(string fileName)
         {
 
             if (File.Exists(fileName))
@@ -69,7 +76,7 @@ namespace AlgoStudio.ABI
                 var jsonFile = File.ReadAllText(fileName);
                 try
                 {
-                    ContractDescription cd = JsonConvert.DeserializeObject<ContractDescription>(jsonFile, new JsonSerializerSettings()
+                    AppDescription cd = JsonConvert.DeserializeObject<AppDescription>(jsonFile, new JsonSerializerSettings()
                     {
                         MissingMemberHandling = MissingMemberHandling.Ignore
                     });
@@ -85,6 +92,140 @@ namespace AlgoStudio.ABI
         }
 
 
+
+
+        #region Smart Contract to App Json
+        public static AppDescription GenerateContractDescription(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass)
+        {
+            semanticModel = semanticModel ?? throw new ArgumentNullException(nameof(semanticModel));
+            smartContractClass = smartContractClass ?? throw new ArgumentNullException(nameof(smartContractClass));
+
+            AppDescription contractDescription = null;
+            var classSymbol = semanticModel.GetDeclaredSymbol(smartContractClass);
+            if (classSymbol != null && Utilities.IsSmartContract(classSymbol as INamedTypeSymbol))
+            {
+
+                contractDescription = new AppDescription();
+                contractDescription.Contract.Name = smartContractClass.Identifier.Text;
+
+                if (smartContractClass.HasStructuredTrivia)
+                {
+                    var classTrivia = smartContractClass.GetLeadingTrivia()
+                                                      .Select(i => i.GetStructure())
+                                                      .OfType<DocumentationCommentTriviaSyntax>()
+                                                      .FirstOrDefault();
+
+                    if (classTrivia != null)
+                    {
+                        var summary = classTrivia.ChildNodes()
+                            .OfType<XmlElementSyntax>()
+                            .Where(i => i.StartTag.Name.ToString().ToLower().Equals("summary"))
+                            .FirstOrDefault();
+
+                        if (summary != null && summary.Content != null)
+                        {
+                            contractDescription.Contract.Desc = summary.Content.FirstOrDefault().ToString().Trim().Replace("///", "");
+                        }
+
+                    }
+                }
+
+                defineContractDescriptionMethods(semanticModel, smartContractClass, contractDescription);
+                defineContractDescriptionFields(semanticModel, smartContractClass, contractDescription);
+
+
+            }
+
+            return contractDescription;
+
+        }
+
+        private static void defineContractDescriptionFields(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, AppDescription contractDescription)
+        {
+            var fieldDeclarations = smartContractClass
+                                              .DescendantNodes()
+                                              .OfType<VariableDeclarationSyntax>()
+                                              .SelectMany(s => s.Variables)
+                                              .Select(s => (syntax: s, symbol: semanticModel.GetDeclaredSymbol(s), attribute: semanticModel.GetDeclaredSymbol(s)?
+                                                            .GetAttributes()
+                                                            .Where(a => a.AttributeClass.Name == nameof(StorageAttribute))
+                                                            .FirstOrDefault())
+                                                     )
+                                              .Where(s => s.attribute != null);
+
+            foreach (var field in fieldDeclarations)
+            {
+                var st = field.attribute.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.StorageType)).First();
+                Core.StorageType storageType = (Core.StorageType)st.Value;
+
+                switch (storageType)
+                {
+                    case Core.StorageType.Global: addStateVarToContractDescription(field.syntax, field.symbol, contractDescription, semanticModel, false); break;
+                    case Core.StorageType.Local: addStateVarToContractDescription(field.syntax, field.symbol, contractDescription, semanticModel, true); break;
+                    default:
+                        throw new Exception("Unsupported field type");
+
+                }
+            }
+        }
+
+        private static void defineContractDescriptionMethods(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, AppDescription contractDescription)
+        {
+
+            var methodSyntaxes = smartContractClass
+                                    .DescendantNodes()
+                                    .OfType<MethodDeclarationSyntax>();
+
+
+            foreach (var methodSyntax in methodSyntaxes)
+            {
+                MethodDescription md = MethodDescription.FromMethod(methodSyntax, semanticModel);
+                if (md != null) contractDescription.Contract.Methods.Add(md);
+            }
+        }
+
+        private static void addStateVarToContractDescription(VariableDeclaratorSyntax syntax, ISymbol symbol, AppDescription contractDescription, SemanticModel semanticModel, bool local)
+        {
+            StorageElement storageElement = new StorageElement();
+
+            if (syntax.HasStructuredTrivia)
+            {
+                var trivia = syntax.GetLeadingTrivia()
+                                            .Select(i => i.GetStructure())
+                                            .OfType<DocumentationCommentTriviaSyntax>()
+                                            .FirstOrDefault();
+                if (trivia != null)
+                    storageElement.Descr = trivia.ToFullString().Trim();
+            }
+
+            storageElement.Type = TypeHelpers.CSTypeToAbiType((syntax.Parent as VariableDeclarationSyntax).Type, semanticModel);
+            storageElement.TypeDetail = (syntax.Parent as VariableDeclarationSyntax).Type.ToString();
+            storageElement.Key = syntax.Identifier.ValueText;
+            string name = syntax.Identifier.ValueText;
+
+
+
+            if (local)
+            {
+                if (contractDescription.State.Local == null) contractDescription.State.Local = new StorageSection();
+                contractDescription.State.Local.Declared.Add(name, storageElement);
+            }
+            else
+            {
+                if (contractDescription.State.Global == null) contractDescription.State.Global = new StorageSection();
+                contractDescription.State.Global.Declared.Add(name, storageElement);
+            }
+
+
+
+
+
+
+        }
+        #endregion Smart Contract to App Json
+
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -94,10 +235,10 @@ namespace AlgoStudio.ABI
         public string ToSmartContractReference(string nameSpace, string nameOverride)
         {
 
-            if (String.IsNullOrWhiteSpace(nameSpace)) nameSpace = "Algorand.Imports";
+            if (string.IsNullOrWhiteSpace(nameSpace)) nameSpace = "Algorand.Imports";
 
-            string name = Name;
-            if (!String.IsNullOrWhiteSpace(nameOverride)) { name = nameOverride; }
+            string name = Contract.Name;
+            if (!string.IsNullOrWhiteSpace(nameOverride)) { name = nameOverride; }
 
             StringBuilder crb = new StringBuilder();
             crb.AppendLine("using Algorand;");
@@ -108,11 +249,11 @@ namespace AlgoStudio.ABI
             crb.AppendLine($"namespace {nameSpace}");
             crb.AppendLine("{");
 
-            if (!String.IsNullOrWhiteSpace(Desc))
+            if (!string.IsNullOrWhiteSpace(Contract.Desc))
             {
                 crb.AppendLine(
 $@"{"\t"}///<summary>
-{"\t"}///{Desc}
+{"\t"}///{Contract.Desc}
 {"\t"}///</summary>");
             }
 
@@ -127,7 +268,7 @@ $@"{"\t"}///<summary>
 
             //declare methods:
             StringBuilder methodBuilder = new StringBuilder();
-            foreach (var method in Methods)
+            foreach (var method in Contract.Methods)
             {
                 methodBuilder.AppendLine();
 
@@ -159,7 +300,7 @@ $@"{"\t"}///<summary>
             List<string> structs = new List<string>();
 
 
-            string className = $"{Name}Proxy";
+            string className = $"{Contract.Name}Proxy";
 
             Code code = new Code(indent: 0);
             code.AddOpeningLine("using System;");
@@ -185,10 +326,10 @@ $@"{"\t"}///<summary>
 
             //Add any leading structured trivia
 
-            if (!String.IsNullOrEmpty(Desc))
+            if (!string.IsNullOrEmpty(Contract.Desc))
             {
                 proxyBody.AddOpeningLine("//");
-                proxyBody.AddOpeningLine($"// {Desc}");
+                proxyBody.AddOpeningLine($"// {Contract.Desc}");
                 proxyBody.AddOpeningLine("//");
             }
 
@@ -216,7 +357,7 @@ $@"{"\t"}///<summary>
         private void defineMethods(Code proxyBody, List<string> structs)
         {
 
-            foreach (var method in this.Methods)
+            foreach (var method in this.Contract.Methods)
             {
                 string selector = method.ToSelector();
                 string callType;
@@ -267,7 +408,7 @@ $@"{"\t"}///<summary>
                 var argParameterDefinitions = argParameters.Select(p => defineArgParameter(p, methodName, structs));
                 var allParameters = transactionParameterDefinitions.Concat(appRefParameterDefinitions).Concat(accountRefParameterDefinitions).Concat(assetRefParameterDefinitions).Concat(argParameterDefinitions);
 
-                string parameters = String.Join(",", allParameters);
+                string parameters = string.Join(",", allParameters);
                 string txNameList;
                 if (transactionParameters.Count > 0) txNameList = "new List<Transaction> {" + string.Join(",", transactionParameters.Select(p => p.Name)) + "}";
                 else
@@ -290,7 +431,7 @@ $@"{"\t"}///<summary>
                 if (acctRefParameters.Count > 0) accountsList = "new List<Address> {" + string.Join(",", acctRefParameters.Select(p => p.Name)) + "}";
                 else
                     accountsList = "null";
-                var t = TypeHelpers.GetCSType(Name + "return", returnType.Type, returnType.TypeDetail, structs, false);
+                var t = TypeHelpers.GetCSType(Contract.Name + "return", returnType.Type, returnType.TypeDetail, structs, false);
                 var abiMethod = proxyBody.AddChild();
                 string methodReturnType;
                 if (t.type != "void")
@@ -302,7 +443,7 @@ $@"{"\t"}///<summary>
                     methodReturnType = "Task";
                 }
 
-                if (!String.IsNullOrWhiteSpace(method.Desc))
+                if (!string.IsNullOrWhiteSpace(method.Desc))
                 {
                     abiMethod.AddOpeningLine(
                         $@"{"\t"}///<summary>
@@ -360,7 +501,7 @@ $@"{"\t"}///<summary>
         private static string defineTransactionParameter(ArgumentDescription p)
         {
             string parmType = p.Type.ToString();
-            if (!String.IsNullOrWhiteSpace(p.TypeDetail)) parmType = p.TypeDetail;
+            if (!string.IsNullOrWhiteSpace(p.TypeDetail)) parmType = p.TypeDetail;
             string outputParmType = TypeHelpers.determineTransactionType(parmType);
 
             return $"{outputParmType} {p.Name}";
@@ -371,5 +512,6 @@ $@"{"\t"}///<summary>
         {
             return $"ulong {p.Name}";
         }
+        #endregion
     }
 }

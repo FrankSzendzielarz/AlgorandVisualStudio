@@ -7,7 +7,7 @@ namespace AlgoStudio.ABI
     public class StorageElement 
     {
         public string Key { get; set; }
-        public string Desc { get; set; }
+        public string Descr { get; set; }
 
         public string Type { get; set; }
 
