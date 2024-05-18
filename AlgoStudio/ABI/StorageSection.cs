@@ -17,11 +17,11 @@ namespace AlgoStudio.ABI
             foreach (var kv in Declared)
             {
                 Code code = proxyBody.AddChild();
-                if (!String.IsNullOrWhiteSpace(kv.Value.Desc))
+                if (!String.IsNullOrWhiteSpace(kv.Value.Descr))
                 {
                     code.AddOpeningLine(
                     $@"{"\t"}///<summary>
-                        {"\t"}///{kv.Value.Desc}
+                        {"\t"}///{kv.Value.Descr}
                         {"\t"}///</summary>");
 
 

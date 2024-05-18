@@ -75,13 +75,11 @@
 	<ItemGroup>
 		<!-- Package the generator in the analyzer directory of the nuget package -->
 		<None Include="$(OutputPath)\AlgoStudio.Core.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-		<None Include="Libs\BouncyCastle.Crypto.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 		<None Include="$(PKGAlgorand2)\lib\netstandard2.0\Algorand.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 		<None Include="$(OutputPath)\AlgoStudio.Core.dll" Pack="true" PackagePath="lib/netstandard2.0" />
 		
 		<None Include="$(PKGAlgorand2)\lib\netstandard2.0\Algorand.dll" Pack="true" PackagePath="lib/netstandard2.0" Visible="false" />
-		<None Include="Libs\BouncyCastle.Crypto.dll" Pack="true" PackagePath="lib/netstandard2.0" Visible="false" />
 		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="lib/netstandard2.0" />
 		<None Include="$(PKGNewtonsoft_Json)\lib\netstandard2.0\Newtonsoft.Json.dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
 	</ItemGroup>
@@ -107,7 +105,9 @@
 
 	<ItemGroup>
 	  <Reference Include="BouncyCastle.Crypto">
-	    <HintPath>Libs\BouncyCastle.Crypto.dll</HintPath>
+	    <HintPath>Libs\BouncyCastle.Crypto.Signed.dll</HintPath>
+	    <Private>True</Private>
+	    <EmbedInteropTypes>False</EmbedInteropTypes>
 	  </Reference>
 	</ItemGroup>
 

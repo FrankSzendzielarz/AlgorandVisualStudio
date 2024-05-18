@@ -10,6 +10,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using AlgoStudio.Core.Attributes;
 using AlgoStudio.Compiler.Variables;
 using Org.BouncyCastle.Crypto.Digests;
+using Org.BouncyCastle.Bcpg;
 
 
 namespace AlgoStudio.ABI.ARC4
@@ -29,6 +30,9 @@ namespace AlgoStudio.ABI.ARC4
 
         public string Selector { get; set; }
 
+        [JsonIgnore]
+        public string Identifier { get; set; }
+
         public ReturnTypeDescription Returns { get; set; }
 
 
@@ -45,7 +49,7 @@ namespace AlgoStudio.ABI.ARC4
             {
                 md = new MethodDescription();
 
-                //TODO - Modify this now to handle multiple on complete types
+               
                 var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
                 var callType = (Core.OnCompleteType)callTypeConst.Value;
 
@@ -122,7 +126,16 @@ namespace AlgoStudio.ABI.ARC4
 
                 var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
                 md.Selector = (string)selectorConst.Value;
-                md.Selector = md.ToSelector();
+                if (!String.IsNullOrWhiteSpace(md.Selector))
+                {
+                    md.Identifier = md.Selector;
+                }
+                else {
+                    md.Selector = md.ToARC4MethodSelector().ToHex(); 
+                    md.Identifier = md.Selector;
+                }
+                
+                
 
 
             }

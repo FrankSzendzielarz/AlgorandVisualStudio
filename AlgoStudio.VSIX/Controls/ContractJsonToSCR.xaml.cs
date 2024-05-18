@@ -14,7 +14,7 @@ namespace AlgoStudio.VSIX.Controls
         {
             contractDescription = cd;
             InitializeComponent();
-            textBox_name.Text = contractDescription.Name;
+            textBox_name.Text = contractDescription.Contract?.Name;
             if (!string.IsNullOrEmpty(nameSpace)) textBox_namespace.Text = nameSpace;
         }
 

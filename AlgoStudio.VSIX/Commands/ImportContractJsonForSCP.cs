@@ -1,4 +1,5 @@
-﻿using AlgoStudio.ABI.ARC32;
+﻿
+using AlgoStudio.ABI.ARC32;
 using AlgoStudio.VSIX.Controls;
 using EnvDTE;
 using Microsoft.CodeAnalysis;
@@ -196,7 +197,7 @@ namespace AlgoStudio.VSIX
                     sd.Title = "Save SmartContractProxy";
                     sd.Filter = "C# file (.cs)|*.cs";
                     sd.DefaultExt = ".cs";
-                    sd.FileName = cd.Name + ".cs";
+                    sd.FileName = cd.Contract?.Name + ".cs";
                     sd.InitialDirectory = filePath;
                         
                     if (sd.ShowDialog() ?? false)

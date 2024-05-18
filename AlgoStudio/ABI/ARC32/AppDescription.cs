@@ -1,4 +1,5 @@
-﻿using AlgoStudio.ABI.ARC4;
+﻿using Algorand.Algod.Model.Transactions;
+using AlgoStudio.ABI.ARC4;
 using AlgoStudio.Clients;
 using AlgoStudio.Compiler;
 using AlgoStudio.Core.Attributes;
@@ -23,7 +24,7 @@ namespace AlgoStudio.ABI.ARC32
     public class AppDescription
     {
         #region Members
-        public ContractDescription Contract { get; set; }
+        public ContractDescription Contract { get; set; } = new ContractDescription();
 
         public StateDescription State { get; set; } = new StateDescription();
 
@@ -56,17 +57,10 @@ namespace AlgoStudio.ABI.ARC32
             {
                 ContractResolver = contractResolver,
                 Formatting = Formatting.Indented,
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Serialize
             }));
         }
-
-        //TODO - 1. DONE Loaded Hints needs to set the OnCompletions for each method
-        //       2. The Hints need to be identified by the arc4 method signature, not the selector,
-        //          though we will export the arc32 json with manual selector if they are specified instead
-        //       3. Hints that specify additional ABI methods for default values obtained by app call need
-        //          to include calls to those methods in generated proxies, but we don't need to add them into the
-        //          Arc4 methods after reading the arc32 file for any reason.
-
 
         public static AppDescription LoadFromFile(string fileName)
         {
@@ -180,7 +174,24 @@ namespace AlgoStudio.ABI.ARC32
             foreach (var methodSyntax in methodSyntaxes)
             {
                 MethodDescription md = MethodDescription.FromMethod(methodSyntax, semanticModel);
-                if (md != null) contractDescription.Contract.Methods.Add(md);
+                if (md != null)
+                {
+                    contractDescription.Contract.Methods.Add(md);
+                    //also split out the arc32 hints 
+                    CallConfigSpec callConfig = new CallConfigSpec();
+                    if (md.OnCompletion.Contains(Core.OnCompleteType.NoOp.ToString())) callConfig.No_op = CallConfig.CALL;
+                    if (md.OnCompletion.Contains(Core.OnCompleteType.OptIn.ToString())) callConfig.Opt_in = CallConfig.CALL;
+                    if (md.OnCompletion.Contains(Core.OnCompleteType.CloseOut.ToString())) callConfig.Close_out = CallConfig.CALL;
+                    if (md.OnCompletion.Contains(Core.OnCompleteType.DeleteApplication.ToString())) callConfig.Delete_application = CallConfig.CALL;
+                    if (md.OnCompletion.Contains(Core.OnCompleteType.UpdateApplication.ToString())) callConfig.Update_application = CallConfig.CALL;
+
+                    contractDescription.Hints.Add(md.Identifier,
+                        new HintSpec() { 
+                            Call_config = callConfig,
+                            
+                        });
+                }
+                
             }
         }
 

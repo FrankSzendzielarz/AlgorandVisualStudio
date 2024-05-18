@@ -12,7 +12,7 @@ namespace AlgoStudio.ABI.ARC32
         {
             return objectType == typeof(AppDescription);
         }
-
+        public override bool CanWrite => false;
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             // Deserialize the JSON to an AppDescription object
@@ -36,8 +36,7 @@ namespace AlgoStudio.ABI.ARC32
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            // Use the default serialization
-            serializer.Serialize(writer, value);
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AlgoStudio.ABI.ARC32;
+﻿
+using AlgoStudio.ABI.ARC32;
 using AlgoStudio.VSIX.Controls;
 using EnvDTE;
 using Microsoft.VisualStudio.Shell;
@@ -191,7 +192,7 @@ namespace AlgoStudio.VSIX
                     sd.Title = "Save SmartContractReference";
                     sd.Filter = "C# file (.cs)|*.cs";
                     sd.DefaultExt = ".cs";
-                    sd.FileName = cd.Name + ".cs";
+                    sd.FileName = cd.Contract?.Name + ".cs";
                     sd.InitialDirectory = filePath;
 
                     if (sd.ShowDialog() ?? false)
