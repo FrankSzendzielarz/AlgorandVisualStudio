@@ -132,7 +132,7 @@ namespace AlgoStudio.ABI.ARC4
                 }
                 else {
                     md.Selector = md.ToARC4MethodSelector().ToHex(); 
-                    md.Identifier = md.Selector;
+                    md.Identifier = md.ARC4MethodSignature;
                 }
                 
                 
