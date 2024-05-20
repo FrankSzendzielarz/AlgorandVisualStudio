@@ -16,7 +16,7 @@ namespace AlgoStudio.ABI.ARC4
 
         internal bool IsAccountRef()
         {
-            return Type == "account";
+            return Type == "address";
         }
 
         internal bool IsApplicationRef()
