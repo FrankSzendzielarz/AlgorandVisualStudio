@@ -9,7 +9,6 @@ namespace AlgoStudio.Core
         NoOp,
         OptIn,
         CloseOut,
-        ClearState,
         UpdateApplication,
         DeleteApplication
 

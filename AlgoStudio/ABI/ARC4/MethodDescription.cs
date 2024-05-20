@@ -11,6 +11,7 @@ using AlgoStudio.Core.Attributes;
 using AlgoStudio.Compiler.Variables;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Bcpg;
+using AlgoStudio.ABI.ARC32;
 
 
 namespace AlgoStudio.ABI.ARC4
@@ -24,11 +25,13 @@ namespace AlgoStudio.ABI.ARC4
         public string Desc { get; set; }
 
         [JsonIgnore]
-        public List<string> OnCompletion { get; set; } = new List<string>();
+        public CallConfigSpec OnCompletion { get; set; } = new CallConfigSpec();
+        [JsonIgnore]
+        public Dictionary<string, DefaultArgumentSpec> Defaults { get; set; } = new Dictionary<string, DefaultArgumentSpec>();
 
         public List<ArgumentDescription> Args { get; set; } = new List<ArgumentDescription> { };
 
-        public string Selector { get; set; }
+        public byte[] Selector { get; set; }
 
         [JsonIgnore]
         public string Identifier { get; set; }
@@ -53,7 +56,27 @@ namespace AlgoStudio.ABI.ARC4
                 var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
                 var callType = (Core.OnCompleteType)callTypeConst.Value;
 
-                md.OnCompletion.Add(callType.ToString());
+                md.OnCompletion = new CallConfigSpec();
+                switch (callType)
+                {
+                    case Core.OnCompleteType.NoOp:
+                        md.OnCompletion.No_op = CallConfig.CALL;
+                        break;
+                    case Core.OnCompleteType.OptIn:
+                        md.OnCompletion.Opt_in = CallConfig.CALL;
+                        break;
+                    case Core.OnCompleteType.CloseOut:
+                        md.OnCompletion.Close_out = CallConfig.CALL;
+                        break;
+                    case Core.OnCompleteType.UpdateApplication:
+                        md.OnCompletion.Update_application = CallConfig.CALL;
+                        break;
+                    case Core.OnCompleteType.DeleteApplication:
+                        md.OnCompletion.Delete_application = CallConfig.CALL;
+                        break;
+                    
+                }
+                
 
                 var returnType = methodSymbol.ReturnType;
                 md.Returns = new ReturnTypeDescription()
@@ -125,14 +148,17 @@ namespace AlgoStudio.ABI.ARC4
                 }
 
                 var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
-                md.Selector = (string)selectorConst.Value;
-                if (!String.IsNullOrWhiteSpace(md.Selector))
+                
+                if (!String.IsNullOrWhiteSpace((string)selectorConst.Value))
                 {
-                    md.Identifier = md.Selector;
+                    md.Selector = Encoding.UTF8.GetBytes((string)selectorConst.Value);
+                    md.Identifier = (string)selectorConst.Value;
+                    
                 }
                 else {
-                    md.Selector = md.ToARC4MethodSelector().ToHex(); 
+                    md.Selector = md.ToARC4MethodSelector(); 
                     md.Identifier = md.ARC4MethodSignature;
+                    
                 }
                 
                 
@@ -145,6 +171,8 @@ namespace AlgoStudio.ABI.ARC4
         }
         public string ARC4MethodSignature => $"{Name}({string.Join(",", Args.Select(a => a.Type))}){Returns.Type}";
 
+        
+
         public byte[] ToARC4MethodSelector()
         {
             var data = Encoding.ASCII.GetBytes(ARC4MethodSignature);
@@ -155,13 +183,9 @@ namespace AlgoStudio.ABI.ARC4
             return output.Take(4).ToArray();
         }
 
-        public string ToSelector()
-        {
-            if (string.IsNullOrEmpty(Selector))
-                return ToARC4MethodSelector().ToHex();
-            else
-                return Selector;
-        }
+    
+
+     
         internal void ToSmartContractReference(StringBuilder scr, List<string> structs)
         {
 
@@ -214,8 +238,15 @@ $@"{"\t\t"}///<summary>
             var t = TypeHelpers.GetCSType(Name + "return", Returns.Type, Returns.TypeDetail, structs, false);
             var retParm = $"out {t.type} result";
 
-
-            scr.AppendLine($"\t\t[SmartContractMethod(OnCompleteType.NoOp, \"{ToSelector()}\")]");
+            if (Enumerable.SequenceEqual(Selector, ToARC4MethodSelector()))
+            {
+                scr.AppendLine($"\t\t[SmartContractMethod(OnCompleteType.NoOp)]");
+            }
+            else
+            {
+                scr.AppendLine($"\t\t[SmartContractMethod(OnCompleteType.NoOp, \"{Encoding.UTF8.GetString(Selector)}\")]");
+            }
+            
             scr.Append($"\t\tpublic abstract {retType} {Name}(");
             scr.Append(string.Join(",", txRefArgs
                 .Select(s => $"{s.refType} {s.arg.Name}")

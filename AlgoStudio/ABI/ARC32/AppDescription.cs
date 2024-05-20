@@ -5,6 +5,7 @@ using AlgoStudio.Compiler;
 using AlgoStudio.Core.Attributes;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using MsgPack.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System;
@@ -36,16 +37,7 @@ namespace AlgoStudio.ABI.ARC32
 
         #region Methods
 
-        public static bool Verify(out List<string> errors)
-        {
-            //TODO - verify contract description
-            //
-
-            //
-
-
-            throw new NotImplementedException();
-        }
+       
 
         public void SaveToFile(string filename)
         {
@@ -178,16 +170,11 @@ namespace AlgoStudio.ABI.ARC32
                 {
                     contractDescription.Contract.Methods.Add(md);
                     //also split out the arc32 hints 
-                    CallConfigSpec callConfig = new CallConfigSpec();
-                    if (md.OnCompletion.Contains(Core.OnCompleteType.NoOp.ToString())) callConfig.No_op = CallConfig.CALL;
-                    if (md.OnCompletion.Contains(Core.OnCompleteType.OptIn.ToString())) callConfig.Opt_in = CallConfig.CALL;
-                    if (md.OnCompletion.Contains(Core.OnCompleteType.CloseOut.ToString())) callConfig.Close_out = CallConfig.CALL;
-                    if (md.OnCompletion.Contains(Core.OnCompleteType.DeleteApplication.ToString())) callConfig.Delete_application = CallConfig.CALL;
-                    if (md.OnCompletion.Contains(Core.OnCompleteType.UpdateApplication.ToString())) callConfig.Update_application = CallConfig.CALL;
+                    
 
                     contractDescription.Hints.Add(md.Identifier,
                         new HintSpec() { 
-                            Call_config = callConfig,
+                            Call_config = md.OnCompletion,
                             
                         });
                 }
@@ -364,15 +351,19 @@ $@"{"\t"}///<summary>
             return code.ToString();
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="proxyBody"></param>
+        /// <param name="structs"></param>
         private void defineMethods(Code proxyBody, List<string> structs)
         {
 
             foreach (var method in this.Contract.Methods)
             {
-                string selector = method.ToSelector();
-                string callType;
-                if (method.OnCompletion.Count > 0) { callType = method.OnCompletion.FirstOrDefault(); } else { callType = "NoOp"; }
+               
+               
+               
                 var returnType = method.Returns;
                 var methodName = method.Name;
                 List<ArgumentDescription> transactionParameters = new List<ArgumentDescription>();
@@ -442,8 +433,8 @@ $@"{"\t"}///<summary>
                 if (acctRefParameters.Count > 0) accountsList = "new List<Address> {" + string.Join(",", acctRefParameters.Select(p => p.Name)) + "}";
                 else
                     accountsList = "null";
+               
                 var t = TypeHelpers.GetCSType(Contract.Name + "return", returnType.Type, returnType.TypeDetail, structs, false);
-                var abiMethod = proxyBody.AddChild();
                 string methodReturnType;
                 if (t.type != "void")
                 {
@@ -454,25 +445,41 @@ $@"{"\t"}///<summary>
                     methodReturnType = "Task";
                 }
 
-                if (!string.IsNullOrWhiteSpace(method.Desc))
-                {
-                    abiMethod.AddOpeningLine(
-                        $@"{"\t"}///<summary>
-                        {"\t"}///{method.Desc}
-                        {"\t"}///</summary>");
+                var abiMethod = proxyBody.AddChild();
+                var abiMethodForTransactions = proxyBody.AddChild();
 
+                abiMethod.AddOpeningLine(
+                    $@"{"\t"}///<summary>
+                    {"\t"}///{method.Desc??""}
+                    {"\t"}///{method.OnCompletion.Summary}
+                    {"\t"}///</summary>");
+                
+                foreach (var parm in method.Args)
+                {
+                    string parmDefaultSummary="";
+                    if (method.Defaults.ContainsKey(parm.Name))
+                    {
+                        parmDefaultSummary = method.Defaults[parm.Name].Summary;
+                    }
+                    abiMethod.AddOpeningLine($@"{"\t"}/// <param name=""{parm.Name}"">{parm.Desc} {parmDefaultSummary}</param>");
 
                 }
 
 
-                abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee, {parameters},string note)".Replace(",,", ","));
+                abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee, {parameters},string note,  List<BoxRef> boxes, AlgoStudio.Core.OnCompleteType callType = AlgoStudio.Core.OnCompleteType.NoOp )".Replace(",,", ","));
                 abiMethod.AddOpeningLine("{");
                 abiMethod.AddClosingLine("}");
 
+                abiMethodForTransactions.AddOpeningLine($"public async Task<List<Transaction>> {methodName}_Transactions (Account sender, ulong? fee, {parameters},string note, List<BoxRef> boxes, AlgoStudio.Core.OnCompleteType callType = AlgoStudio.Core.OnCompleteType.NoOp )".Replace(",,", ",").Replace(", ,", ","));
+                abiMethodForTransactions.AddOpeningLine("{");
+                abiMethodForTransactions.AddClosingLine("}");
 
                 var abiMethodBody = abiMethod.AddChild();
-                abiMethodBody.AddOpeningLine($"var abiHandle = Encoding.UTF8.GetBytes(\"{selector}\");");
-                abiMethodBody.AddOpeningLine($"var result = await base.CallApp({txNameList}, fee, AlgoStudio.Core.OnCompleteType.{callType}, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList});");
+
+              
+
+                abiMethodBody.AddOpeningLine($"byte[] abiHandle = {{{String.Join(",",method.Selector)}}};");
+                abiMethodBody.AddOpeningLine($"var result = await base.CallApp({txNameList}, fee, callType, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList}, boxes);");
 
 
                 if (t.type != "void")
@@ -486,6 +493,11 @@ $@"{"\t"}///<summary>
                         abiMethodBody.AddOpeningLine("return; // <unknown return conversion>");
                     }
                 }
+
+                var abiMethodBodyForTransactions = abiMethodForTransactions.AddChild();
+                abiMethodBodyForTransactions.AddOpeningLine($"byte[] abiHandle = {{{String.Join(",", method.Selector)}}};");
+                abiMethodBodyForTransactions.AddOpeningLine($"return await base.MakeTransactionList({txNameList}, fee, callType, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList},boxes);");
+
 
             }
 

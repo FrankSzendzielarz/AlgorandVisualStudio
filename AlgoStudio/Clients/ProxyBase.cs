@@ -78,7 +78,7 @@ namespace AlgoStudio
 
         }
 
-        //TODO - add tests for this!
+        
         protected BigInteger GetBigIntegerFromByte(byte[] bytes)
         {
             //BigInteger is ALWAYS little endian and bytes is always bigendian, so we must first reverse them, which
@@ -301,9 +301,7 @@ namespace AlgoStudio
                 case Core.OnCompleteType.CloseOut:
                     tx = new ApplicationCloseOutTransaction() { ApplicationId = appId }; 
                     break;
-                case Core.OnCompleteType.ClearState:
-                    tx = new ApplicationClearStateTransaction() { ApplicationId = appId }; 
-                    break;
+              
                 case Core.OnCompleteType.UpdateApplication:
                     tx = new ApplicationUpdateTransaction() { ApplicationId = appId }; 
                     break;

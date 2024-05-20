@@ -24,10 +24,11 @@ namespace AlgoStudio.ABI.ARC32
             {
                 // Find the corresponding method and update it. The method is identified either by its signature for strictly arc4 compliant
                 // definitions or by its selector for when the C# compiler allows manual selector specifications.
-                var method = appDescription.Contract.Methods.FirstOrDefault(m => (m.ARC4MethodSignature == hint.Key || m.Selector == hint.Key));
+                var method = appDescription.Contract.Methods.FirstOrDefault(m => (m.ARC4MethodSignature == hint.Key || Encoding.UTF8.GetString(m.Selector) == hint.Key));
                 if (method != null)
                 {
-                    method.OnCompletion = hint.Value.Call_config.ToOnCompletionList();
+                    method.OnCompletion = hint.Value.Call_config ;
+                    method.Defaults = hint.Value.Default_arguments;
                 }
             }
 

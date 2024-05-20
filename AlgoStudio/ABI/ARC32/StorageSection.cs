@@ -1,11 +1,10 @@
 ﻿using AlgoStudio.Clients;
-using AlgoStudio;
 using AlgoStudio.Compiler;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlgoStudio.ABI
+namespace AlgoStudio.ABI.ARC32
 {
     public class StorageSection
     {
@@ -17,7 +16,7 @@ namespace AlgoStudio.ABI
             foreach (var kv in Declared)
             {
                 Code code = proxyBody.AddChild();
-                if (!String.IsNullOrWhiteSpace(kv.Value.Descr))
+                if (!string.IsNullOrWhiteSpace(kv.Value.Descr))
                 {
                     code.AddOpeningLine(
                     $@"{"\t"}///<summary>
@@ -85,7 +84,7 @@ namespace AlgoStudio.ABI
 
                 var t = TypeHelpers.GetCSType(kv.Key + "Type", kv.Value.Type, kv.Value.TypeDetail, structs, false);
 
-                if (!String.IsNullOrWhiteSpace(t.bitwidthAttrib)) stateBuilder.AppendLine($"\t\t{t.bitwidthAttrib}");
+                if (!string.IsNullOrWhiteSpace(t.bitwidthAttrib)) stateBuilder.AppendLine($"\t\t{t.bitwidthAttrib}");
                 stateBuilder.AppendLine($"\t\tpublic {t.bitwidthAttrib}{t.type} {kv.Value.Key};");
 
                 stateBuilder.AppendLine();

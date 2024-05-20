@@ -151,7 +151,13 @@ namespace AlgoStudio.Compiler
                 if (methodDeclarationSyntax != null)
                 {
                     MethodDescription md = MethodDescription.FromMethod(methodDeclarationSyntax, model);
-                    return md.Selector;
+                    if (Enumerable.SequenceEqual(md.Selector, md.ToARC4MethodSelector()))
+                    {
+                        return md.Selector.ToHex();
+                    }else
+                    {
+                        return Encoding.UTF8.GetString(md.Selector);
+                    }
                 }
 
             }

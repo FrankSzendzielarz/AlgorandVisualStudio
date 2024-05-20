@@ -23,30 +23,7 @@ namespace AlgoStudio.ABI.ARC32
         [JsonConverter(typeof(StringEnumConverter))]
         public CallConfig Delete_application { get; set; }
 
-        internal List<string> ToOnCompletionList()
-        {
-            List<string> list = new List<string>();
-            if (No_op == CallConfig.CALL || No_op == CallConfig.ALL)
-            {
-                list.Add(Core.OnCompleteType.NoOp.ToString());
-            }
-            if (Opt_in == CallConfig.CALL || Opt_in == CallConfig.ALL)
-            {
-                list.Add(Core.OnCompleteType.OptIn.ToString());
-            }
-            if (Close_out == CallConfig.CALL || Close_out == CallConfig.ALL)
-            {
-                list.Add(Core.OnCompleteType.CloseOut.ToString());
-            }
-            if (Update_application == CallConfig.CALL || Update_application == CallConfig.ALL)
-            {
-                list.Add(Core.OnCompleteType.UpdateApplication.ToString());
-            }
-            if (Delete_application == CallConfig.CALL || Delete_application == CallConfig.ALL)
-            {
-                list.Add(Core.OnCompleteType.DeleteApplication.ToString());
-            }
-            return list;
-        }
+        [JsonIgnore]
+        public string Summary => $"No_op: {No_op}, Opt_in: {Opt_in}, Close_out: {Close_out}, Update_application: {Update_application}, Delete_application: {Delete_application}";
     }
 }

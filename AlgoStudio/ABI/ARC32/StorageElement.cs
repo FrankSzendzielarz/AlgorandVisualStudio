@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Newtonsoft.Json;
 
-namespace AlgoStudio.ABI
+namespace AlgoStudio.ABI.ARC32
 {
-    public class ReturnTypeDescription
+    public class StorageElement
     {
-        [JsonRequired]
+        public string Key { get; set; }
+        public string Descr { get; set; }
+
         public string Type { get; set; }
-    
+
         public string TypeDetail { get; set; }
-        public string Desc { get; set; }
     }
 }

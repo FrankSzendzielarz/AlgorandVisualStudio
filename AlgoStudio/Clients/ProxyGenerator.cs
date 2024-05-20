@@ -52,6 +52,10 @@ namespace AlgoStudio.Clients
 
         public static string Generate(SemanticModel semanticModel, ClassDeclarationSyntax programClass, string namespaceName, out string className)
         {
+            
+
+
+
             semanticModel = semanticModel ?? throw new ArgumentNullException(nameof(semanticModel));
             programClass = programClass ?? throw new ArgumentNullException(nameof(programClass));
 
@@ -66,54 +70,57 @@ namespace AlgoStudio.Clients
             {
                 className = $"{programClass.Identifier.Text}Proxy";
 
-                Code code = new Code(indent: 0);
-                code.AddOpeningLine("using System;");
-                code.AddOpeningLine("using Algorand.Algod;");
-                code.AddOpeningLine("using Algorand.Algod.Model;");
-                code.AddOpeningLine("using Algorand.Algod.Model.Transactions;");
-                code.AddOpeningLine("using AlgoStudio;");
-                code.AddOpeningLine("using Algorand;");
-                code.AddOpeningLine("using AlgoStudio.Core;");
-                code.AddOpeningLine("using System.Collections.Generic;");
-                code.AddOpeningLine("using System.Linq;");
-                code.AddOpeningLine("using System.Text;");
-                code.AddOpeningLine("using System.Threading.Tasks;");
+                AppDescription appDescription = AppDescription.GenerateContractDescription(semanticModel, programClass);
+                var code = appDescription.ToProxy(namespaceName);
+                return code;
+                //Code code = new Code(indent: 0);
+                //code.AddOpeningLine("using System;");
+                //code.AddOpeningLine("using Algorand.Algod;");
+                //code.AddOpeningLine("using Algorand.Algod.Model;");
+                //code.AddOpeningLine("using Algorand.Algod.Model.Transactions;");
+                //code.AddOpeningLine("using AlgoStudio;");
+                //code.AddOpeningLine("using Algorand;");
+                //code.AddOpeningLine("using AlgoStudio.Core;");
+                //code.AddOpeningLine("using System.Collections.Generic;");
+                //code.AddOpeningLine("using System.Linq;");
+                //code.AddOpeningLine("using System.Text;");
+                //code.AddOpeningLine("using System.Threading.Tasks;");
 
-                code.AddOpeningLine("");
-                code.AddOpeningLine($"namespace {namespaceName}");
-                code.AddOpeningLine("{");
-                code.AddOpeningLine("");
-                code.AddClosingLine("}");
-                var proxyBody = code.AddChild();
-                proxyBody.AddOpeningLine("");
-
-
-                //Add any leading structured trivia
-                if (programClass.HasStructuredTrivia)
-                {
-                    var classTrivia = programClass.GetLeadingTrivia()
-                                                      .Select(i => i.GetStructure())
-                                                      .OfType<DocumentationCommentTriviaSyntax>()
-                                                      .FirstOrDefault();
-                    if (classTrivia != null) proxyBody.AddOpeningLine(classTrivia.ToFullString().Trim());
-                }
-
-                proxyBody.AddOpeningLine($"public class {className} : ProxyBase");
-                proxyBody.AddOpeningLine("{");
-                proxyBody.AddClosingLine("}");
-
-                var ctor = proxyBody.AddChild();
-                ctor.AddOpeningLine("");
-                ctor.AddOpeningLine($"public {className}(DefaultApi defaultApi, ulong appId) : base(defaultApi, appId) ");
-                ctor.AddOpeningLine("{");
-                ctor.AddClosingLine("}");
+                //code.AddOpeningLine("");
+                //code.AddOpeningLine($"namespace {namespaceName}");
+                //code.AddOpeningLine("{");
+                //code.AddOpeningLine("");
+                //code.AddClosingLine("}");
+                //var proxyBody = code.AddChild();
+                //proxyBody.AddOpeningLine("");
 
 
+                ////Add any leading structured trivia
+                //if (programClass.HasStructuredTrivia)
+                //{
+                //    var classTrivia = programClass.GetLeadingTrivia()
+                //                                      .Select(i => i.GetStructure())
+                //                                      .OfType<DocumentationCommentTriviaSyntax>()
+                //                                      .FirstOrDefault();
+                //    if (classTrivia != null) proxyBody.AddOpeningLine(classTrivia.ToFullString().Trim());
+                //}
 
-                defineMethods(semanticModel, programClass, proxyBody);
-                defineFields(semanticModel, programClass, proxyBody);
+                //proxyBody.AddOpeningLine($"public class {className} : ProxyBase");
+                //proxyBody.AddOpeningLine("{");
+                //proxyBody.AddClosingLine("}");
 
-                return code.ToString();
+                //var ctor = proxyBody.AddChild();
+                //ctor.AddOpeningLine("");
+                //ctor.AddOpeningLine($"public {className}(DefaultApi defaultApi, ulong appId) : base(defaultApi, appId) ");
+                //ctor.AddOpeningLine("{");
+                //ctor.AddClosingLine("}");
+
+
+
+                //defineMethods(semanticModel, programClass, proxyBody);
+                //defineFields(semanticModel, programClass, proxyBody);
+
+                //return code.ToString();
             }
             else
             if (Utilities.IsSmartSignature(classSymbol as INamedTypeSymbol))
@@ -178,256 +185,256 @@ namespace AlgoStudio.Clients
            
         }
 
-        private static void defineFields(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, Code proxyBody)
-        {
-            var fieldDeclarations = smartContractClass
-                                              .DescendantNodes()
-                                              .OfType<VariableDeclarationSyntax>()
-                                              .SelectMany(s => s.Variables)
-                                              .Select(s => (syntax: s, symbol: semanticModel.GetDeclaredSymbol(s), attribute: semanticModel.GetDeclaredSymbol(s)?
-                                                            .GetAttributes()
-                                                            .Where(a => a.AttributeClass.Name == nameof(StorageAttribute))
-                                                            .FirstOrDefault())
-                                                     )
-                                              .Where(s => s.attribute != null);
+        //private static void defineFields(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, Code proxyBody)
+        //{
+        //    var fieldDeclarations = smartContractClass
+        //                                      .DescendantNodes()
+        //                                      .OfType<VariableDeclarationSyntax>()
+        //                                      .SelectMany(s => s.Variables)
+        //                                      .Select(s => (syntax: s, symbol: semanticModel.GetDeclaredSymbol(s), attribute: semanticModel.GetDeclaredSymbol(s)?
+        //                                                    .GetAttributes()
+        //                                                    .Where(a => a.AttributeClass.Name == nameof(StorageAttribute))
+        //                                                    .FirstOrDefault())
+        //                                             )
+        //                                      .Where(s => s.attribute != null);
 
-            foreach (var field in fieldDeclarations)
-            {
-                var st = field.attribute.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.StorageType)).First();
-                Core.StorageType storageType = (Core.StorageType)st.Value;
+        //    foreach (var field in fieldDeclarations)
+        //    {
+        //        var st = field.attribute.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.StorageType)).First();
+        //        Core.StorageType storageType = (Core.StorageType)st.Value;
 
-                switch (storageType)
-                {
+        //        switch (storageType)
+        //        {
 
-                    case Core.StorageType.Global: addStateVar(field.syntax, field.symbol, proxyBody, semanticModel, false); break;
-                    case Core.StorageType.Local: addStateVar(field.syntax, field.symbol, proxyBody, semanticModel, true); break;
-                    default:
-                        throw new Exception("Unsupported field type");
+        //            case Core.StorageType.Global: addStateVar(field.syntax, field.symbol, proxyBody, semanticModel, false); break;
+        //            case Core.StorageType.Local: addStateVar(field.syntax, field.symbol, proxyBody, semanticModel, true); break;
+        //            default:
+        //                throw new Exception("Unsupported field type");
 
-                }
-            }
-        }
-
-
-        private static void addStateVar(VariableDeclaratorSyntax syntax, ISymbol symbol, Code code, SemanticModel semanticModel, bool local)
-        {
-            code = code.AddChild();
-            if (syntax.HasStructuredTrivia)
-            {
-                var trivia = syntax.GetLeadingTrivia()
-                                            .Select(i => i.GetStructure())
-                                            .OfType<DocumentationCommentTriviaSyntax>()
-                                            .FirstOrDefault();
-                if (trivia!=null)
-                    code.AddOpeningLine(trivia.ToFullString().Trim());
-            }
-
-            string returnType = (syntax.Parent as VariableDeclarationSyntax).Type.ToString();
-            string fieldName = syntax.Identifier.ValueText;
-            string retline = $"return ({returnType})result;";
-            var machineValueType = TealTypeUtils.DetermineType(semanticModel, (syntax.Parent as VariableDeclarationSyntax).Type);
-            string typeCall;
-            switch (machineValueType)
-            {
-                case Core.VariableType.ByteSlice: 
-                    typeCall = local? "GetLocalByteSlice(caller,key)" : "GetGlobalByteSlice(key)";
-                    if (storageConversions.TryGetValue(returnType, out retline))
-                    { }
-                    else
-                    {
-                        retline = "return; // <unknown return conversion>";
-                    }
-
-                    break;
-                case Core.VariableType.UInt64: typeCall = local? "GetLocalUInt(caller,key)": "GetGlobalUInt(key)"; break;
-                default:
-                    throw new Exception("Unsupported field type.");
-            }
+        //        }
+        //    }
+        //}
 
 
-            if (local)
-            {
-                code.AddOpeningLine($"public async Task<{returnType}> {fieldName}(Account caller)");
-            }
-            else
-            {
-                code.AddOpeningLine($"public async Task<{returnType}> {fieldName}()");
-            }
-            code.AddOpeningLine("{");
-            var body = code.AddChild();
-            body.AddOpeningLine($"var key=\"{fieldName}\";");
-            body.AddOpeningLine($"var result= await base.{typeCall};");
-            body.AddOpeningLine(retline);
-            code.AddClosingLine("}");
-        }
+        //private static void addStateVar(VariableDeclaratorSyntax syntax, ISymbol symbol, Code code, SemanticModel semanticModel, bool local)
+        //{
+        //    code = code.AddChild();
+        //    if (syntax.HasStructuredTrivia)
+        //    {
+        //        var trivia = syntax.GetLeadingTrivia()
+        //                                    .Select(i => i.GetStructure())
+        //                                    .OfType<DocumentationCommentTriviaSyntax>()
+        //                                    .FirstOrDefault();
+        //        if (trivia!=null)
+        //            code.AddOpeningLine(trivia.ToFullString().Trim());
+        //    }
 
-        private static void defineMethods(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, Code proxyBody)
-        {
+        //    string returnType = (syntax.Parent as VariableDeclarationSyntax).Type.ToString();
+        //    string fieldName = syntax.Identifier.ValueText;
+        //    string retline = $"return ({returnType})result;";
+        //    var machineValueType = TealTypeUtils.DetermineType(semanticModel, (syntax.Parent as VariableDeclarationSyntax).Type);
+        //    string typeCall;
+        //    switch (machineValueType)
+        //    {
+        //        case Core.VariableType.ByteSlice: 
+        //            typeCall = local? "GetLocalByteSlice(caller,key)" : "GetGlobalByteSlice(key)";
+        //            if (storageConversions.TryGetValue(returnType, out retline))
+        //            { }
+        //            else
+        //            {
+        //                retline = "return; // <unknown return conversion>";
+        //            }
 
-            var methodSyntaxes = smartContractClass
-                                    .DescendantNodes()
-                                    .OfType<MethodDeclarationSyntax>();
-
-            var methodSymbols = methodSyntaxes
-                                    .Select(ms => (ms, msym: semanticModel.GetDeclaredSymbol(ms)));
-
-            foreach (var methodSymbol in methodSymbols)
-            {
-                var ABImethod = methodSymbol
-                                .msym
-                                .GetAttributes()
-                                .Where(a => a.AttributeClass.Name == nameof(SmartContractMethodAttribute))
-                                .FirstOrDefault();
-
-                if (ABImethod != null)
-                {
-                    var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
-                    var callType = (Core.OnCompleteType)callTypeConst.Value;
-                    var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
-                    var selector = (string)selectorConst.Value;
-
-                    if (selector == null)
-                    {
-                        // the selector override is not specified so we must use the same selector method as 
-                        // the compiler does...
-                        selector = methodSymbol.msym.GetMethodSelector(semanticModel);
-                    }
-
-                    var returnType = methodSymbol.msym.ReturnType;
-                    var methodName = methodSymbol.msym.Name;
-                    List<IParameterSymbol> transactionParameters = new List<IParameterSymbol>();
-                    List<IParameterSymbol> appRefParameters = new List<IParameterSymbol>();
-                    List<IParameterSymbol> acctRefParameters = new List<IParameterSymbol>();
-                    List<IParameterSymbol> assetRefParameters = new List<IParameterSymbol>();
-                    List<IParameterSymbol> argParameters = new List<IParameterSymbol>();
-
-                    var refToCurrentAppCall = methodSymbol.msym.Parameters.Where(p => TransactionRefVariable.IsTxRef(p.Type)).LastOrDefault();
+        //            break;
+        //        case Core.VariableType.UInt64: typeCall = local? "GetLocalUInt(caller,key)": "GetGlobalUInt(key)"; break;
+        //        default:
+        //            throw new Exception("Unsupported field type.");
+        //    }
 
 
-                    foreach (var parm in methodSymbol.msym.Parameters)
-                    {
-                        var parmType = parm.Type;
-                        if (TransactionRefVariable.IsTxRef(parmType))
-                        {
-                            if (!refToCurrentAppCall.Equals(parm,SymbolEqualityComparer.Default))
-                            {
-                                transactionParameters.Add(parm);
+        //    if (local)
+        //    {
+        //        code.AddOpeningLine($"public async Task<{returnType}> {fieldName}(Account caller)");
+        //    }
+        //    else
+        //    {
+        //        code.AddOpeningLine($"public async Task<{returnType}> {fieldName}()");
+        //    }
+        //    code.AddOpeningLine("{");
+        //    var body = code.AddChild();
+        //    body.AddOpeningLine($"var key=\"{fieldName}\";");
+        //    body.AddOpeningLine($"var result= await base.{typeCall};");
+        //    body.AddOpeningLine(retline);
+        //    code.AddClosingLine("}");
+        //}
+
+        //private static void defineMethods(SemanticModel semanticModel, ClassDeclarationSyntax smartContractClass, Code proxyBody)
+        //{
+
+        //    var methodSyntaxes = smartContractClass
+        //                            .DescendantNodes()
+        //                            .OfType<MethodDeclarationSyntax>();
+
+        //    var methodSymbols = methodSyntaxes
+        //                            .Select(ms => (ms, msym: semanticModel.GetDeclaredSymbol(ms)));
+
+        //    foreach (var methodSymbol in methodSymbols)
+        //    {
+        //        var ABImethod = methodSymbol
+        //                        .msym
+        //                        .GetAttributes()
+        //                        .Where(a => a.AttributeClass.Name == nameof(SmartContractMethodAttribute))
+        //                        .FirstOrDefault();
+
+        //        if (ABImethod != null)
+        //        {
+        //            var callTypeConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == nameof(Core.OnCompleteType)).First();
+        //            var callType = (Core.OnCompleteType)callTypeConst.Value;
+        //            var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
+        //            var selector = (string)selectorConst.Value;
+
+        //            if (selector == null)
+        //            {
+        //                // the selector override is not specified so we must use the same selector method as 
+        //                // the compiler does...
+        //                selector = methodSymbol.msym.GetMethodSelector(semanticModel);
+        //            }
+
+        //            var returnType = methodSymbol.msym.ReturnType;
+        //            var methodName = methodSymbol.msym.Name;
+        //            List<IParameterSymbol> transactionParameters = new List<IParameterSymbol>();
+        //            List<IParameterSymbol> appRefParameters = new List<IParameterSymbol>();
+        //            List<IParameterSymbol> acctRefParameters = new List<IParameterSymbol>();
+        //            List<IParameterSymbol> assetRefParameters = new List<IParameterSymbol>();
+        //            List<IParameterSymbol> argParameters = new List<IParameterSymbol>();
+
+        //            var refToCurrentAppCall = methodSymbol.msym.Parameters.Where(p => TransactionRefVariable.IsTxRef(p.Type)).LastOrDefault();
+
+
+        //            foreach (var parm in methodSymbol.msym.Parameters)
+        //            {
+        //                var parmType = parm.Type;
+        //                if (TransactionRefVariable.IsTxRef(parmType))
+        //                {
+        //                    if (!refToCurrentAppCall.Equals(parm,SymbolEqualityComparer.Default))
+        //                    {
+        //                        transactionParameters.Add(parm);
                               
-                            }
-                            continue;
-                        }
+        //                    }
+        //                    continue;
+        //                }
 
-                        if (ApplicationRefVariable.IsApplicationRef(parmType))
-                        {
+        //                if (ApplicationRefVariable.IsApplicationRef(parmType))
+        //                {
                             
-                            appRefParameters.Add(parm);
+        //                    appRefParameters.Add(parm);
                             
-                            continue;
-                        }
+        //                    continue;
+        //                }
 
-                        if (AccountRefVariable.IsAccountRef(parmType))
-                        {
-                            acctRefParameters.Add(parm);
-                            continue;
-                        }
+        //                if (AccountRefVariable.IsAccountRef(parmType))
+        //                {
+        //                    acctRefParameters.Add(parm);
+        //                    continue;
+        //                }
 
-                        if (AssetRefVariable.IsAssetRef(parmType))
-                        {
-                            assetRefParameters.Add(parm);
-                            continue;
-                        }
+        //                if (AssetRefVariable.IsAssetRef(parmType))
+        //                {
+        //                    assetRefParameters.Add(parm);
+        //                    continue;
+        //                }
 
-                        argParameters.Add(parm);
+        //                argParameters.Add(parm);
 
-                    }
+        //            }
 
-                    var transactionParameterDefinitions = transactionParameters.Select(p => defineTransactionParameter(p));
-                    var appRefParameterDefinitions = appRefParameters.Select(p => defineAppRefParameter(p));
-                    var accountRefParameterDefinitions = acctRefParameters.Select(p => defineAcctRefParameter(p));
-                    var assetRefParameterDefinitions = assetRefParameters.Select(p => defineAssetRefParameter(p));
-                    var argParameterDefinitions = argParameters.Select(p => defineArgParameter(p));
-                    var allParameters = transactionParameterDefinitions.Concat(appRefParameterDefinitions).Concat(accountRefParameterDefinitions).Concat(assetRefParameterDefinitions).Concat(argParameterDefinitions);
+        //            var transactionParameterDefinitions = transactionParameters.Select(p => defineTransactionParameter(p));
+        //            var appRefParameterDefinitions = appRefParameters.Select(p => defineAppRefParameter(p));
+        //            var accountRefParameterDefinitions = acctRefParameters.Select(p => defineAcctRefParameter(p));
+        //            var assetRefParameterDefinitions = assetRefParameters.Select(p => defineAssetRefParameter(p));
+        //            var argParameterDefinitions = argParameters.Select(p => defineArgParameter(p));
+        //            var allParameters = transactionParameterDefinitions.Concat(appRefParameterDefinitions).Concat(accountRefParameterDefinitions).Concat(assetRefParameterDefinitions).Concat(argParameterDefinitions);
 
-                    string parameters = String.Join(",", allParameters);
-                    string txNameList;
-                    if (transactionParameters.Count > 0) txNameList = "new List<Transaction> {" + string.Join(",", transactionParameters.Select(p => p.Name)) + "}";
-                    else
-                        txNameList = "null";
+        //            string parameters = String.Join(",", allParameters);
+        //            string txNameList;
+        //            if (transactionParameters.Count > 0) txNameList = "new List<Transaction> {" + string.Join(",", transactionParameters.Select(p => p.Name)) + "}";
+        //            else
+        //                txNameList = "null";
 
-                    string argsList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(argParameters.Select(p => p.Name))) + "}";
+        //            string argsList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(argParameters.Select(p => p.Name))) + "}";
 
 
-                    string appsList;
-                    if (appRefParameters.Count > 0) appsList = "new List<ulong> {" + string.Join(",", appRefParameters.Select(p => p.Name)) + "}";
-                    else
-                        appsList = "null";
+        //            string appsList;
+        //            if (appRefParameters.Count > 0) appsList = "new List<ulong> {" + string.Join(",", appRefParameters.Select(p => p.Name)) + "}";
+        //            else
+        //                appsList = "null";
 
-                    string assetsList;
-                    if (assetRefParameters.Count > 0) assetsList = "new List<ulong> {" + string.Join(",", assetRefParameters.Select(p => p.Name)) + "}";
-                    else
-                        assetsList = "null";
+        //            string assetsList;
+        //            if (assetRefParameters.Count > 0) assetsList = "new List<ulong> {" + string.Join(",", assetRefParameters.Select(p => p.Name)) + "}";
+        //            else
+        //                assetsList = "null";
 
-                    string accountsList;
-                    if (acctRefParameters.Count > 0) accountsList = "new List<Address> {" + string.Join(",", acctRefParameters.Select(p => p.Name)) + "}";
-                    else
-                        accountsList = "null";
+        //            string accountsList;
+        //            if (acctRefParameters.Count > 0) accountsList = "new List<Address> {" + string.Join(",", acctRefParameters.Select(p => p.Name)) + "}";
+        //            else
+        //                accountsList = "null";
 
-                    string methodReturnType;
-                    if (returnType.ToString() != "void")
-                    {
-                        methodReturnType = $"Task<{returnType}>";
-                    }
-                    else
-                    {
-                        methodReturnType = "Task";
-                    }
+        //            string methodReturnType;
+        //            if (returnType.ToString() != "void")
+        //            {
+        //                methodReturnType = $"Task<{returnType}>";
+        //            }
+        //            else
+        //            {
+        //                methodReturnType = "Task";
+        //            }
                     
-                    var abiMethod = proxyBody.AddChild();
-                    var abiMethodForTransactions = proxyBody.AddChild();
-                    //Add any leading structured trivia
-                    if (methodSymbol.ms.HasStructuredTrivia)
-                    {
-                        var trivia = methodSymbol.ms.GetLeadingTrivia()
-                                                    .Select(i => i.GetStructure())
-                                                    .OfType<DocumentationCommentTriviaSyntax>()
-                                                    .FirstOrDefault();
-                        if (trivia!=null)
-                            abiMethod.AddOpeningLine(trivia.ToFullString().Trim());
-                    }
+        //            var abiMethod = proxyBody.AddChild();
+        //            var abiMethodForTransactions = proxyBody.AddChild();
+        //            //Add any leading structured trivia
+        //            if (methodSymbol.ms.HasStructuredTrivia)
+        //            {
+        //                var trivia = methodSymbol.ms.GetLeadingTrivia()
+        //                                            .Select(i => i.GetStructure())
+        //                                            .OfType<DocumentationCommentTriviaSyntax>()
+        //                                            .FirstOrDefault();
+        //                if (trivia!=null)
+        //                    abiMethod.AddOpeningLine(trivia.ToFullString().Trim());
+        //            }
 
-                    abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee, {parameters},string note, List<BoxRef> boxes)".Replace(",,", ",").Replace(", ,",","));
-                    abiMethod.AddOpeningLine("{");
-                    abiMethod.AddClosingLine("}");
+        //            abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee, {parameters},string note, List<BoxRef> boxes)".Replace(",,", ",").Replace(", ,",","));
+        //            abiMethod.AddOpeningLine("{");
+        //            abiMethod.AddClosingLine("}");
 
-                    abiMethodForTransactions.AddOpeningLine($"public async Task<List<Transaction>> {methodName}_Transactions (Account sender, ulong? fee, {parameters},string note, List<BoxRef> boxes)".Replace(",,", ",").Replace(", ,", ","));
-                    abiMethodForTransactions.AddOpeningLine("{");
-                    abiMethodForTransactions.AddClosingLine("}");
+        //            abiMethodForTransactions.AddOpeningLine($"public async Task<List<Transaction>> {methodName}_Transactions (Account sender, ulong? fee, {parameters},string note, List<BoxRef> boxes)".Replace(",,", ",").Replace(", ,", ","));
+        //            abiMethodForTransactions.AddOpeningLine("{");
+        //            abiMethodForTransactions.AddClosingLine("}");
 
-                    var abiMethodBody = abiMethod.AddChild();
-                    abiMethodBody.AddOpeningLine($"var abiHandle = Encoding.UTF8.GetBytes(\"{selector}\");");
-                    abiMethodBody.AddOpeningLine($"var result = await base.CallApp({txNameList}, fee, AlgoStudio.Core.OnCompleteType.{callType}, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList},boxes);");
-                    if (returnType.ToString() != "void")
-                    {
-                        if (returnTypeConversions.TryGetValue(returnType.ToString(), out string retline))
-                        {
-                            abiMethodBody.AddOpeningLine(retline);
-                        }
-                        else
-                        {
-                            abiMethodBody.AddOpeningLine("return; // <unknown return conversion>");
-                        }
-                    }
+        //            var abiMethodBody = abiMethod.AddChild();
+        //            abiMethodBody.AddOpeningLine($"var abiHandle = Encoding.UTF8.GetBytes(\"{selector}\");");
+        //            abiMethodBody.AddOpeningLine($"var result = await base.CallApp({txNameList}, fee, AlgoStudio.Core.OnCompleteType.{callType}, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList},boxes);");
+        //            if (returnType.ToString() != "void")
+        //            {
+        //                if (returnTypeConversions.TryGetValue(returnType.ToString(), out string retline))
+        //                {
+        //                    abiMethodBody.AddOpeningLine(retline);
+        //                }
+        //                else
+        //                {
+        //                    abiMethodBody.AddOpeningLine("return; // <unknown return conversion>");
+        //                }
+        //            }
 
-                    var abiMethodBodyForTransactions = abiMethodForTransactions.AddChild();
-                    abiMethodBodyForTransactions.AddOpeningLine($"var abiHandle = Encoding.UTF8.GetBytes(\"{selector}\");");
-                    abiMethodBodyForTransactions.AddOpeningLine($"return await base.MakeTransactionList({txNameList}, fee, AlgoStudio.Core.OnCompleteType.{callType}, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList},boxes);");
+        //            var abiMethodBodyForTransactions = abiMethodForTransactions.AddChild();
+        //            abiMethodBodyForTransactions.AddOpeningLine($"var abiHandle = Encoding.UTF8.GetBytes(\"{selector}\");");
+        //            abiMethodBodyForTransactions.AddOpeningLine($"return await base.MakeTransactionList({txNameList}, fee, AlgoStudio.Core.OnCompleteType.{callType}, 1000, note, sender,  {argsList}, {appsList}, {assetsList},{accountsList},boxes);");
                     
 
-                }
+        //        }
 
 
-            }
-        }
+        //    }
+        //}
 
         private static void defineSignatureMethods(SemanticModel semanticModel, ClassDeclarationSyntax signatureClass, Code proxyBody)
         {
@@ -551,13 +558,13 @@ namespace AlgoStudio.Clients
             return $"Address {p.Name}";
         }
 
-        private static string defineTransactionParameter(IParameterSymbol p)
-        {
-            string parmType = p.Type.ToString();
-            string outputParmType = TypeHelpers.determineTransactionType(parmType);
+        //private static string defineTransactionParameter(IParameterSymbol p)
+        //{
+        //    string parmType = p.Type.ToString();
+        //    string outputParmType = TypeHelpers.determineTransactionType(parmType);
 
-            return $"{outputParmType} {p.Name}";
-        }
+        //    return $"{outputParmType} {p.Name}";
+        //}
 
       
         private static string defineAppRefParameter(IParameterSymbol p)

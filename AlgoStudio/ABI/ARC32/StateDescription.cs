@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AlgoStudio.ABI
+namespace AlgoStudio.ABI.ARC32
 {
     public class StateDescription
     {
