@@ -14,6 +14,10 @@ namespace AlgoStudio.ABI.ARC4
         public string Desc { get; set; }
 
 
+        public string Summary {
+            get { if (String.IsNullOrWhiteSpace(TypeDetail)) return $"ABI Type is {Type}"; else return $"Type is {TypeDetail}"; } 
+        }
+
         internal bool IsAccountRef()
         {
             return Type == "address";

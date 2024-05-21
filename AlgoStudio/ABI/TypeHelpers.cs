@@ -17,6 +17,7 @@ namespace AlgoStudio.ABI
 
         private static string checkArrayType(string arrayComponent, string csType)
         {
+            if (arrayComponent.Trim().StartsWith("[")) arrayComponent = "[]";
             return csType + arrayComponent;
         }
 
@@ -254,6 +255,11 @@ namespace AlgoStudio.ABI
                     return ("", checkArrayType(arrayComponent, "string"));
                 }
 
+                if (methodABIType == "void")
+                {
+                    return ("", "void");
+                }
+
                 if (methodABIType.StartsWith("("))
                 {
                     TypeToStructs(parentStructName, methodABIType, structs);
@@ -264,6 +270,8 @@ namespace AlgoStudio.ABI
                 {
                     return ("", "object");
                 }
+
+
                 throw new Exception($"Unknown type  {methodABIType}");
 
             }

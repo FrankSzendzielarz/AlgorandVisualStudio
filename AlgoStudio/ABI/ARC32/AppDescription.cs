@@ -449,10 +449,10 @@ $@"{"\t"}///<summary>
                 var abiMethodForTransactions = proxyBody.AddChild();
 
                 abiMethod.AddOpeningLine(
-                    $@"{"\t"}///<summary>
-                    {"\t"}///{method.Desc??""}
-                    {"\t"}///{method.OnCompletion.Summary}
-                    {"\t"}///</summary>");
+$@"///<summary>
+        ///{method.Desc??""}
+        ///{method.OnCompletion.Summary}
+        ///</summary>");
                 
                 foreach (var parm in method.Args)
                 {
@@ -461,12 +461,12 @@ $@"{"\t"}///<summary>
                     {
                         parmDefaultSummary = method.Defaults[parm.Name].Summary;
                     }
-                    abiMethod.AddOpeningLine($@"{"\t"}/// <param name=""{parm.Name}"">{parm.Desc} {parmDefaultSummary}</param>");
+                    abiMethod.AddOpeningLine($@"/// <param name=""{parm.Name}"">{parm.Desc} {parm.Summary} {parmDefaultSummary} </param>");
 
                 }
 
 
-                abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee, {parameters},string note,  List<BoxRef> boxes, AlgoStudio.Core.OnCompleteType callType = AlgoStudio.Core.OnCompleteType.NoOp )".Replace(",,", ","));
+                abiMethod.AddOpeningLine($"public async {methodReturnType} {methodName} (Account sender, ulong? fee,{parameters},string note,  List<BoxRef> boxes, AlgoStudio.Core.OnCompleteType callType = AlgoStudio.Core.OnCompleteType.NoOp )".Replace(",,", ",").Replace(", ,", ","));
                 abiMethod.AddOpeningLine("{");
                 abiMethod.AddClosingLine("}");
 
