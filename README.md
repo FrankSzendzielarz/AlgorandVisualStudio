@@ -17,6 +17,9 @@ There is now **[a video series](https://www.youtube.com/playlist?list=PLYKanKMyG
 ## USING THE TEMPLATES
 
 After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
+## UPDATE (May 2024)
+V1.21 now supports ARC32 and compatibility with Puya. 
+
 ## UPDATE (April 2024)
 V 1.20 is a major update with a more robust compiler fixing various issues and introducing new features:
 - SmartContractLibrary is now offered, where STATIC methods can be defined and included in Smart Contracts.(Documentation to be provided)
