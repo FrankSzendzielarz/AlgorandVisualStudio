@@ -15,7 +15,7 @@
 		<OptimisersLocation>C:\Users\frank\source\repos\AlgoStudio\TemplateProjects\AlgorandConsoleTemplate\Optimisers\</OptimisersLocation>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Algorand2" Version="2.0.0.2024031514" />
+		<PackageReference Include="Algorand2" Version="2.0.0.2024051911" />
 		<PackageReference Include="AlgoStudio" Version="*-*" PrivateAssets="All" ReferenceOutputAssembly="true" OutputItemType="analyzer" />
 	</ItemGroup>
 

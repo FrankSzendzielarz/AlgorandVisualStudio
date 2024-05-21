@@ -24,8 +24,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Algorand2" Version="2.0.0.2024031514" />
-		<PackageReference Include="AlgoStudio" Version="1.4.87" PrivateAssets="All" ReferenceOutputAssembly="true" OutputItemType="analyzer" />
+		<PackageReference Include="Algorand2" Version="2.0.0.2024051911" />
+		<PackageReference Include="AlgoStudio" Version="1.4.112" PrivateAssets="All" ReferenceOutputAssembly="true" OutputItemType="analyzer" />
 	</ItemGroup>
 
 </Project>

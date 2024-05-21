@@ -53,7 +53,7 @@ namespace AlgoStudio.VSIX
         private async void MenuItem_BeforeQueryStatus(object sender, EventArgs e)
         {
             var myCommand = sender as OleMenuCommand;
-
+            myCommand.Visible = false;
             Microsoft.VisualStudio.Text.Editor.IWpfTextView textView = await GetTextViewAsync();
             if (textView != null)
             {
