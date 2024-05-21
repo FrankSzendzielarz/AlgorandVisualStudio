@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +16,17 @@ namespace AlgoStudio.ABI.ARC32
         public override bool CanWrite => false;
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            // Deserialize the JSON to an AppDescription object
-            AppDescription appDescription = serializer.Deserialize<AppDescription>(reader);
+            // Deserialize the JSON into a JObject
+            JObject jsonObject = JObject.Load(reader);
+
+            // Create an AppDescription object
+            AppDescription appDescription = new AppDescription();
+
+            // Populate the AppDescription object with the JObject
+            serializer.Populate(jsonObject.CreateReader(), appDescription);
+
+
+     
 
             
             // Update the Methods based on the Hints:
