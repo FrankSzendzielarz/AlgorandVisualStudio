@@ -12,9 +12,34 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         public override bool IsDynamic => Value.Exists(x => x.IsDynamic);
 
-        public override void Decode(byte[] data)
+        public override uint Decode(byte[] data)
         {
-            throw new NotImplementedException();
+            uint offset = 0;
+            int boolCount = 0;
+            foreach(var item in Value)
+            {
+                if (item is Bool)
+                {
+                    byte mask = (byte)(0x80 >> boolCount);
+                    boolCount++;
+                    (item as Bool).Value = (data[0] & mask)!=0;
+                    if (boolCount == 8)
+                    {
+                        boolCount = 0;
+                        data = data.Skip(1).ToArray();
+                        offset++;
+                    }
+                }
+                else
+                {
+                    uint len = item.Decode(data);
+                    data = data.Skip((int)len).ToArray();
+                    offset += len;
+                }
+
+                
+            }
+            return offset;
         }
 
         public override byte[] Encode()
@@ -84,5 +109,7 @@ namespace AlgoStudio.ABI.ARC4.Types
             byte[] result = heads.SelectMany(x => x).Concat(tails.SelectMany(x => x)).ToArray();
             return result;
         }
+
+       
     }
 }

@@ -10,9 +10,12 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         public override bool IsDynamic => false;
 
-        public override void Decode(byte[] data)
+        public override uint Decode(byte[] data)
         {
-            throw new NotImplementedException();
+            if (data.Length != 1)
+                throw new ArgumentException("Invalid data length");
+            Value= data[0] == 0x80;
+            return 1;
         }
 
         public override byte[] Encode()

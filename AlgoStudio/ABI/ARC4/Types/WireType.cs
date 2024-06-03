@@ -8,7 +8,7 @@ namespace AlgoStudio.ABI.ARC4.Types
     {
         public abstract bool IsDynamic { get; }
         public abstract byte[] Encode();
-        public abstract void Decode(byte[] data);
+        public abstract uint Decode(byte[] data);
 
     }
 }

@@ -48,9 +48,18 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         }
 
-        public override void Decode(byte[] data)
+        public override uint Decode(byte[] data)
         {
-            throw new NotImplementedException();
+            //get the bytes from data for the bitwidth size, reverse them to little endian and convert to BigInteger:
+            if (data.Length * 8 < BitWidth)
+            {
+                throw new ArgumentException("Invalid data length");
+            }
+            int byteLength = (int)BitWidth / 8;
+            byte[] bytes = data.Take(byteLength).ToArray();
+            Array.Reverse(bytes);
+            Value = new BigInteger(bytes);
+            return (uint)byteLength;
         }
     }
 }

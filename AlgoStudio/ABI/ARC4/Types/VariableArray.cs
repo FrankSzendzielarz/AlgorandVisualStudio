@@ -11,9 +11,19 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         public override bool IsDynamic => Value.Exists(v=> v.IsDynamic);
 
-        public override void Decode(byte[] data)
+        public override uint Decode(byte[] data)
         {
-            throw new NotImplementedException();
+            //read the bigendian ushort length and instantiate the tuple
+            if (data.Length < 2) throw new ArgumentException("Invalid data length");
+            var lengthBytes = data.Take(2).ToArray();
+            if (BitConverter.IsLittleEndian) lengthBytes = lengthBytes.Reverse().ToArray();
+            ushort length = BitConverter.ToUInt16(lengthBytes, 0);
+            Tuple tuple = new Tuple();
+            data = data.Skip(2).ToArray();
+            //decode the tuple
+            uint offset = tuple.Decode(data);
+            Value = tuple.Value.Cast<T>().ToList();
+            return offset + 2;
         }
 
         public override byte[] Encode()
