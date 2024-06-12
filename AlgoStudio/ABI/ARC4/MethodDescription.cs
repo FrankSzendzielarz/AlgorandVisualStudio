@@ -12,6 +12,7 @@ using AlgoStudio.Compiler.Variables;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Bcpg;
 using AlgoStudio.ABI.ARC32;
+using AlgoStudio.ABI.ARC4.Types;
 
 
 namespace AlgoStudio.ABI.ARC4
@@ -149,7 +150,7 @@ namespace AlgoStudio.ABI.ARC4
 
                 var selectorConst = ABImethod.ConstructorArguments.Where(kv => kv.Type.Name == "String").First();
                 
-                if (!String.IsNullOrWhiteSpace((string)selectorConst.Value))
+                if (!string.IsNullOrWhiteSpace((string)selectorConst.Value))
                 {
                     md.Selector = Encoding.UTF8.GetBytes((string)selectorConst.Value);
                     md.Identifier = (string)selectorConst.Value;
@@ -183,9 +184,103 @@ namespace AlgoStudio.ABI.ARC4
             return output.Take(4).ToArray();
         }
 
-    
 
-     
+        private static string SanitizeForComment(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input)) return "";
+            // Replace comment terminators (*/), new lines, and other potentially harmful characters
+            return input.Replace("*/", "*\\/").Replace("\r", "\\r").Replace("\n", "\\n").Replace("\\", "\\\\");
+        }
+
+        private static string GetFullGenericTypeName(Type type)
+        {
+            if (!type.IsGenericType)
+                return type.FullName;
+
+            var genericTypeName = type.GetGenericTypeDefinition().FullName;
+            genericTypeName = genericTypeName.Substring(0, genericTypeName.IndexOf('`'));
+            var genericArgs = string.Join(", ", type.GetGenericArguments().Select(t => GetFullGenericTypeName(t)));
+            return genericTypeName + "<" + genericArgs + ">";
+        }
+
+
+        //Strictly ARC4 types
+        public string ToARC4Caller()
+        {
+            StringBuilder arc4MethodCallerClass = new StringBuilder();
+            List<string> invokerArgs = new List<string>();
+            List<ArgumentDescription> transactionParameters = new List<ArgumentDescription>();
+            List<ArgumentDescription> nonTransactionParameters = new List<ArgumentDescription>();
+            arc4MethodCallerClass.AppendLine($"//{SanitizeForComment(Desc)}");
+            arc4MethodCallerClass.AppendLine($"public class {Name}_Arc4GroupTransaction: ProxyBase");
+            arc4MethodCallerClass.AppendLine("{");
+            arc4MethodCallerClass.AppendLine($"\tpublic {Name}_Arc4GroupTransaction(ulong appId) : base(null, appId) {{}}");
+            arc4MethodCallerClass.AppendLine($"\tprivate {Name}_Arc4GroupTransaction() : base(null,0)  {{}} ");
+
+            foreach (var arg in this.Args)
+            {
+                if (!arg.IsTransaction())
+                {
+                    WireType wt = WireType.FromABIDescription(arg.Type);
+                    arc4MethodCallerClass.AppendLine($"//{SanitizeForComment(arg.Desc)}");
+                    if (wt != null)
+                    {
+                        arc4MethodCallerClass.AppendLine($"\tpublic {GetFullGenericTypeName(wt.GetType())} {arg.Name} {{get;set;}}= ({GetFullGenericTypeName(wt.GetType())})AlgoStudio.ABI.ARC4.Types.WireType.FromABIDescription(\"{arg.Type}\");");
+                    }
+                    else
+                    {
+                        arc4MethodCallerClass.AppendLine($"\tAlgoStudio.ABI.ARC4.Types.WireType {arg.Name} {{get;set;}}");
+                    }
+                    nonTransactionParameters.Add(arg);
+                }
+                else
+                {
+                    transactionParameters.Add(arg);
+                    invokerArgs.Add(defineTransactionParameter(arg));
+                }
+            }
+            string txNameList;
+            if (transactionParameters.Count > 0) txNameList = "new List<Transaction> {" + string.Join(",", transactionParameters.Select(p => p.Name)) + "}";
+            else
+                txNameList = "null";
+
+            string argNameList;
+            if (nonTransactionParameters.Count > 0) argNameList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(nonTransactionParameters.Select(p => $"{p.Name}.Encode()"))) + "}"; 
+            else
+                argNameList = "null";
+            string invokerArgsString;
+            if (invokerArgs.Count > 0) invokerArgsString = string.Join(",", invokerArgs)+",";
+            else
+                invokerArgsString = "";
+
+            
+
+            arc4MethodCallerClass.AppendLine($"\tpublic async Task<List<Transaction>> Invoke({invokerArgsString}ulong? fee, OnCompleteType onComplete, ulong roundValidity, string note, Account sender, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes = null)");
+            arc4MethodCallerClass.AppendLine("\t{");
+            arc4MethodCallerClass.AppendLine($"\t\t");
+            arc4MethodCallerClass.AppendLine($"\t\tbyte[] abiHandle = {{{string.Join(",", Selector)}}};");
+            arc4MethodCallerClass.AppendLine($"return await base.MakeTransactionList({txNameList}, fee, onComplete, 1000, note, sender,  {argNameList}, foreignApps, foreignAssets,accounts,boxes);");
+
+
+            arc4MethodCallerClass.AppendLine("\t}");
+
+
+            arc4MethodCallerClass.AppendLine("}");
+
+            return arc4MethodCallerClass.ToString();
+
+        }
+
+        private static string defineTransactionParameter(ArgumentDescription p)
+        {
+            string parmType = p.Type.ToString();
+            if (!string.IsNullOrWhiteSpace(p.TypeDetail)) parmType = p.TypeDetail;
+            string outputParmType = TypeHelpers.determineTransactionType(parmType);
+
+            return $"{outputParmType} {p.Name}";
+        }
+
+
         internal void ToSmartContractReference(StringBuilder scr, List<string> structs)
         {
 

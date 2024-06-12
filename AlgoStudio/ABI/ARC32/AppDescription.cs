@@ -313,6 +313,8 @@ $@"{"\t"}///<summary>
             code.AddOpeningLine("using System.Text;");
             code.AddOpeningLine("using System.Threading.Tasks;");
 
+            
+
             code.AddOpeningLine("");
             code.AddOpeningLine($"namespace {namespaceName}");
             code.AddOpeningLine("{");
@@ -346,16 +348,22 @@ $@"{"\t"}///<summary>
             State.ToProxy(proxyBody, structs);
 
             defineMethods(proxyBody, structs);
+            defineArc4Callers(proxyBody);
 
 
             return code.ToString();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="proxyBody"></param>
-        /// <param name="structs"></param>
+        private void defineArc4Callers(Code proxyBody)
+        {
+            foreach (var method in this.Contract.Methods)
+            {
+                var caller = proxyBody.AddChild();
+                string callerText = method.ToARC4Caller();
+                caller.AddOpeningLine(callerText);
+            }
+        }
+
         private void defineMethods(Code proxyBody, List<string> structs)
         {
 

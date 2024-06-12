@@ -1,7 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Byte = AlgoStudio.ABI.ARC4.Types.Byte;
 
 namespace AlgoStudio.ABI.ARC4
 {
@@ -40,5 +42,7 @@ namespace AlgoStudio.ABI.ARC4
 
             return !string.IsNullOrWhiteSpace(TypeHelpers.TransactionReferenceToInnerTransaction(tx));
         }
+
+      
     }
 }
