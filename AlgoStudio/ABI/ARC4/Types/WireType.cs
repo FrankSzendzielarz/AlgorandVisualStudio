@@ -36,16 +36,16 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         }
 
-        private static object CreateGeneric(Type genericType, Type specificType)
+        private static object CreateGeneric(Type genericType, Type specificType,string elementSpec)
         {
             Type constructedType = genericType.MakeGenericType(specificType);
-            return Activator.CreateInstance(constructedType);
+            return Activator.CreateInstance(constructedType, new object[] {  elementSpec });
         }
 
-        private static object CreateGeneric(Type genericType, Type specificType, int length)
+        private static object CreateGeneric(Type genericType, Type specificType, int length, string elementSpec)
         {
             Type constructedType = genericType.MakeGenericType(specificType);
-            return Activator.CreateInstance(constructedType, new object[] { (uint)length });
+            return Activator.CreateInstance(constructedType, new object[] { (uint)length , elementSpec});
         }
 
         private static WireType IsArrayType(string abiType)
@@ -59,7 +59,8 @@ namespace AlgoStudio.ABI.ARC4.Types
                     string baseType = abiType.Substring(0,arraySizePosition);
                     WireType baseWireType = FromABIDescription(baseType);
                     string size = abiType.Substring(arraySizePosition + 1, abiType.Length - arraySizePosition - 2);
-                    return CreateGeneric(typeof(FixedArray<>), baseWireType.GetType(), int.Parse(size)) as WireType;
+                    var ret=CreateGeneric(typeof(FixedArray<>), baseWireType.GetType(), int.Parse(size),baseType) as WireType;
+                    
 
                 }
                 else
@@ -67,7 +68,7 @@ namespace AlgoStudio.ABI.ARC4.Types
                     //[] - variable
                     string baseType = abiType.Substring(0, abiType.Length - 2);
                     WireType baseWireType = FromABIDescription(baseType);
-                    return CreateGeneric(typeof(VariableArray<>), baseWireType.GetType()) as WireType;
+                    return CreateGeneric(typeof(VariableArray<>), baseWireType.GetType(),baseType) as WireType;
                 }
             }
             return null;

@@ -231,6 +231,7 @@ namespace AlgoStudio.ABI.ARC4
                     {
                         arc4MethodCallerClass.AppendLine($"\tAlgoStudio.ABI.ARC4.Types.WireType {arg.Name} {{get;set;}}");
                     }
+
                     nonTransactionParameters.Add(arg);
                 }
                 else
@@ -244,10 +245,9 @@ namespace AlgoStudio.ABI.ARC4
             else
                 txNameList = "null";
 
-            string argNameList;
-            if (nonTransactionParameters.Count > 0) argNameList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(nonTransactionParameters.Select(p => $"{p.Name}.Encode()"))) + "}"; 
-            else
-                argNameList = "null";
+            string argNameList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(nonTransactionParameters.Select(p => $"{p.Name}.Encode()"))) + "}"; 
+            
+                
             string invokerArgsString;
             if (invokerArgs.Count > 0) invokerArgsString = string.Join(",", invokerArgs)+",";
             else
@@ -259,6 +259,7 @@ namespace AlgoStudio.ABI.ARC4
             arc4MethodCallerClass.AppendLine("\t{");
             arc4MethodCallerClass.AppendLine($"\t\t");
             arc4MethodCallerClass.AppendLine($"\t\tbyte[] abiHandle = {{{string.Join(",", Selector)}}};");
+            //TODO: If the arg list length is >15, wrap up the 15th and remaining into a Tuple and encode like that.
             arc4MethodCallerClass.AppendLine($"return await base.MakeTransactionList({txNameList}, fee, onComplete, 1000, note, sender,  {argNameList}, foreignApps, foreignAssets,accounts,boxes);");
 
 

@@ -7,13 +7,16 @@ namespace AlgoStudio.ABI.ARC4.Types
     {
         public uint Length { get; private set; }
 
-        public FixedArray(uint length)
+        public FixedArray(uint length,string elementSpec)
         {
-            Value.AddRange(new T[length]);
+            Length = length;
+            for(int i = 0; i < length; i++)
+            {
+                Value.Add(WireType.FromABIDescription(elementSpec));
+            }
+            
         }
-        private FixedArray()
-        {
-        }
+       
 
        
     }

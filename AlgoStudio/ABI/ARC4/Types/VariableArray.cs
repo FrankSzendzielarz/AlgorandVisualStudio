@@ -11,6 +11,12 @@ namespace AlgoStudio.ABI.ARC4.Types
 
         public override bool IsDynamic => Value.Exists(v=> v.IsDynamic);
 
+        public string ElementSpec { get; private set; } 
+        public VariableArray(string elementSpec)
+        {
+            ElementSpec= elementSpec; 
+        }
+
         public override uint Decode(byte[] data)
         {
             //read the bigendian ushort length and instantiate the tuple
@@ -19,6 +25,7 @@ namespace AlgoStudio.ABI.ARC4.Types
             if (BitConverter.IsLittleEndian) lengthBytes = lengthBytes.Reverse().ToArray();
             ushort length = BitConverter.ToUInt16(lengthBytes, 0);
             Tuple tuple = new Tuple();
+            for (int i = 0; i < length; i++) tuple.Value.Add(WireType.FromABIDescription(ElementSpec));
             data = data.Skip(2).ToArray();
             //decode the tuple
             uint offset = tuple.Decode(data);

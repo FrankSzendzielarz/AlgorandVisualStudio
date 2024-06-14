@@ -10,6 +10,8 @@ namespace AlgoStudio.ABI.ARC4.Types
     {
         public List<WireType> Value { get; } = new List<WireType>();
 
+       
+
         public override bool IsDynamic => Value.Exists(x => x.IsDynamic);
 
         public override uint Decode(byte[] data)
@@ -20,6 +22,7 @@ namespace AlgoStudio.ABI.ARC4.Types
             {
                 if (item is Bool)
                 {
+                    if (boolCount == 0) offset++;
                     byte mask = (byte)(0x80 >> boolCount);
                     boolCount++;
                     (item as Bool).Value = (data[0] & mask)!=0;
@@ -27,7 +30,7 @@ namespace AlgoStudio.ABI.ARC4.Types
                     {
                         boolCount = 0;
                         data = data.Skip(1).ToArray();
-                        offset++;
+                        
                     }
                 }
                 else
@@ -63,11 +66,12 @@ namespace AlgoStudio.ABI.ARC4.Types
                     }
                     else
                     {
-                        heads.Add(new byte[0]);
+                      
                         boolHead[0] = (byte)(boolHead[0] | (encoded[0] >> boolCount));
                     }
                     boolCount++;
-                    
+                    tails.Add(new byte[] { });
+
                 }
                 else
                 {
@@ -82,6 +86,7 @@ namespace AlgoStudio.ABI.ARC4.Types
                     else
                     {
                         heads.Add(encoded);
+                        tails.Add(new byte[] { });
                     }
                 }
             }

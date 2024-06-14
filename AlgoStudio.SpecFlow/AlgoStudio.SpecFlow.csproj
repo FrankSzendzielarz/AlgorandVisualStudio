@@ -38,6 +38,7 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
+		<Folder Include="Contracts\Arc4\" />
 		<Folder Include="Drivers\" />
 		<Folder Include="Proxies\Casts\" />
 		<Folder Include="Proxies\Types\Int32\" />

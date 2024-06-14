@@ -250,6 +250,19 @@ namespace AlgoStudio.ABI
                     return ("", checkArrayType(arrayComponent, "byte[]"));
                 }
 
+                if (methodABIType == "account")
+                {
+                    return ("", checkArrayType(arrayComponent, "byte"));
+                }
+                if (methodABIType == "asset")
+                {
+                    return ("", checkArrayType(arrayComponent, "byte"));
+                }
+                if (methodABIType == "application")
+                {
+                    return ("", checkArrayType(arrayComponent, "byte"));
+                }
+
                 if (methodABIType == "string")
                 {
                     return ("", checkArrayType(arrayComponent, "string"));
