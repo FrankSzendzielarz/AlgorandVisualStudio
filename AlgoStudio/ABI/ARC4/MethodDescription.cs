@@ -214,7 +214,7 @@ namespace AlgoStudio.ABI.ARC4
             arc4MethodCallerClass.AppendLine($"//{SanitizeForComment(Desc)}");
             arc4MethodCallerClass.AppendLine($"public class {Name}_Arc4GroupTransaction: ProxyBase");
             arc4MethodCallerClass.AppendLine("{");
-            arc4MethodCallerClass.AppendLine($"\tpublic {Name}_Arc4GroupTransaction(ulong appId) : base(null, appId) {{}}");
+            arc4MethodCallerClass.AppendLine($"\tpublic {Name}_Arc4GroupTransaction(DefaultApi algodApi,ulong appId) : base(algodApi, appId) {{}}");
             arc4MethodCallerClass.AppendLine($"\tprivate {Name}_Arc4GroupTransaction() : base(null,0)  {{}} ");
 
             foreach (var arg in this.Args)
@@ -245,7 +245,7 @@ namespace AlgoStudio.ABI.ARC4
             else
                 txNameList = "null";
 
-            string argNameList = "new List<object> {" + string.Join(",", new List<string> { "abiHandle" }.Concat(nonTransactionParameters.Select(p => $"{p.Name}.Encode()"))) + "}"; 
+            string argNameList = "new List<AlgoStudio.ABI.ARC4.Types.WireType> {" + string.Join(",", nonTransactionParameters.Select(p => $"{p.Name}")) + "}"; 
             
                 
             string invokerArgsString;
@@ -260,7 +260,7 @@ namespace AlgoStudio.ABI.ARC4
             arc4MethodCallerClass.AppendLine($"\t\t");
             arc4MethodCallerClass.AppendLine($"\t\tbyte[] abiHandle = {{{string.Join(",", Selector)}}};");
             //TODO: If the arg list length is >15, wrap up the 15th and remaining into a Tuple and encode like that.
-            arc4MethodCallerClass.AppendLine($"return await base.MakeTransactionList({txNameList}, fee, onComplete, 1000, note, sender,  {argNameList}, foreignApps, foreignAssets,accounts,boxes);");
+            arc4MethodCallerClass.AppendLine($"return await base.MakeArc4TransactionList({txNameList}, fee, onComplete, roundValidity, note, sender, abiHandle, {argNameList}, foreignApps, foreignAssets,accounts,boxes);");
 
 
             arc4MethodCallerClass.AppendLine("\t}");

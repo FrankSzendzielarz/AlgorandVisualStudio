@@ -208,7 +208,7 @@ namespace AlgoStudio
 
             try
             {
-                ApplicationCallTransaction tx = makeAppCallTxn(fee, onComplete, roundValidity, note, sender, args, foreignApps, foreignAssets, accounts, boxes, transParams);
+                ApplicationCallTransaction tx = makeStandardAppCallTxn(fee, onComplete, roundValidity, note, sender, args, foreignApps, foreignAssets, accounts, boxes, transParams);
 
                 List<Transaction> txs = new List<Transaction>();
                 if (preTransactions != null && preTransactions.Count > 0)
@@ -226,6 +226,48 @@ namespace AlgoStudio
                     txs.Add(tx);
                 }
                 
+
+                return txs;
+
+            }
+            catch (Exception ex)
+            {
+                throw new ProxyException("Call failed.", ex);
+            }
+        }
+
+        protected async Task<List<Transaction>> MakeArc4TransactionList(List<Transaction> preTransactions, ulong? fee, Core.OnCompleteType onComplete, ulong roundValidity, string note, Account sender,byte[] selector, List<ABI.ARC4.Types.WireType> args, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes = null)
+        {
+            TransactionParametersResponse transParams;
+            try
+            {
+                transParams = await client.TransactionParamsAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new ProxyException("Unable to get transaction parameters.", ex);
+            }
+
+            try
+            {
+                ApplicationCallTransaction tx = makeArc4AppCallTxn(fee, onComplete, roundValidity, note, sender, selector,args, foreignApps, foreignAssets, accounts, boxes, transParams);
+
+                List<Transaction> txs = new List<Transaction>();
+                if (preTransactions != null && preTransactions.Count > 0)
+                {
+                    preTransactions.Add(tx);
+                    Digest gid = TxGroup.ComputeGroupID(preTransactions.ToArray());
+                    foreach (var txToSign in preTransactions)
+                    {
+                        txToSign.Group = gid;
+                        txs.Add(txToSign);
+                    }
+                }
+                else
+                {
+                    txs.Add(tx);
+                }
+
 
                 return txs;
 
@@ -256,7 +298,7 @@ namespace AlgoStudio
 
             try
             {
-                ApplicationCallTransaction tx = makeAppCallTxn(fee, onComplete, roundValidity, note, sender, args, foreignApps, foreignAssets, accounts, boxes, transParams);
+                ApplicationCallTransaction tx = makeStandardAppCallTxn(fee, onComplete, roundValidity, note, sender, args, foreignApps, foreignAssets, accounts, boxes, transParams);
 
                 List<SignedTransaction> txs = new List<SignedTransaction>();
                 if (preTransactions != null && preTransactions.Count > 0)
@@ -287,7 +329,40 @@ namespace AlgoStudio
             }
         }
 
-        private ApplicationCallTransaction makeAppCallTxn(ulong? fee, Core.OnCompleteType onComplete, ulong roundValidity, string note, Account sender, List<object> args, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes, TransactionParametersResponse transParams)
+        private ApplicationCallTransaction makeArc4AppCallTxn(ulong? fee, Core.OnCompleteType onComplete, ulong roundValidity, string note, Account sender,byte[] selector, List<ABI.ARC4.Types.WireType> args, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes, TransactionParametersResponse transParams)
+        {
+            //if the arg list is 16 or less, encode each wiretype, otherwise the first 15 args are encoded and the remainder are made into a Tuple WireType and the tuple is passed as the 16th arg:
+            List<byte[]> bargs;
+            if (args.Count <= 15)
+            {
+                bargs = args.Select(a => a.Encode()).ToList();
+            }
+            else
+            {
+                bargs = args.Take(14).Select(a => a.Encode()).ToList();
+                ABI.ARC4.Types.Tuple tuple = new ABI.ARC4.Types.Tuple();
+                foreach (var a in args.Skip(14))
+                {
+                    tuple.Value.Add(a);
+                }
+                bargs.Add(tuple.Encode());
+            }
+            //selector is always the first arg
+            bargs.Insert(0, selector);
+
+
+            return makeAppCallTxn(fee, onComplete, roundValidity, note, sender, bargs, foreignApps, foreignAssets, accounts, boxes, transParams);
+        }
+
+        private ApplicationCallTransaction makeStandardAppCallTxn(ulong? fee, Core.OnCompleteType onComplete, ulong roundValidity, string note, Account sender, List<object> args, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes, TransactionParametersResponse transParams)
+        {
+           
+            var bargs = toByteArrays(args);  
+            return makeAppCallTxn(fee, onComplete, roundValidity, note, sender, bargs, foreignApps, foreignAssets, accounts, boxes, transParams);
+            
+        }
+
+        private ApplicationCallTransaction makeAppCallTxn(ulong? fee, Core.OnCompleteType onComplete, ulong roundValidity, string note, Account sender, List<byte[]> args, List<ulong> foreignApps, List<ulong> foreignAssets, List<Address> accounts, List<BoxRef> boxes, TransactionParametersResponse transParams)
         {
             ApplicationCallTransaction tx;
             switch (onComplete)
@@ -296,17 +371,17 @@ namespace AlgoStudio
                     tx = new ApplicationNoopTransaction() { ApplicationId = appId };
                     break;
                 case Core.OnCompleteType.OptIn:
-                    tx = new ApplicationOptInTransaction() { ApplicationId = appId }; 
+                    tx = new ApplicationOptInTransaction() { ApplicationId = appId };
                     break;
                 case Core.OnCompleteType.CloseOut:
-                    tx = new ApplicationCloseOutTransaction() { ApplicationId = appId }; 
+                    tx = new ApplicationCloseOutTransaction() { ApplicationId = appId };
                     break;
-              
+
                 case Core.OnCompleteType.UpdateApplication:
-                    tx = new ApplicationUpdateTransaction() { ApplicationId = appId }; 
+                    tx = new ApplicationUpdateTransaction() { ApplicationId = appId };
                     break;
                 case Core.OnCompleteType.DeleteApplication:
-                    tx = new ApplicationDeleteTransaction() { ApplicationId = appId }; 
+                    tx = new ApplicationDeleteTransaction() { ApplicationId = appId };
                     break;
                 default:
                     throw new ProxyException("Unknown on-complete type.");
@@ -321,7 +396,7 @@ namespace AlgoStudio
             tx.GenesisId = transParams.GenesisId;
             tx.GenesisHash = new Digest(transParams.GenesisHash);
             tx.Note = Encoding.UTF8.GetBytes(note);
-            tx.ApplicationArgs = toByteArrays(args);  //innocuous little line that actually does everything
+            tx.ApplicationArgs = args;  
             tx.ForeignApps = foreignApps;
             tx.ForeignAssets = foreignAssets;
             tx.Accounts = accounts;
