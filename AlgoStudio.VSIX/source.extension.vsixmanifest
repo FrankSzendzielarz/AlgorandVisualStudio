@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="AlgoStudio.VSIX.24e859c3-917d-42a2-aeac-b9bc2670522f" Version="1.21" Language="en-US" Publisher="Frank Szendzielarz" />
+        <Identity Id="AlgoStudio.VSIX.24e859c3-917d-42a2-aeac-b9bc2670522f" Version="1.30" Language="en-US" Publisher="Frank Szendzielarz" />
         <DisplayName>Algorand for VS</DisplayName>
         <Description xml:space="preserve">Algorand Visual Studio Extensions for Algorand</Description>
         <MoreInfo>https://github.com/FrankSzendzielarz/AlgorandVisualStudio</MoreInfo>

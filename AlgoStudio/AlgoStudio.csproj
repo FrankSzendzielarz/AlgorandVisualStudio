@@ -8,7 +8,7 @@
 		<!-- Avoid ID conflicts with the package project. -->
 		<PackageId>AlgoStudio</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.4.121</Version>
+		<Version>1.5.0</Version>
 		<DebugType>embedded</DebugType>
 		<Authors>Frank Szendzielarz</Authors>
 		<Company>Frank Szendzielarz</Company>
