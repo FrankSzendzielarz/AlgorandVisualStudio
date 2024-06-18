@@ -17,6 +17,11 @@ There is now **[a video series](https://www.youtube.com/playlist?list=PLYKanKMyG
 ## USING THE TEMPLATES
 
 After creating a project using a template here, please **Update Nuget Packages** and then **Unload and Reload the project in VS**.
+##  UPDATE (June 2024)
+v1.30 now offers ARC4 wire types, such as Arc4.Tuple, Arc4.Bool etc., allowing for direct arc4 encoding and decoding, when integrating
+with contracts developed using non-C# types. Proxies now include Arc4 caller methods, using Arc4 encoding, so that single or group transactions
+can be constructed to call ARC4 compliant contracts, for apps defined by ARC32.
+
 ## UPDATE (May 2024)
 V1.21 now supports ARC32 and compatibility with Puya. 
 
